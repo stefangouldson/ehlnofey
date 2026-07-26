@@ -4,13 +4,19 @@ name: Build & Package
 # committed .pex, on every push to main and on version tags. Papyrus is NOT compiled here —
 # the .pex are committed (recompile + commit locally when a .psc changes; see README "CI build").
 
+# ─── TEMPORARILY DISABLED (research phase — nothing to build yet) ──────────────────────────────
+# The automatic triggers below are commented out so pushes and version tags do not run CI while
+# Ehlnofey is still in Phase 1–3 (documentation only; see CLAUDE.md "Phase plan"). The workflow
+# itself is untouched and still runnable by hand from the Actions tab (workflow_dispatch).
+# TO RE-ENABLE in Phase 4: delete the `workflow_dispatch:` line and uncomment the `push:` block.
 on:
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'arch-docs/build-report.md'   # loop guard: the report commit must not re-trigger
-    tags:
-      - 'v*'
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+  #   paths-ignore:
+  #     - 'arch-docs/build-report.md'   # loop guard: the report commit must not re-trigger
+  #   tags:
+  #     - 'v*'
 
 permissions:
   contents: write   # commit build-report.md back to main; create Releases (timestamped on main, v* on tags)

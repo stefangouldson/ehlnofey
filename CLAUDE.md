@@ -1,17 +1,20 @@
-# `<Mod Name>` — Spriggit Workspace Guide
+# Ehlnofey — Workspace Guide
 
-> **This file is a template.** It ships filled in for the bundled `ExampleMod` so you can see the
-> shape of a real entry. Replace the mod-specific sections with your own as your project grows —
-> everything above *Your mod* is generic and worth keeping as-is.
->
 > **This file is the most valuable thing in the repo.** It is what a future session reads instead of
 > re-deriving your conventions from scratch. When you learn something the hard way — a FormID
 > allocation, a record shape that didn't work, a compile import you needed — write it here.
+>
+> Everything above *[The mod](#the-mod-ehlnofey)* is generic workspace mechanics. Everything below it
+> is Ehlnofey: what we are building, what phase we are in, and where the research lives.
 
 ## What this is
 
-A Spriggit YAML workspace for **SkyrimSE**. Plugins are decompiled to YAML, edited as text, and
-re-packed to `.esp`/`.esm`. **Never hand-edit binary plugins — edit the YAML.**
+**Ehlnofey** is a **deleveling overhaul for SkyrimSE** — it replaces vanilla's player-level scaling
+with fixed, hand-set rules so that difficulty and reward belong to *places*, not to the player's
+level. See [The mod](#the-mod-ehlnofey) for the design thesis and current phase.
+
+The repo it lives in is a Spriggit YAML workspace: plugins are decompiled to YAML, edited as text,
+and re-packed to `.esp`/`.esm`. **Never hand-edit binary plugins — edit the YAML.**
 
 - Spriggit package/source: `Spriggit.Yaml.Skyrim`
 - Spriggit CLI version: `0.40.0`
@@ -51,8 +54,9 @@ src/                       # EVERY mod lives here — one folder per mod, add as
     Scripts/source/*.psc   # Papyrus source — COMMITTED
     Scripts/compiled/*.pex # COMMITTED via a .gitignore exception (CI can't compile Papyrus)
 build/                     # build.ps1 + manifest.json + committed FOMOD trees
-arch-docs/                 # design docs, record-pattern guide, generated build report
+arch-docs/                 # world research + design spec + record-pattern guide (see arch-docs map)
 reference/                 # gitignored — vanilla/third-party decompiles, LOOKUP ONLY
+                           #   already holds Skyrim.esm, Update.esm and the 3 DLCs: Phase 1's evidence
 modlist/                   # gitignored — an installed MO2 instance, hundreds of GB
 ```
 
@@ -125,62 +129,17 @@ skill appends them to `-i`). Record each one here as you discover it:
 
 | API / framework | Source `.psc` dir |
 |-----------------|-------------------|
-| _(base only)_ | `ExampleMod`'s script compiles against base-game source only. Add SKSE/SkyUI/MCM/PapyrusUtil dirs here when a script needs them. |
+| _(base only)_ | Nothing in Ehlnofey compiles against anything but base-game source yet. Add SKSE/SkyUI/MCM/PapyrusUtil dirs here the first time a script needs them. |
 
 **Testing:** MO2 modlists under `$Tools.modlistsRoot`, or a Wabbajack instance at
 `$Tools.modlistRoot`. Use the `mod-deploy` skill rather than copying by hand.
 
----
-
-# Your mod
-
-> Everything below is `ExampleMod`'s entry, kept as a worked example. Replace it with your own.
-
-## Architecture / core records
-
-`ExampleMod.esp` — ESL (`Small`), masters: `Skyrim.esm` only. It exists to demonstrate all four
-layers of the pipeline in as few records as possible.
-
-| FormKey | Type | EditorID | Purpose |
-|---|---|---|---|
-| `000800:ExampleMod.esp` | Weapon | `ExampleMod_ExampleBlade` | **New record.** Derived from vanilla `SteelSword` (`013989:Skyrim.esm`), reusing its mesh and MODT so no assets ship. |
-| `000801:ExampleMod.esp` | Quest | `ExampleMod_StartupQuest` | **Script host.** `StartGameEnabled`, no stages, so it never appears in the journal. Carries `ExampleModStartupScript`. |
-| `000802:ExampleMod.esp` | ConstructibleObject | `ExampleMod_RecipeExampleBlade` | **New record.** Forge recipe, no perk condition, so it is craftable at level 1. |
-| `09BC43:Skyrim.esm` | LeveledItem | `LItemWeaponSwordBlacksmith` | **Override.** Vanilla record copied verbatim with one entry appended — blacksmiths now stock the blade. Note the filename keeps `_Skyrim.esm`. |
-
-**FormID usage:** `0x800–0x802`. **Next free: `0x803`.**
-
-## Record patterns / templates
-
-The weapon was produced by copying `reference/Base/01Skyrim/Weapons/SteelSword - 013989_…yaml` and
-changing only `FormKey`, `EditorID`, `Name`, `BasicStats` and `Critical.Damage` — the `Model.Data`
-MODT blob and the `Unknown2`/`Unused` fields are vanilla bytes and were carried across untouched.
-That is the pattern to follow: **copy, then edit the deltas.**
-
-## Useful FormKey constants
-
-| FormKey | Meaning |
-|---|---|
-| `000014:Skyrim.esm` | PlayerRef |
-| `000038:Skyrim.esm` | GameHour global |
-| `000039:Skyrim.esm` | GameDaysPassed global |
-| `00003C:Skyrim.esm` | Tamriel worldspace (map markers live in its persistent cell) |
-| `000010:Skyrim.esm` | MapMarker base |
-| `000034:Skyrim.esm` | XMarker base |
-| `10F63C:Skyrim.esm` | MapMarkerRef LocationRefType (required for discoverability) |
-| `0FB98C:Skyrim.esm` | Blessing keyword (PeakValueMod association) |
-| `088105:Skyrim.esm` | `CraftingSmithingForge` bench keyword |
-| `088108:Skyrim.esm` | `CraftingSmithingSharpeningWheel` (tempering bench) |
-| `05ACE5 / 05ACE4 / 0800E4` | `IngotSteel` / `IngotIron` / `LeatherStrips` |
-| `013F42:Skyrim.esm` | `RightHand` EquipType |
-| `01E719 / 01E711 / 08F958` | `WeapMaterialSteel` / `WeapTypeSword` / `VendorItemWeapon` |
-
-## Gotchas
+## Workspace gotchas
 
 - **FOMOD images that actually render in MO2** — a config can build clean, pass
   `build.ps1 -CheckFomod`, open its wizard normally, and still show *no image at all*. Nothing
-  warns you. This recipe is confirmed working in MO2 (`Example Mod`'s `fomod/`); copy its shape
-  rather than re-deriving:
+  warns you. This recipe is confirmed working in MO2 (the template's `build/staging/Example Mod/fomod/`,
+  which is still in the repo); copy its shape rather than re-deriving:
   1. `path=` is relative to the **archive root**, so an image at `fomod/images/foo.jpg` is
      referenced as `path="fomod\images\foo.jpg"` — *including* the `fomod` prefix.
   2. Use **backslashes** in `path=`, as the shipped configs do.
@@ -209,3 +168,175 @@ That is the pattern to follow: **copy, then edit the deltas.**
 - Edit `.psc`/YAML, never the binary `.pex`/`.esp`. Commit source, not build artifacts.
 - See `arch-docs/skyrim-record-patterns.md` for the in-game failure modes that produce no build
   error — that list is the single highest-value read before authoring a new mechanic.
+
+---
+
+# The mod: Ehlnofey
+
+## The idea, and the name
+
+**Ehlnofey delevels Skyrim.** Vanilla scales the world to the player: bandits, draugr and loot are
+generated relative to your level, so a dungeon cleared at level 5 is the same fight at level 40 and
+the map has no topography of danger. Ehlnofey replaces that with **fixed, hand-set rules** — every
+enemy, dungeon and hoard has a level and a loot profile that does not move — aiming at an
+*immersive, lore-friendly and gameplay-optimised* result rather than a difficulty-slider mod.
+
+The name is the thesis. The Ehlnofey were et'Ada who stopped wandering: instead of remaining free,
+mutable spirits, they bound themselves into the substance of Nirn and became its fixed laws — the
+Earth Bones, the unchanging structure under everything. That is exactly the operation this mod
+performs on Skyrim: it takes a world that bends to the player and re-imprints static, indifferent
+rules onto it. Docs and record names lean on that vocabulary (**bones** = the fixed structure).
+
+## The three bones (design rules)
+
+Every design decision has to answer to these. If a proposal violates one, it needs an explicit
+exception recorded in `arch-docs/design/`, not a quiet pass.
+
+1. **The world does not scale.** Difficulty and reward are properties of a place and a creature, set
+   once. Nothing recalculates against the player's level.
+2. **Danger is legible.** If the player can be killed by walking somewhere, the world must have told
+   them first — geography, lore, faction, visual tier, NPC dialogue, quest gating. A fixed world is
+   only fair if it can be read.
+3. **Reward follows place, not level.** Good loot exists because of *where* it is (a Nordic tomb, a
+   Dwemer ruin, a dragon's hoard, a named boss), never because the player happened to be level 40.
+
+**Non-goals** (keep scope honest): not a combat overhaul, not a perk/skill overhaul, not a survival
+mod, not a new-content mod. Ehlnofey changes *where the numbers come from*, and nothing else.
+
+## Current phase
+
+**Phase 1 — world research.** No Ehlnofey records exist yet. `src/` still holds the template's
+`ExampleMod`, kept only as a worked pipeline example; it is not part of the mod and will be deleted
+before first release. `reference/` already holds Spriggit decompiles of `Skyrim.esm`, `Update.esm`
+and all three DLCs — that is the primary evidence source for Phase 1.
+
+## Phase plan
+
+| Phase | Output | Done when |
+|---|---|---|
+| **0 — Workspace** | Spriggit round-trip, skills, CI, base+DLC decompiles in `reference/` | ✅ complete |
+| **1 — World research** | `arch-docs/world/*` — enemy taxonomy, factions, dungeons, regions, progression, lore constraints, DLC deltas | Every hostile archetype and every dungeon is in a table with its vanilla scaling behaviour cited from `reference/` |
+| **2 — Prior art & method** | `arch-docs/prior-art/*` — how Requiem, MorrowLoot Ultimate, Open World Loot, SkyPatcher/SPID-driven delevelers and Synthesis patchers actually do it | Each approach has a verified mechanism, a cost, and a compatibility verdict |
+| **3 — Design spec** | `arch-docs/design/*` — tier system, region difficulty map, loot model, and the **implementation-strategy decision** | A record-level spec exists that someone else could implement without re-deciding anything |
+| **4 — Build** | `src/Ehlnofey/` — plugin YAML, any scripts/rule files, FOMOD, release | Deserializes clean, passes `xedit-audit`, **and has been launched in-game** |
+
+Phases 1–3 are documentation work. **Do not start authoring records in `src/` before Phase 3 has a
+written spec** — the whole point of the arch-docs is that a deleveling pass touches thousands of
+records and reversing a bad taxonomy afterwards is far more expensive than deciding it on paper.
+
+## arch-docs map
+
+Research and design live here; this file stays the index. Create these as the phases produce them.
+
+```
+arch-docs/
+  skyrim-record-patterns.md      # EXISTS — read before authoring any mechanic
+  build-report.md                # EXISTS — CI-generated, do not hand-edit
+  world/
+    enemy-taxonomy.md            # every hostile archetype: base records, vanilla scaling, tier
+    factions.md                  # bandits, Forsworn, Falmer, draugr, vampires, automatons, Thalmor, daedra…
+    dungeons.md                  # per hold: dungeon, type, boss, vanilla encounter zone, lore
+    regions.md                   # holds/regions and the intended danger gradient
+    progression.md               # the routes a player actually takes, and what gates them
+    lore-constraints.md          # what the fiction permits — the check on "just make it harder"
+    dlc-deltas.md                # Dawnguard / Hearthfire / Dragonborn additions and their zones
+  prior-art/
+    requiem.md  morrowloot.md  open-world-loot.md  skypatcher-spid.md  synthesis-patchers.md
+  design/
+    tiers.md                     # the fixed tier ladder and what each tier means numerically
+    difficulty-map.md            # region/dungeon → tier assignment
+    loot-model.md                # rarity by place; what leaves the leveled lists
+    implementation-strategy.md   # THE gating decision — see below
+```
+
+## Research rules (Phases 1–3)
+
+The repo's guardrails apply with extra force here, because deleveling research is exactly where
+plausible-sounding claims are cheapest to make and most expensive to act on:
+
+- **Cite `reference/`, not memory.** A claim like "bandits use a level multiplier" must name the
+  record and the field as serialized: `reference/Base/01Skyrim/…`. Grep the decompile; quote it.
+- **Mark confidence** the same way `skyrim-record-patterns.md` does: `[verified]` = read in
+  `reference/` or observed in-game here; `[community]` = established modding knowledge, not re-tested;
+  `[unverified]` = plausible, needs checking. Never silently upgrade a mark.
+- **Prior art gets read, not recalled.** Before writing that a mod "does X", read its plugin (via
+  `/spriggit-decompile-reference` into `reference/mods/`), its INIs, or its documentation. Third-party
+  behaviour that lives in a compiled script or SKSE DLL is not knowable from the record data alone.
+- **Follow the template chain before concluding.** A leveled spawn's stats can come from an actor
+  template rather than the NPC record you are looking at, so "this NPC is level 6" is a claim about
+  whichever record actually owns the level. Trace it.
+
+## The vanilla scaling machinery
+
+The levers a deleveling mod has to touch. Field names below are concepts — **confirm the exact
+Mutagen/Spriggit field name in `reference/` before writing YAML**, and record the confirmed name here.
+
+| Mechanism | Record type | Why it matters to Ehlnofey |
+|---|---|---|
+| Static vs. player-relative level | `NPC_` (level is either a fixed number or a PC-level multiplier with calc-min/calc-max) | The core lever. "Delevel an NPC" mostly means replacing the multiplier with a fixed level. `[community]` |
+| Actor templates | `NPC_` template + template flags | A spawn may inherit stats/traits from another record, so editing the visible NPC can do nothing. Trace before editing. `[community]` |
+| Leveled actor lists | `LVLN` | Chooses which variant spawns, with per-entry level gates and chance-none. Deleveling means flattening or splitting these per tier. `[community]` |
+| Leveled item lists | `LVLI` | The loot side of the same machinery — vanilla gates gear tiers by player level here. `[community]` |
+| Encounter zones | `ECZN` | Per-location min/max level and flags. **Probably the single most important record type for this mod**: a fixed per-dungeon level is literally the "fixed law" the design asks for. `[community]` |
+| Placed-actor difficulty | `ACHR` placed refs (per-ref level modifier) | Lets a specific placed enemy sit above its base — useful for hand-tuned bosses. `[unverified]` |
+| Global knobs | `GMST` (level-scaling and difficulty multipliers) | Blunt but cheap; changes everything at once. Use deliberately, never as a substitute for tiering. `[community]` |
+| Capability, not level | `PERK`, `SPEL`, `CSTY` (combat style) | A level-20 bandit's threat comes largely from perks/spells/AI. Deleveling levels without capability produces a flat, boring world. `[community]` |
+
+## Implementation strategy — the open decision
+
+This gates Phase 4 and belongs in `arch-docs/design/implementation-strategy.md`. Three candidates:
+
+| Approach | Mechanism | Cost |
+|---|---|---|
+| **A. Plugin overrides** | Override vanilla records directly in Spriggit YAML | Total control, no dependencies. But thousands of override files: a huge repo, unreviewable diffs, and a hard conflict with every other mod touching the same records. |
+| **B. Runtime rule engines** | SkyPatcher INI rules and/or SPID distribution, applied at load by SKSE | Few or no overrides, filter-based, very compatibility-friendly. Limited to what those engines expose — **their exact capabilities are `[unverified]` and are a Phase 2 deliverable** — and requires SKSE. |
+| **C. Generated patch** | A Synthesis/Mutagen patcher that computes the overrides on the user's install | Rules live in code, same ecosystem as Spriggit, adapts to the user's load order. Requires users to run Synthesis. |
+
+**Working recommendation (not yet a decision):** a hybrid — a small hand-authored `Ehlnofey.esp` for
+the fixed skeleton that must be a record (encounter zones, new leveled lists, keywords, any config
+quest) plus rule files for the broad per-NPC/per-item distribution. That keeps the committed YAML
+small enough to review, which matters because option A's diff volume is the thing most likely to make
+this project unmaintainable. Decide it in Phase 2 with evidence, then record the verdict here.
+
+## Naming & FormKey conventions
+
+Fixed now so Phase 4 does not have to argue about it:
+
+- **Plugin:** `Ehlnofey.esp`. Masters: `Skyrim.esm` + `Update.esm`, plus whichever DLC masters the
+  final scope requires (adding a DLC master makes it a hard requirement — decide per phase, in the
+  design docs, not mid-edit).
+- **EditorID prefix:** `EHL_`, then the domain, then the specific: `EHL_LVLI_DraugrBossHoard_T4`,
+  `EHL_ECZN_BleakFalls`. Tier suffixes are `_T<n>` against the ladder in `design/tiers.md`.
+- **New records** start at `0x800` and are allocated in a **contiguous block per feature** (one block
+  for encounter zones, one for leveled lists, …). Record each block here as it is claimed.
+- **Overrides keep the original master's suffix** (`09BC43:Skyrim.esm`), which is how you tell an
+  invented record from a vanilla one at a glance. Ehlnofey will be override-heavy, so this matters
+  more here than in a content mod.
+- **ESL decision: open.** Overrides do not consume new FormIDs, so an ESL-flagged plugin stays viable
+  as long as *new* records fit `0x800–0xFFF`. Confirm before exceeding.
+- Always `/formkey-check` before claiming a block.
+
+**FormID usage:** none yet. **Next free: `0x800`.**
+
+## Useful FormKey constants
+
+Add the encounter-zone, faction and leveled-list FormKeys here as Phase 1 confirms them — that table
+is the payoff of the research phase.
+
+| FormKey | Meaning |
+|---|---|
+| `000014:Skyrim.esm` | PlayerRef |
+| `000038:Skyrim.esm` | GameHour global |
+| `000039:Skyrim.esm` | GameDaysPassed global |
+| `00003C:Skyrim.esm` | Tamriel worldspace |
+
+## Ehlnofey gotchas
+
+Empty by design — fill it as the project teaches you things. Candidates already visible:
+
+- **Override volume vs. Spriggit.** A deleveling pass can generate thousands of override YAML files.
+  Watch repo size, round-trip time and `Test-RecordYaml.ps1` runtime before committing to option A.
+- **Deleveling levels without deleveling capability** produces a world that is fixed and dull.
+  Threat is perks, spells and combat style as much as level.
+- **A clean build proves nothing about balance.** Phase 4 is not done at "deserializes clean" — it is
+  done when a character has actually walked into a zone and been correctly killed by it.

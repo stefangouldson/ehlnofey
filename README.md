@@ -1,14 +1,77 @@
-# claudemodenv — a Skyrim mod-development template
+# Ehlnofey
 
-A version-controlled workspace for building SkyrimSE mods as **text**. It uses
-[Spriggit](https://github.com/Mutagen-Modding/Spriggit) to convert Bethesda plugin files
+**A deleveling overhaul for Skyrim Special Edition — fixed laws imprinted back onto the world.**
+
+Vanilla Skyrim scales itself to you. Bandits, draugr and chest loot are generated relative to your
+level, so a dungeon cleared at level 5 is the same fight at level 40, and the map has no topography
+of danger — nowhere is genuinely above you, and nowhere is ever safely behind you.
+
+Ehlnofey replaces that with **fixed, hand-set rules**: every enemy, every dungeon and every hoard has
+a level and a loot profile that never moves. The world stops being a mirror and becomes terrain — it
+is *immersive* (the world exists on its own terms), *lore-friendly* (danger and reward follow the
+fiction), and *gameplay-optimised* (progression comes from learning the map, not from a scaling
+formula).
+
+## Why "Ehlnofey"
+
+The Ehlnofey were et'Ada who stopped wandering. Where other spirits stayed free and mutable, these
+bound themselves into the substance of Nirn and became its fixed laws — the Earth Bones, the
+unchanging structure beneath everything. That is precisely the operation this mod performs: it takes
+a world that bends to the player and re-imprints static, indifferent rules onto it. The design docs
+use that vocabulary too — the **bones** are the fixed structure everything else hangs off.
+
+## The three bones
+
+Every design decision answers to these three rules:
+
+1. **The world does not scale.** Difficulty and reward are properties of a place and a creature, set
+   once. Nothing recalculates against the player's level.
+2. **Danger is legible.** If walking somewhere can kill you, the world has to have told you first —
+   through geography, faction, lore, visual tier or dialogue. A fixed world is only fair if it can be
+   read.
+3. **Reward follows place, not level.** Good loot exists because of *where* it is — a Nordic tomb, a
+   Dwemer ruin, a dragon's hoard, a named boss — never because you happened to be level 40.
+
+**Non-goals:** not a combat overhaul, not a perk or skill overhaul, not a survival mod, not new
+content. Ehlnofey changes *where the numbers come from*, and nothing else.
+
+## Status: research phase
+
+No Ehlnofey records exist yet, and that is deliberate. A deleveling pass touches thousands of
+records, so the world is mapped and the method chosen **on paper** before anything is authored.
+
+| Phase | Output | State |
+|---|---|---|
+| **0 — Workspace** | Spriggit round-trip, Claude skills, CI, and base-game + DLC decompiles in `reference/` | ✅ complete |
+| **1 — World research** | `arch-docs/world/*` — enemy taxonomy, factions, dungeons, regions, progression routes, lore constraints, DLC deltas | ▶ in progress |
+| **2 — Prior art** | `arch-docs/prior-art/*` — how Requiem, MorrowLoot Ultimate, Open World Loot, SkyPatcher/SPID-driven delevelers and Synthesis patchers actually work, and what each costs | pending |
+| **3 — Design spec** | `arch-docs/design/*` — the tier ladder, region difficulty map, loot model, and the implementation-strategy decision | pending |
+| **4 — Build** | `src/Ehlnofey/` — plugin YAML plus any scripts or rule files, packaged and released | pending |
+
+Phase 1 works from the Spriggit decompiles of `Skyrim.esm`, `Update.esm` and the three DLCs already
+sitting in the gitignored `reference/` folder — claims about vanilla behaviour get cited from there
+rather than recalled. `CLAUDE.md` carries the research rules, the record-level map of Skyrim's
+scaling machinery (`NPC_` level modes, `LVLN`/`LVLI` leveled lists, `ECZN` encounter zones, GMSTs,
+perks and combat styles), the three candidate implementation strategies and the naming conventions.
+
+**How it will be built** is still open, and is the Phase 2/3 deliverable: hand-authored plugin
+overrides, runtime rule engines (SkyPatcher / SPID), or a generated Synthesis patch — most likely a
+hybrid of a small hand-authored `Ehlnofey.esp` skeleton plus rules for the broad distribution. See
+*Implementation strategy* in `CLAUDE.md`.
+
+> `src/ExampleMod/` and `build/staging/Example Mod/` are the workspace template's worked example, kept
+> for now as a reference for the pipeline. They are not part of the mod and get deleted before the
+> first release.
+
+---
+
+# The workspace
+
+Ehlnofey is built as **text**. The repo is a version-controlled SkyrimSE mod-development workspace: it
+uses [Spriggit](https://github.com/Mutagen-Modding/Spriggit) to convert Bethesda plugin files
 (`.esp`/`.esm`/`.esl`) to and from human-editable YAML kept under git, and adds a command-line
 Papyrus toolchain, a manifest-driven FOMOD build, GitHub Actions CI, and a set of Claude Code skills
 and subagents that know how to drive all of it. **You edit the YAML, not the binary plugin.**
-
-Use it as a GitHub template ("Use this template"), or clone it and start deleting. It ships with a
-small working **`ExampleMod`** so a fresh clone builds something real before you have written
-anything of your own — see [The example mod](#the-example-mod).
 
 - **Game release:** SkyrimSE
 - **Spriggit package/source:** `Spriggit.Yaml.Skyrim`
@@ -129,11 +192,13 @@ keep it in the gitignored `modlists/` folder.
 3. **Deserialize** to rebuild the plugin.
 4. Load the rebuilt plugin in xEdit / Creation Kit to verify before shipping.
 
-## The example mod
+## The example mod (template leftover)
 
-`src/ExampleMod/` is a complete, working mod kept deliberately tiny — four records and one script — so
-that a fresh clone builds and runs before you have written anything. It masters onto **`Skyrim.esm`
-only**, so it works on a bare install with no other mods present.
+`src/ExampleMod/` came with the workspace template and is **not part of Ehlnofey**. It is a complete,
+working mod kept deliberately tiny — four records and one script — so that a fresh clone builds and
+runs something real. It masters onto **`Skyrim.esm` only**, so it works on a bare install. It stays in
+the repo as a worked example of each pipeline layer until Phase 4 no longer needs the reference, then
+it and its `build/staging/Example Mod/` tree and `build/manifest.json` entry get deleted.
 
 It exists to demonstrate each layer of the pipeline exactly once:
 
@@ -148,10 +213,10 @@ In-game you should see, on a new or loaded save: a notification reading *"Exampl
 the **Example Blade** in your inventory, a forge recipe for it (2 steel ingots + 1 leather strip, no
 perk required), and blacksmith vendors stocking it.
 
-**To start your own mod:** run **`/mod-new-plugin`**, which scaffolds the YAML folder, the manifest
-entry and the FOMOD stub for you. Then delete `src/ExampleMod/`, the committed
+**When Phase 4 starts:** run **`/mod-new-plugin`** to scaffold `Ehlnofey.esp` — the YAML folder, the
+manifest entry and the FOMOD stub. Then delete `src/ExampleMod/`, the committed
 `build/staging/Example Mod/fomod/` tree, its `build/manifest.json` entry and its `.gitignore`
-exception — or keep it around as a reference until you no longer need it.
+exception.
 
 ## What is committed vs. ignored
 
@@ -240,10 +305,10 @@ you can grep them for FormKeys without committing them:
 - **Always grep the whole workspace for a hex FormID before assigning it** (collision check).
 - ESL-flagged plugins are limited to `0x800–0xFFF` — confirm before exceeding.
 
-See `CLAUDE.md` for project-specific architecture, record templates, working guardrails and
-gotchas — it is what a future Claude Code session reads instead of re-deriving your conventions.
-See `arch-docs/skyrim-record-patterns.md` for record shapes that build cleanly and still do nothing
-in-game.
+See `CLAUDE.md` for Ehlnofey's design rules, phase plan, arch-docs map, research rules, scaling-record
+map, naming conventions and working guardrails — it is what a future Claude Code session reads instead
+of re-deriving the project from scratch. See `arch-docs/skyrim-record-patterns.md` for record shapes
+that build cleanly and still do nothing in-game.
 
 ## Papyrus scripts & packaging
 
@@ -308,6 +373,13 @@ Then in MO2: refresh, enable the mod and its `.esp`, set load order, and launch 
 **A clean compile is necessary but not sufficient — verify the scripts actually run in-game.**
 
 ## CI build & release (GitHub Actions)
+
+> **⏸ Both workflows are temporarily disabled for the research phase.** There is nothing of Ehlnofey's
+> to build yet (Phases 1–3 are documentation), so the automatic triggers in `build.yml` (`push`) and
+> `pr-build.yml` (`pull_request`) are commented out and each workflow is left with `workflow_dispatch`
+> only — `build.yml` can still be run by hand from the Actions tab. Re-enabling in Phase 4 is a
+> two-line change per file; the instructions are in a banner comment at the top of each. Everything
+> described below is what runs once they are back on; `pwsh build/build.ps1` works locally regardless.
 
 `.github/workflows/build.yml` rebuilds every release archive on each push to `main` (publishing them
 to a **timestamped pre-release**), and cuts a named GitHub Release when you push a `v*` tag. It runs
