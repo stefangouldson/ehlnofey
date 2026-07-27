@@ -56,7 +56,9 @@ src/                       # EVERY mod lives here — one folder per mod, add as
 build/                     # build.ps1 + manifest.json + committed FOMOD trees
 arch-docs/                 # world research + design spec + record-pattern guide (see arch-docs map)
 reference/                 # gitignored — vanilla/third-party decompiles, LOOKUP ONLY
-                           #   already holds Skyrim.esm, Update.esm and the 3 DLCs: Phase 1's evidence
+                           #   Base/       Skyrim.esm, Update.esm and the 3 DLCs: Phase 1's evidence
+                           #   mods/       third-party mods as downloaded (Requiem/ …)
+                           #   mods/*Yaml/ Spriggit decompiles of them (RequiemYaml/ = 108 MB)
 modlist/                   # gitignored — an installed MO2 instance, hundreds of GB
 ```
 
@@ -213,10 +215,44 @@ mod, not a new-content mod. Ehlnofey changes *where the numbers come from*, and 
 
 ## Current phase
 
-**Phase 1 — world research.** No Ehlnofey records exist yet. `src/` still holds the template's
-`ExampleMod`, kept only as a worked pipeline example; it is not part of the mod and will be deleted
-before first release. `reference/` already holds Spriggit decompiles of `Skyrim.esm`, `Update.esm`
-and all three DLCs — that is the primary evidence source for Phase 1.
+**Phase 3 — design spec** (Phases 1–2 complete). No Ehlnofey records exist yet. `src/` still
+holds the template's `ExampleMod`, kept only as a worked pipeline example; it is not part of the mod
+and will be deleted before first release. `reference/` holds Spriggit decompiles of `Skyrim.esm`,
+`Update.esm` and all three DLCs — Phase 1's evidence — plus third-party mods under `reference/mods/`
+as Phase 2 reads them.
+
+**Phase 2 is complete.** Three subjects were read: **Requiem** (`prior-art/requiem/`),
+**MorrowLoot Ultimate** (`prior-art/morrowloot.md`) and **SkyPatcher** (`prior-art/skypatcher.md`).
+
+Three further candidates were **deliberately dropped** — do not re-add them:
+
+| Dropped | Why |
+|---|---|
+| Open World Loot | Uses the same method as MorrowLoot Ultimate; `morrowloot.md` already covers it |
+| SPID | A distributor, not a record patcher — not a good fit for deleveling |
+| Synthesis patchers | Not an option for this mod (see implementation strategy) |
+
+**SkyPatcher resolved the option-B question:** it can express the deleveling core of *either*
+architecture below as INI rules with **zero plugin overrides** — flatten lists (`clear` +
+`addToLLs`), fix NPC levels (`filterByPCLevelMult` + `level`), band encounter zones
+(`minLevel`/`maxLevel`). It **cannot** reach `GMST`s or placed-actor `LevelModifier`, and cannot
+filter zones by location keyword. **That points hard at the hybrid**: rules for the distribution, a
+tiny plugin for the handful of GMSTs and any new records.
+
+The two reads together define the **central fork**, and it is the real Phase 3 decision:
+
+| | Requiem | MorrowLoot Ultimate |
+|---|---|---|
+| Lever | **flatten `LVLN` gates** (100% of 328) | **clamp `ECZN` bands** (324 of 360) |
+| Difficulty lives on | the actor record | **the place** |
+| Vanilla scaling machinery | deleted | kept, constrained |
+| Compatibility | bespoke patcher | **Wrye Bash `Delev`/`Relev`** |
+| Repo cost | 108 MB / 26,620 records | **22 MB / 4,751 records** |
+
+Neither actually achieves bone 1: Requiem leaves followers and 114 NPCs scaling; MLU only *narrows*
+ranges (a `[38–53]` band still moves with the player). **`MinLevel == MaxLevel` is un-taken prior
+art** — no precedent, so no evidence it feels right or even works. Cheapest possible in-game test,
+and it gates the difficulty map.
 
 ## Phase plan
 
@@ -224,7 +260,7 @@ and all three DLCs — that is the primary evidence source for Phase 1.
 |---|---|---|
 | **0 — Workspace** | Spriggit round-trip, skills, CI, base+DLC decompiles in `reference/` | ✅ complete |
 | **1 — World research** | `arch-docs/world/*` — enemy taxonomy, factions, dungeons, regions, progression, lore constraints, DLC deltas | Every hostile archetype and every dungeon is in a table with its vanilla scaling behaviour cited from `reference/` |
-| **2 — Prior art & method** | `arch-docs/prior-art/*` — how Requiem, MorrowLoot Ultimate, Open World Loot, SkyPatcher/SPID-driven delevelers and Synthesis patchers actually do it | Each approach has a verified mechanism, a cost, and a compatibility verdict |
+| **2 — Prior art & method** | `arch-docs/prior-art/*` — how Requiem, MorrowLoot Ultimate and SkyPatcher actually do it | ✅ complete — each has a verified mechanism, a cost, and a compatibility verdict |
 | **3 — Design spec** | `arch-docs/design/*` — tier system, region difficulty map, loot model, and the **implementation-strategy decision** | A record-level spec exists that someone else could implement without re-deciding anything |
 | **4 — Build** | `src/Ehlnofey/` — plugin YAML, any scripts/rule files, FOMOD, release | Deserializes clean, passes `xedit-audit`, **and has been launched in-game** |
 
@@ -253,7 +289,13 @@ arch-docs/
                                  #   (DLC coverage currently lives inline: taxonomy §2.7, dungeons §3,
                                  #    factions §6, regions §4 — consolidate here if it outgrows them)
   prior-art/
-    requiem.md  morrowloot.md  open-world-loot.md  skypatcher-spid.md  synthesis-patchers.md
+    requiem/                     # EXISTS — README + plugin-analysis + reqtificator + bash-tags
+                                 #   + lessons-for-ehlnofey. Read the README first.
+    morrowloot.md                # EXISTS — the ECZN-clamp approach; §7 is the Requiem/MLU table
+    skypatcher.md                # EXISTS — INI rule syntax; §3.1 filter semantics (filterBy* is a
+                                 #   UNION, restrictTo* narrows), §3.4 docs-vs-parser bugs, §5 limits
+    # ^ Phase 2 is CLOSED. Open World Loot, SPID and Synthesis were dropped on
+    #   purpose — see "Current phase". Do not add files here without a reason.
   design/
     tiers.md                     # the fixed tier ladder and what each tier means numerically
     difficulty-map.md            # region/dungeon → tier assignment
@@ -289,27 +331,32 @@ Mutagen/Spriggit field name in `reference/` before writing YAML**, and record th
 | Actor templates | `NPC_` template + template flags | A spawn may inherit stats/traits from another record, so editing the visible NPC can do nothing. Trace before editing. `[community]` |
 | Leveled actor lists | `LVLN` | Chooses which variant spawns, with per-entry level gates and chance-none. Deleveling means flattening or splitting these per tier. `[community]` |
 | Leveled item lists | `LVLI` | The loot side of the same machinery — vanilla gates gear tiers by player level here. `[community]` |
-| Encounter zones | `ECZN` | Per-location min/max level and flags. **Probably the single most important record type for this mod**: a fixed per-dungeon level is literally the "fixed law" the design asks for. `[community]` |
-| Placed-actor difficulty | `ACHR` / `PlacedNpc` field `LevelModifier` (`Easy`/`Medium`/`Hard`/`VeryHard`) | Vanilla's hand-tuning layer, on **5,685 of 10,504** placed actors (2,524 of 4,452 interior); the four values map to `fLeveledActorMult*` = 0.33/0.67/1/1.25. Keep it. `[verified]` |
+| Encounter zones | `ECZN` | Per-location min/max level and flags. **Phase 2 verdict: viable, but only in one of two architectures.** A zone *clamps* the level the leveled-spawn machinery computes. Requiem flattened that machinery away, so its zones are inert (8 records, none for levels). MorrowLoot Ultimate kept it and clamped it — **360 zones, 324 with a real band** — making zones its entire difficulty map. **The `ECZN` and `LVLN` decisions are one decision.** See `arch-docs/prior-art/morrowloot.md` §1. `[verified]`; the clamp semantics themselves are `[community]` and must be tested in-game |
+| Placed-actor difficulty | `ACHR` / `PlacedNpc` field `LevelModifier` (`Easy`/`Medium`/`Hard`/`VeryHard`) | Vanilla's hand-tuning layer, on **5,685 of 10,504** placed actors (2,524 of 4,452 interior); the four values map to `fLeveledActorMult*` = 0.33/0.67/1/1.25. Keep it. **Prior art disagrees on the multipliers:** Requiem leaves them at vanilla, MLU compresses to 0.7–1.3 so the zone band dominates. Choose deliberately — don't inherit by default. `[verified]` |
 | Global knobs | `GMST` (level-scaling and difficulty multipliers) | Blunt but cheap; changes everything at once. Use deliberately, never as a substitute for tiering. `[community]` |
 | Spawn gating by player level | 12 `LevelGate*` `GLOB` records (Spriggan 8 … Giant 24) | Vanilla's only systematic level gate — it withholds world-encounter *creatures* until the player is roughly their level. **This is a bone-1 violation that already exists**; delete or document as an exception. `[verified]` |
 | Capability, not level | `PERK`, `SPEL`, `CSTY` (combat style) | A level-20 bandit's threat comes largely from perks/spells/AI. Deleveling levels without capability produces a flat, boring world. `[community]` |
 
 ## Implementation strategy — the open decision
 
-This gates Phase 4 and belongs in `arch-docs/design/implementation-strategy.md`. Three candidates:
+This gates Phase 4 and belongs in `arch-docs/design/implementation-strategy.md`. **Two candidates**
+— a third (a Synthesis/Mutagen generated patch) was considered and **ruled out: Synthesis is not an
+option for this mod.** Do not revive it.
 
 | Approach | Mechanism | Cost |
 |---|---|---|
-| **A. Plugin overrides** | Override vanilla records directly in Spriggit YAML | Total control, no dependencies. But thousands of override files: a huge repo, unreviewable diffs, and a hard conflict with every other mod touching the same records. |
-| **B. Runtime rule engines** | SkyPatcher INI rules and/or SPID distribution, applied at load by SKSE | Few or no overrides, filter-based, very compatibility-friendly. Limited to what those engines expose — **their exact capabilities are `[unverified]` and are a Phase 2 deliverable** — and requires SKSE. |
-| **C. Generated patch** | A Synthesis/Mutagen patcher that computes the overrides on the user's install | Rules live in code, same ecosystem as Spriggit, adapts to the user's load order. Requires users to run Synthesis. |
+| **A. Plugin overrides** | Override vanilla records directly in Spriggit YAML | Total control, no dependencies. But thousands of override files: a huge repo, unreviewable diffs, and a hard conflict with every other mod touching the same records. Phase 2 measured the ceiling: Requiem is **108 MB / 26,620 records**, MLU **22 MB / 4,751**. |
+| **B. Runtime rule engines** | SkyPatcher INI rules, applied at load by SKSE | Few or no overrides, filter-based, very compatibility-friendly. **SkyPatcher's capabilities are `[verified]` from source** — see `arch-docs/prior-art/skypatcher.md`. It can express the deleveling core of *both* Requiem and MLU. It **cannot** touch `GMST`s or placed-actor `LevelModifier`, and cannot filter zones by location/keyword. Requires SKSE, and **none of this workspace's verification tooling applies to a rule file**. |
 
-**Working recommendation (not yet a decision):** a hybrid — a small hand-authored `Ehlnofey.esp` for
-the fixed skeleton that must be a record (encounter zones, new leveled lists, keywords, any config
-quest) plus rule files for the broad per-NPC/per-item distribution. That keeps the committed YAML
-small enough to review, which matters because option A's diff volume is the thing most likely to make
-this project unmaintainable. Decide it in Phase 2 with evidence, then record the verdict here.
+**Working recommendation (not yet a decision):** a hybrid — SkyPatcher rules for the broad
+per-NPC/per-list/per-zone distribution, plus a small hand-authored `Ehlnofey.esp` for the handful of
+things rules cannot reach: the `GMST`s, and any new records (keywords, new leveled lists for rules
+to point at). Phase 2 makes this look far more attractive than it did on paper — the plugin half
+plausibly shrinks to a few dozen records, against option A's ceiling above.
+
+**Decide it in Phase 3 and record the verdict here.** The two things that should settle it are both
+cheap in-game tests, not more reading: whether an `ECZN` clamp applied at `kDataLoaded` actually
+takes effect, and whether `MinLevel == MaxLevel` behaves.
 
 ## Naming & FormKey conventions
 
@@ -412,6 +459,22 @@ Fill this as the project teaches you things.
   column 0, or one that treats any nested `MutagenObjectType` as a record boundary, **silently drops
   records** — that mistake undercounted placed NPCs by half (5,169 vs the true 10,504). Track the
   opening line's indent and close the record only at the same or lesser indent. `[verified]`
+
+- **`GMST` records can be *added*, not only overridden.** Skyrim has game settings that exist as
+  hardcoded engine defaults with no record in `Skyrim.esm`; creating one makes it editable. MLU adds
+  `fSmithingArmorMax` / `fSmithingWeaponMax` as **new** records (`005901:MLU.esp`, `005902:MLU.esp`)
+  — there is no `fSmithing*` record in the base game at all. So "absent from `reference/Base`" does
+  not mean "not tunable". `[verified]`
+- **A base+DLC index has duplicate keys; last-wins is the correct rule.** Concatenating
+  `01Skyrim` … `05Dragonborn` into one `FormID_master → data` index produces **135 duplicate keys**
+  for NPCs, because `Update.esm` and the DLC re-override base records under the *same*
+  `<hex>:Skyrim.esm` FormKey. Only one (`072B04` Vald) actually disagrees on level type, but a
+  naive `if (!(k in a))` first-wins load silently uses the *pre-Update* value. Load in load order
+  and let later assignments overwrite — that reproduces the winning record, which is the baseline
+  you almost always want. `[verified]`
+- **Comparing a mod against vanilla means comparing against the *winning* vanilla record**, and the
+  join key must be `<hex>_<master>`, never bare hex — see the "resolve FormKeys by master" gotcha
+  above. Requiem overrides records from six different masters. `[verified]`
 
 Candidates still to confirm:
 
