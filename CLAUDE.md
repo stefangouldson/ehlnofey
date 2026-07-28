@@ -244,11 +244,18 @@ Three findings worth carrying, each of which overturned something the repo previ
    ESL-flagging is free.
 
 **Three cheap in-game tests still gate Phase 4** (`implementation-strategy.md` §7) — run them before
-authoring, because two can move work across the plugin/rules line: `LevelModifier: None`, NPC gear
-resolution level, and zeroing `fSpecialLootMinPCLevelMult`.
+authoring: `LevelModifier: None`, NPC gear resolution level, and zeroing
+`fSpecialLootMinPCLevelMult`. The instrument (`EhlnofeyProbe.esp`) and the script are in
+`design/probe-test-protocol.md`. **Run gear resolution first** — since §7.1 it is the only one that
+can still move a large amount of work (up to 1,378 `LVLI`); the `LevelModifier` test's exposure
+turned out to be 9 records, not ~1,928.
 
-No Ehlnofey records exist yet. `src/` still holds the template's `ExampleMod`, kept only as a worked
-pipeline example; it is not part of the mod and will be deleted in Phase 4. `reference/` holds
+No Ehlnofey *shipping* records exist yet. `src/` holds the template's `ExampleMod`, kept only as a
+worked pipeline example, plus **`src/EhlnofeyProbe/`** — a 4-record throwaway that pins three
+encounter zones to zero-width bands and zeroes `fSpecialLootMinPCLevelMult`, built to run the three
+gating tests (`design/probe-test-protocol.md`). Neither is part of the mod; both are deleted in
+Phase 4. The probe is deliberately **not** in `build/manifest.json` — build it with a direct
+`spriggit deserialize`, as the protocol shows. `reference/` holds
 Spriggit decompiles of `Skyrim.esm`, `Update.esm` and all three DLCs — Phase 1's evidence — plus
 third-party mods under `reference/mods/` as Phase 2 reads them. **`reference/` is now also a build
 input**, not only a lookup: `arch-docs/design/build-difficulty-map.py` regenerates the difficulty map
@@ -351,6 +358,9 @@ arch-docs/
     loot-model.md                # EXISTS — the tier ladder IS the material ladder; no truncation pass
                                  #   needed. One GMST. Hinges on the gear-resolution test.
     implementation-strategy.md   # EXISTS — THE decision, now made. See below.
+    probe-test-protocol.md       # EXISTS — the instrument + script for the three gating in-game
+                                 #   tests (§9 step 1). §4 holds a census that CUTS the
+                                 #   LevelModifier:None exposure from ~1,928 refs to 9.
 ```
 
 ## Research rules (Phases 1–3)
@@ -579,6 +589,26 @@ Fill this as the project teaches you things.
 - **`ls */ | grep` over `reference/` times out the same way `grep -rl` does.** The CLAUDE.md gotcha
   about filename matching applies to *globbed* directory listings too — `ls Npcs | grep <id>` is
   instant, `ls */ | grep <id>` is a 2-minute timeout. Name the one directory. `[verified]`
+
+- **`LevelModifier` is inert unless the placed ref's base resolves to an `LVLN`.** It multiplies the
+  *leveled-list lookup level*, so a fixed-level NPC has nothing to modify and a `PcLevelMult` actor
+  ignores zones anyway. Censusing "placed refs with no modifier" therefore massively overstates the
+  exposure: across 291 zoned interior cells, 1,106 refs are unmodified but only **9** have a leveled
+  ladder behind them (1,014 are fixed-level corpses/skeevers/quest NPCs, 83 are `PcLevelMult`).
+  Always resolve the template chain to a terminal class before sizing a job off a field census —
+  this is the "count records, not lines" gotcha one level deeper. See
+  `design/probe-test-protocol.md` §4. `[verified]`
+- **Spriggit's canonical field order is not the order you'd write by hand.** An `ECZN` serializes as
+  `MinLevel` → `Flags` → `MaxLevel`, so hand-authoring `MinLevel`/`MaxLevel` adjacently builds a
+  correct plugin that re-serializes to a *different* file, producing a phantom diff on the next
+  round-trip. Fix: after the first deserialize, **re-serialize and adopt Spriggit's output as the
+  source**. `[verified]`
+- **Line endings will always differ between fresh Spriggit output and a checked-out working copy.**
+  Spriggit 0.40 on Windows writes **CRLF**; `.gitattributes` forces `*.yaml text eol=lf`. Both are
+  deliberate and neither is wrong — but it means a raw `diff -r <src> <fresh-serialize>` reports
+  *every line changed* on a clean round-trip. Compare with **`diff -r --strip-trailing-cr`** (or
+  `git diff`, which normalizes) and judge the round-trip on content only. Note `.gitattributes`'
+  own comment says Spriggit "uses LF" — that is inaccurate for 0.40 on Windows. `[verified]`
 
 Candidates still to confirm:
 

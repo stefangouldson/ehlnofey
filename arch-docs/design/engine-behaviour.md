@@ -157,10 +157,14 @@ Two implications:
    0.33–1.25 vs compress to 0.7–1.3) is now precisely: *how much intra-dungeon spread does a tier
    allow?* — a `tiers.md` decision with a known operand.
 2. **The "None" row is an anomaly worth one console check** (§7): taken literally, unmodified refs
-   resolve against the raw *player* level even inside a zone, which would make the ~46% of placed
-   actors without a modifier a second bone-1 leak. The wording may simply be sloppy (None ≙ Hard
-   ×1.0 is the natural reading of the engine doing one code path); no secondary source
+   resolve against the raw *player* level even inside a zone. The wording may simply be sloppy
+   (None ≙ Hard ×1.0 is the natural reading of the engine doing one code path); no secondary source
    distinguishes them. `[unverified]` either way — cheap to test alongside §7's other checks.
+
+   Note the blast radius is **small**, because this row only bites where there is a leveled list to
+   look up. Of the ~46% of placed actors carrying no modifier, all but **9** are fixed-level or
+   `PcLevelMult` and are unaffected either way — see §7 item 1 and `probe-test-protocol.md` §4. This
+   is a *second bone-1 leak* only in the narrow sense of nine records.
 
 ## 5. SkyPatcher ECZN patching — timing and persistence
 
@@ -210,11 +214,22 @@ list decision Ehlnofey inherits and must set deliberately when it edits a list.
 The five-question test session shrinks to **one short probe visit**, best run when the first
 records exist anyway:
 
-1. **The "None" modifier ambiguity** (§4) — now the **highest-value test in the project**, and
-   promoted to first. `GetLevel` on an unmodified placed ref vs a `Hard` ref, at a player level far
-   from N. It decides whether the ~1,928 interior placed refs with no modifier honour the zone or
-   ignore it; if they ignore it, a large slice of work moves into the plugin half and
-   `implementation-strategy.md`'s cost estimate changes materially. See `tiers.md` §4.
+1. **The "None" modifier ambiguity** (§4). `GetLevel` on an unmodified placed ref vs a `Hard` ref, at
+   a player level far from N. It decides whether placed refs with no modifier honour the zone or
+   ignore it.
+
+   > **Revised — this was written as "the highest-value test in the project", sized at ~1,928
+   > interior refs. The real exposure is 9.** `LevelModifier` multiplies the *leveled-list lookup
+   > level* (§4), so it is inert unless the ref's base resolves through its template chain to an
+   > `LVLN` — a fixed-level `NPC_` has no lookup to modify, and a `PcLevelMult` actor ignores zones
+   > outright (§1). Census over all 291 zoned interior cells of `Skyrim.esm` `[verified]`: **2,147**
+   > refs are leveled-ladder-backed, of which **2,138 already carry a modifier and 9 do not**; the
+   > remaining 1,097 unmodified refs are 1,014 fixed-level and 83 `PcLevelMult`. Method and the full
+   > list of nine: `probe-test-protocol.md` §4. Correction folded into
+   > `implementation-strategy.md` §7.1 and `tiers.md` §4.
+   >
+   > Still worth running — it is free and it fixes the semantics for anything Ehlnofey places itself
+   > — but **test 2 below is now the one to run first.**
 2. **Loot check** (§3): fix a zone at N, confirm chest contents roll at N, not player level. The
    `fSpecialLoot*ZoneLevelMult` settings found since largely answer the *mechanism*; what remains
    worth observing is the **`fSpecialLootMinPCLevelMult` = 0.6 floor**, i.e. whether a high-level

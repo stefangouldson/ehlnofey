@@ -180,21 +180,35 @@ lands in the plugin half of the hybrid.
 
 **43% of interior placed refs carry no `LevelModifier` at all** (1,928 of 4,452). The CK wiki
 documents the unmodified case as resolving against *the player's level* — which, taken literally,
-would mean nearly half of every dungeon's population ignores the tier completely and Ehlnofey's whole
-architecture leaks. `engine-behaviour.md` §4 flags this `[unverified]` and §7 makes it one of the two
-remaining in-game tests.
+would appear to mean nearly half of every dungeon's population ignores the tier completely and
+Ehlnofey's whole architecture leaks. `engine-behaviour.md` §4 flags this `[unverified]` and §7 makes
+it one of the two remaining in-game tests.
 
 Confirming here that **the engine exposes no setting for it**: `[verified]` — the GameSettings folder
 contains `fLeveledActorMultEasy/Medium/Hard/VeryHard` and no `…None`. So if the literal reading holds
-there is no cheap global fix, and the contingency is expensive:
+there is no cheap global fix.
+
+> **Revised — the contingency is 9 records, not ~1,928.** The paragraph above counts unmodified
+> placed refs without asking whether the engine can *do* anything with a modifier on them.
+> `LevelModifier` multiplies the **leveled-list lookup level** (`engine-behaviour.md` §4), so it is
+> inert unless the ref's base resolves through its template chain to an `LVLN`: a fixed-level `NPC_`
+> has no lookup to modify, and a `PcLevelMult` actor ignores zones outright (§1) and belongs to the
+> rules half regardless. Census over all 291 zoned interior cells of `Skyrim.esm` `[verified]`: of
+> **2,147** placed refs backed by a leveled ladder, **2,138 already carry a modifier and 9 do not**.
+> The other 1,097 unmodified refs are 1,014 fixed-level corpses/skeletons/skeevers/quest NPCs and 83
+> `PcLevelMult` actors. Method, the full list of nine, and the scope caveat (base-game interiors
+> only) are in `probe-test-protocol.md` §4; the correction is folded into
+> `implementation-strategy.md` §7.1.
 
 | If the test shows… | Then |
 |---|---|
 | **None ≙ Hard (×1.0)** — the natural reading | nothing to do. The ladder works as written. |
-| **None ≙ player level** — the literal reading | ~1,928 interior placed refs need an explicit `LevelModifier` written onto them. That is a `PlacedNpc` edit inside `Cells/`, which **SkyPatcher cannot reach** — it would move a large slice of work into the plugin half and materially change `implementation-strategy.md`'s cost estimate. |
+| **None ≙ player level** — the literal reading | **9** interior placed refs need an explicit `LevelModifier` written onto them (`Ustengrav01` ×4, `WolfSkullCave02` ×4, `SnaplegCave01` ×1). Still a `PlacedNpc` edit inside `Cells/`, which **SkyPatcher cannot reach** — but 9 records against a ~376-record plugin does not move the architecture. |
 
-**This is the highest-value test in the project** and it is one console command in one dungeon. Run it
-before authoring the difficulty map, not after.
+**Run it anyway** — it is one console command in one dungeon, and it settles the semantics for any ref
+Ehlnofey places itself. But it no longer needs to run *before* the difficulty map, and it is no longer
+the project's highest-value test: that is now the **gear-resolution** test (`loot-model.md` §3), which
+is still worth up to 1,378 `LVLI`.
 
 ---
 
@@ -462,15 +476,18 @@ tables above are computed **assuming the first two are fixed**:
    recommendation.
 2. Everything else in this document — zone bands, class-D levels, list edits — is expressible as
    SkyPatcher rules.
-3. **The §4 `None` test can move a large slice of work into the plugin half.** Do not finalise the
-   cost estimate before running it.
+3. ~~**The §4 `None` test can move a large slice of work into the plugin half.**~~ **Revised:** the
+   worst case is 9 placed-ref overrides (§4), which does not move the cost estimate. The test that
+   still can is **gear resolution** (`loot-model.md` §3) — up to 1,378 `LVLI`.
 
 ---
 
 ## 12. Open questions
 
-1. **`LevelModifier: None`** (§4) — the highest-value unresolved question in the project. One console
-   check; it decides whether ~1,928 placed refs need editing.
+1. **`LevelModifier: None`** (§4) — still open, but **downgraded**: one console check, deciding
+   whether **9** placed refs need editing, not ~1,928. See the revision note in §4 and
+   `implementation-strategy.md` §7.1. The highest-value unresolved question is now gear resolution
+   (`loot-model.md` §3).
 2. **The absolute offset** (§9) — needs a real playthrough, not a record read. `[unverified]`
 3. **The unzoned overworld** (§8) — zone-based tiering does not reach exteriors. Structural, unsolved.
 4. **Is `Min == Max` right, or should Ehlnofey band like MLU?** MLU chose `+10`/`+15` for 357 of 360

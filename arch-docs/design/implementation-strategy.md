@@ -164,7 +164,8 @@ The same argument covers the ambient leveled lists (`difficulty-map.md` §4.1 op
    was only ever *how big*, never *whether*.
 2. **`LevelModifier` is unreachable** — the string does not appear anywhere in SkyPatcher's source
    (`skypatcher.md` §5.2). Ehlnofey does not need to *edit* it, but if `tiers.md` §4's `None` test goes
-   the wrong way and ~1,928 placed refs need explicit modifiers, **only a plugin can do it** (§7).
+   the wrong way, **only a plugin can do it** (§7). Note this argument carries far less weight than it
+   was originally given: the exposure is **9 records, not ~1,928** (§7.1).
 3. **Verification** — §3.
 4. **SKSE dependency on the core.** Under the chosen split, SKSE is required for the *actor* half; if
    SkyPatcher breaks on a game update, the world still has its fixed places and its GMSTs. Under
@@ -205,13 +206,63 @@ plugin/rules line**. They should be run before Phase 4 authoring starts, not aft
 
 | Test | Source | If it goes the wrong way |
 |---|---|---|
-| **`LevelModifier: None`** — do unmodified placed refs honour the zone, or the player's level? | `tiers.md` §4, `engine-behaviour.md` §7 | ~1,928 interior `PlacedNpc` refs need an explicit modifier. **Plugin-only** (§5.2), and it roughly *sextuples* the plugin. The single highest-value test in the project. |
+| **`LevelModifier: None`** — do unmodified placed refs honour the zone, or the player's level? | `tiers.md` §4, `engine-behaviour.md` §7, **`probe-test-protocol.md` §4** | **9** interior `PlacedNpc` refs need an explicit modifier. **Plugin-only** (§5.2), but 9 records is noise against 376. **Downgraded** — see the census below. |
 | **NPC gear resolution** — NPC's level or player's level? | `loot-model.md` §3 | up to 1,378 `LVLI` need truncation. Rules can do it (`removeFromLLs`), so it lands in the rules half — but it stops being a handful of lines. |
 | **`fSpecialLootMinPCLevelMult` = 0** — zone-locks special loot, or disables it? | `loot-model.md` §4 | revert to 0.6 and document the exception; the plugin loses one record. |
 
 Everything else `engine-behaviour.md` set out to answer is settled: clamp scope, the `PcLevelMult`
 exemption, zero-width bands, `LevelModifier` composition, and SkyPatcher's `kDataLoaded` timing and
 save behaviour.
+
+### 7.1 Correction — the `LevelModifier: None` exposure is 9 records, not ~1,928
+
+**This section previously sized the `None` test as "~1,928 interior `PlacedNpc` refs need an explicit
+modifier… roughly *sextuples* the plugin… the single highest-value test in the project". That is
+wrong, and the error is a sizing error, not an engine one.** The open question in §4 of
+`engine-behaviour.md` stands exactly as posed; only its cost does not.
+
+`LevelModifier` multiplies the **leveled-list lookup level** (`engine-behaviour.md` §4). It therefore
+does nothing at all unless the placed ref's base resolves — through its template chain — to an
+`LVLN`. A fixed-level `NPC_` has no lookup to modify, and a `PcLevelMult` actor ignores encounter
+zones outright (`engine-behaviour.md` §1) and is already the rules half's job. The ~1,928 figure came
+from counting *unmodified placed refs* without asking whether any of them had a leveled ladder
+behind them.
+
+Census over all **291 zoned interior cells** of `Skyrim.esm`, resolving every `PlacedNpc` base to a
+terminal class. `[verified]` — `reference/Base/01Skyrim/Cells/`, method and full listing in
+`probe-test-protocol.md` §4:
+
+| Base resolves to | no `LevelModifier` | modifier set | total |
+|---|---|---|---|
+| **`LVLN`** — the only class the modifier affects | **9** | 2,138 | 2,147 |
+| `NPC_` with a fixed level | 1,014 | 190 | 1,204 |
+| `NPC_` with `PcLevelMult` | 83 | 45 | 128 |
+| | **1,106** | 2,373 | **3,479** |
+
+Vanilla is, in other words, **99.6% consistent**: of 2,147 placed refs backed by a leveled ladder in
+a zoned interior, all but 9 carry a modifier. The 1,014 unmodified fixed-level refs are corpses,
+skeletons, skeevers and quest NPCs — inert to this question either way.
+
+All nine, should the test go the wrong way: `Ustengrav01` `02137C` `02137D` `02137E` `0213C6` (four
+bandits), `WolfSkullCave02` `09DA1F`–`09DA22` (`MS06NecromancerCultist1–4`), `SnaplegCave01`
+`0694D1` (`LvlDeer`).
+
+**Consequences for this document:**
+
+1. **The test is downgraded from schedule-defining to routine.** Still run it — it is free, it is one
+   `getlevel`, and it fixes the semantics for any ref Ehlnofey places itself — but §9 step 1 no longer
+   gates on it in the way it was written to.
+2. **§2's ~376-record estimate stands** in both branches. The worst case adds 9 placed-ref overrides
+   (~385), not ~2,300.
+3. **§5.2's argument is unchanged but its stakes shrink.** `LevelModifier` is still unreachable from
+   SkyPatcher and still plugin-only; the slice that would move is simply 9 records, so it is no longer
+   an argument of any weight against option B.
+4. **The gear-resolution test (row 2) is now the largest live risk in the table** — up to 1,378 `LVLI`.
+   It is the one to run first.
+
+**Scope caveat:** `Skyrim.esm` interiors only. `Worldspaces/` and the DLC were not censused, and per
+CLAUDE.md's DLC trap (b) they must be checked separately rather than extrapolated. The overworld is
+in any case already the acknowledged unsolved problem of §6.
 
 ---
 
@@ -249,7 +300,10 @@ compatibility, no scripting.
 
 ## 9. Phase 4 order of work
 
-1. **Run the three tests** (§7). They can move a lot of work; do not author against an assumption.
+1. **Run the three tests** (§7), using `EhlnofeyProbe.esp` — the instrument and the script are in
+   `probe-test-protocol.md`. Do not author against an assumption. **Run the gear-resolution test
+   first**: since §7.1 it is the only one of the three that can still move a large amount of work
+   (up to 1,378 `LVLI`).
 2. **Delete `src/ExampleMod/`.** CLAUDE.md marks it as a template artefact to remove before first
    release.
 3. **Scaffold `Ehlnofey.esp`** via the `mod-new-plugin` skill — header, masters, `build/manifest.json`

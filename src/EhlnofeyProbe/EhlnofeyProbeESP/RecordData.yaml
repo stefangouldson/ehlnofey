@@ -1,0 +1,16 @@
+SpriggitSource:
+  PackageName: Spriggit.Yaml.Skyrim
+  Version: 0.40
+ModKey: EhlnofeyProbe.esp
+GameRelease: SkyrimSE
+ModHeader:
+  Flags:
+  - Small
+  Stats:
+    Version: 1.7
+  Author: Ehlnofey
+  Description: Phase 4 probe. Pins 3 encounter zones to zero-width bands and zeroes fSpecialLootMinPCLevelMult. Throwaway - not for release.
+  MasterReferences:
+  - Master: Skyrim.esm
+    FileSize: 0
+  INTV: 1
