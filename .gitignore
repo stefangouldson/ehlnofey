@@ -59,3 +59,7 @@ Thumbs.db
 # Reference decompiles — vanilla and third-party plugins serialized ONLY for FormKey lookups.
 # Large, regenerated locally from each machine's own copy of the source mod, never committed.
 /reference/
+
+# Python bytecode (arch-docs generators)
+__pycache__/
+*.pyc

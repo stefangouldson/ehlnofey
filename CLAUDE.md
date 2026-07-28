@@ -215,11 +215,44 @@ mod, not a new-content mod. Ehlnofey changes *where the numbers come from*, and 
 
 ## Current phase
 
-**Phase 3 — design spec** (Phases 1–2 complete). No Ehlnofey records exist yet. `src/` still
-holds the template's `ExampleMod`, kept only as a worked pipeline example; it is not part of the mod
-and will be deleted before first release. `reference/` holds Spriggit decompiles of `Skyrim.esm`,
-`Update.esm` and all three DLCs — Phase 1's evidence — plus third-party mods under `reference/mods/`
-as Phase 2 reads them.
+**Phase 3 is complete** (2026-07-28). Five documents in `arch-docs/design/`. **Phase 4 is next**, and
+`implementation-strategy.md` §9 is its order of work.
+
+The four decisions Phase 3 was convened to make:
+
+| Decision | Verdict |
+|---|---|
+| **The ladder** | **T1–T7 = 4 / 8 / 14 / 21 / 30 / 40 / 50**, written as `MinLevel == MaxLevel` (zero-width everywhere, no banded exceptions) |
+| **The map** | all **355 zones** assigned, generated from rules, in `difficulty-map.md` §7 |
+| **Loot** | no truncation pass needed — the tier ladder *is* the vanilla material ladder |
+| **Architecture** | **hybrid: places and constants in the plugin, actors in rules** (see below) |
+
+**Scope:** Skyrim + Dawnguard + Dragonborn. Hearthfire excluded (adds no zone, no dungeon, no region).
+
+Three findings worth carrying, each of which overturned something the repo previously recorded:
+
+1. **Vanilla's zone floors must be stretched, not ratified.** 73% of Skyrim's 280 zones sit at level
+   ≤ 8 and nothing exceeds 24, while the content ladders run to 46–60 — freezing vanilla's numbers
+   would make every rung above ~25 dead content. MLU independently agrees (its zones run 5–64).
+   This **supersedes `dungeons.md` §5.1's "ratify the vanilla ladder" recommendation**, which
+   predates the clamp research.
+2. **The tier ladder lands exactly on the vanilla gear ladder** — T1–T7 select Steel / Orcish /
+   Dwarven / Elven / Glass / Ebony / Daedric, one rung each. Bone 3 therefore falls out of the
+   difficulty map, and **MLU's 400-list truncation pass is unnecessary**. Daedric ends up reachable in
+   ~2 places, both apex, without editing a single list.
+3. **No new records are needed.** The whole mod is overrides, so FormID usage stays at zero and
+   ESL-flagging is free.
+
+**Three cheap in-game tests still gate Phase 4** (`implementation-strategy.md` §7) — run them before
+authoring, because two can move work across the plugin/rules line: `LevelModifier: None`, NPC gear
+resolution level, and zeroing `fSpecialLootMinPCLevelMult`.
+
+No Ehlnofey records exist yet. `src/` still holds the template's `ExampleMod`, kept only as a worked
+pipeline example; it is not part of the mod and will be deleted in Phase 4. `reference/` holds
+Spriggit decompiles of `Skyrim.esm`, `Update.esm` and all three DLCs — Phase 1's evidence — plus
+third-party mods under `reference/mods/` as Phase 2 reads them. **`reference/` is now also a build
+input**, not only a lookup: `arch-docs/design/build-difficulty-map.py` regenerates the difficulty map
+from it.
 
 **Phase 2 is complete.** Three subjects were read: **Requiem** (`prior-art/requiem/`),
 **MorrowLoot Ultimate** (`prior-art/morrowloot.md`) and **SkyPatcher** (`prior-art/skypatcher.md`).
@@ -239,7 +272,10 @@ architecture below as INI rules with **zero plugin overrides** — flatten lists
 filter zones by location keyword. **That points hard at the hybrid**: rules for the distribution, a
 tiny plugin for the handful of GMSTs and any new records.
 
-The two reads together define the **central fork**, and it is the real Phase 3 decision:
+The two reads together defined the **central fork**. **Phase 3 resolved it in MLU's direction and
+went further**: Ehlnofey clamps `ECZN` bands (MLU's lever) but at *zero* width, keeps the vanilla
+scaling machinery, and edits **no** leveled item lists at all — so it needs neither MLU's truncation
+pass nor Requiem's bespoke patcher. The table is kept for context:
 
 | | Requiem | MorrowLoot Ultimate |
 |---|---|---|
@@ -250,9 +286,14 @@ The two reads together define the **central fork**, and it is the real Phase 3 d
 | Repo cost | 108 MB / 26,620 records | **22 MB / 4,751 records** |
 
 Neither actually achieves bone 1: Requiem leaves followers and 114 NPCs scaling; MLU only *narrows*
-ranges (a `[38–53]` band still moves with the player). **`MinLevel == MaxLevel` is un-taken prior
-art** — no precedent, so no evidence it feels right or even works. Cheapest possible in-game test,
-and it gates the difficulty map.
+ranges (a `[38–53]` band still moves with the player). ~~`MinLevel == MaxLevel` is un-taken prior
+art~~ — **wrong, and now researched**: MLU itself ships three `Min == Max` zones (ColdRockPass
+22–22, ShrineofBoethiah 30–30, its own new `MLU_MQ301` 40–40), and the `[38–53]`-still-moves
+problem has a mechanical explanation — zones govern leveled-*list* selection but `PcLevelMult`
+actors ignore them entirely. **The five gating engine questions are answered in
+`arch-docs/design/engine-behaviour.md`** (2026-07-28). **Ehlnofey's answer to "neither achieves bone
+1" is the split in `implementation-strategy.md`**: zero-width zones fix the places, and SkyPatcher
+`filterByPCLevelMult` rules fix the actors zones structurally cannot reach.
 
 ## Phase plan
 
@@ -261,7 +302,7 @@ and it gates the difficulty map.
 | **0 — Workspace** | Spriggit round-trip, skills, CI, base+DLC decompiles in `reference/` | ✅ complete |
 | **1 — World research** | `arch-docs/world/*` — enemy taxonomy, factions, dungeons, regions, progression, lore constraints, DLC deltas | Every hostile archetype and every dungeon is in a table with its vanilla scaling behaviour cited from `reference/` |
 | **2 — Prior art & method** | `arch-docs/prior-art/*` — how Requiem, MorrowLoot Ultimate and SkyPatcher actually do it | ✅ complete — each has a verified mechanism, a cost, and a compatibility verdict |
-| **3 — Design spec** | `arch-docs/design/*` — tier system, region difficulty map, loot model, and the **implementation-strategy decision** | A record-level spec exists that someone else could implement without re-deciding anything |
+| **3 — Design spec** | `arch-docs/design/*` — tier system, region difficulty map, loot model, and the **implementation-strategy decision** | ✅ complete — 5 documents; all 355 zones assigned; architecture decided |
 | **4 — Build** | `src/Ehlnofey/` — plugin YAML, any scripts/rule files, FOMOD, release | Deserializes clean, passes `xedit-audit`, **and has been launched in-game** |
 
 Phases 1–3 are documentation work. **Do not start authoring records in `src/` before Phase 3 has a
@@ -297,10 +338,19 @@ arch-docs/
     # ^ Phase 2 is CLOSED. Open World Loot, SPID and Synthesis were dropped on
     #   purpose — see "Current phase". Do not add files here without a reason.
   design/
-    tiers.md                     # the fixed tier ladder and what each tier means numerically
-    difficulty-map.md            # region/dungeon → tier assignment
-    loot-model.md                # rarity by place; what leaves the leveled lists
-    implementation-strategy.md   # THE gating decision — see below
+    engine-behaviour.md          # EXISTS — the five gating engine questions, answered with sources
+                                 #   (ECZN clamp scope, Min==Max, loot, LevelModifier, SkyPatcher
+                                 #    timing/saves). Read before tiers/difficulty-map/implementation.
+    tiers.md                     # EXISTS — the T1–T7 ladder (4/8/14/21/30/40/50), the LevelModifier
+                                 #   GMST decision, archetype home bands, class-D fixed levels, and
+                                 #   the bone-1 exception verdicts. Read before difficulty-map/loot.
+    difficulty-map.md            # EXISTS — all 355 zones assigned T1–T7, generated. The rules are
+                                 #   type→tier + word-wall bump + region floor/ceiling + 44 explicit.
+    build-difficulty-map.py      # EXISTS — regenerates difficulty-map.md §7 from reference/.
+                                 #   Change the seven numbers in TIER and re-run to recalibrate.
+    loot-model.md                # EXISTS — the tier ladder IS the material ladder; no truncation pass
+                                 #   needed. One GMST. Hinges on the gear-resolution test.
+    implementation-strategy.md   # EXISTS — THE decision, now made. See below.
 ```
 
 ## Research rules (Phases 1–3)
@@ -331,40 +381,63 @@ Mutagen/Spriggit field name in `reference/` before writing YAML**, and record th
 | Actor templates | `NPC_` template + template flags | A spawn may inherit stats/traits from another record, so editing the visible NPC can do nothing. Trace before editing. `[community]` |
 | Leveled actor lists | `LVLN` | Chooses which variant spawns, with per-entry level gates and chance-none. Deleveling means flattening or splitting these per tier. `[community]` |
 | Leveled item lists | `LVLI` | The loot side of the same machinery — vanilla gates gear tiers by player level here. `[community]` |
-| Encounter zones | `ECZN` | Per-location min/max level and flags. **Phase 2 verdict: viable, but only in one of two architectures.** A zone *clamps* the level the leveled-spawn machinery computes. Requiem flattened that machinery away, so its zones are inert (8 records, none for levels). MorrowLoot Ultimate kept it and clamped it — **360 zones, 324 with a real band** — making zones its entire difficulty map. **The `ECZN` and `LVLN` decisions are one decision.** See `arch-docs/prior-art/morrowloot.md` §1. `[verified]`; the clamp semantics themselves are `[community]` and must be tested in-game |
-| Placed-actor difficulty | `ACHR` / `PlacedNpc` field `LevelModifier` (`Easy`/`Medium`/`Hard`/`VeryHard`) | Vanilla's hand-tuning layer, on **5,685 of 10,504** placed actors (2,524 of 4,452 interior); the four values map to `fLeveledActorMult*` = 0.33/0.67/1/1.25. Keep it. **Prior art disagrees on the multipliers:** Requiem leaves them at vanilla, MLU compresses to 0.7–1.3 so the zone band dominates. Choose deliberately — don't inherit by default. `[verified]` |
+| Encounter zones | `ECZN` | Per-location min/max level and flags. **Phase 2 verdict: viable, but only in one of two architectures.** A zone *clamps* the level the leveled-spawn machinery computes. Requiem flattened that machinery away, so its zones are inert (8 records, none for levels). MorrowLoot Ultimate kept it and clamped it — **360 zones, 324 with a real band** — making zones its entire difficulty map. **The `ECZN` and `LVLN` decisions are one decision.** See `arch-docs/prior-art/morrowloot.md` §1. `[verified]`. **Clamp semantics now researched** (`design/engine-behaviour.md`): the zone level is `clamp(playerLevel, min, max)` computed on first visit, **stored in the save, never recalculated** until zone reset; it governs leveled-list selection (and, per docs, loot lists) but **`PcLevelMult` actors ignore it** — they need per-NPC fixing. `[community]` |
+| Placed-actor difficulty | `ACHR` / `PlacedNpc` field `LevelModifier` (`Easy`/`Medium`/`Hard`/`VeryHard`) | Vanilla's hand-tuning layer, on **5,685 of 10,504** placed actors (2,524 of 4,452 interior); the four values map to `fLeveledActorMult*` = 0.33/0.67/1/1.25. Keep it. **Prior art disagrees on the multipliers:** Requiem leaves them at vanilla; MLU uses **0.7 / 0.9 / 1.1 / 1.3** — note its Hard is **1.1, not 1.0**, so every Hard-tagged actor sits a notch above its zone's nominal level. **Decided in `design/tiers.md` §4: Ehlnofey uses 0.70 / 0.85 / 1.00 / 1.25** — two GMST overrides, keeping Hard = 1.0 so "a T5 zone is a level-30 zone" is exactly true. `[verified]` |
 | Global knobs | `GMST` (level-scaling and difficulty multipliers) | Blunt but cheap; changes everything at once. Use deliberately, never as a substitute for tiering. `[community]` |
 | Spawn gating by player level | 12 `LevelGate*` `GLOB` records (Spriggan 8 … Giant 24) | Vanilla's only systematic level gate — it withholds world-encounter *creatures* until the player is roughly their level. **This is a bone-1 violation that already exists**; delete or document as an exception. `[verified]` |
 | Capability, not level | `PERK`, `SPEL`, `CSTY` (combat style) | A level-20 bandit's threat comes largely from perks/spells/AI. Deleveling levels without capability produces a flat, boring world. `[community]` |
 
-## Implementation strategy — the open decision
+## Implementation strategy — DECIDED (Phase 3)
 
-This gates Phase 4 and belongs in `arch-docs/design/implementation-strategy.md`. **Two candidates**
-— a third (a Synthesis/Mutagen generated patch) was considered and **ruled out: Synthesis is not an
-option for this mod.** Do not revive it.
+**Verdict: a hybrid — places and constants in the plugin, actors in rules.** Full reasoning and the
+record-by-record manifest are in `arch-docs/design/implementation-strategy.md`; this is the summary.
+
+| Half | Contents | Size |
+|---|---|---|
+| **`Ehlnofey.esp`** | the **355 encounter-zone bands**, 3 `GMST`s, 12 `LevelGate*` `GLOB`s, 5 capstone bosses, 1 bug fix | **~376 records, all overrides**, ~1–2 MB YAML |
+| **SkyPatcher INI rules** | the ~454 `PcLevelMult` actors, the ambient leveled lists | tens of lines |
+
+**This revises the earlier working recommendation**, which had rules doing the zone distribution too.
+Phase 3 moved the zones into the plugin for two reasons: the authoring cost is **identical either
+way** (SkyPatcher's `encounterzone/` has no keyword or location filter, so all 355 must be enumerated
+by FormID regardless — `skypatcher.md` §5.3), and only the plugin route is reachable by
+`xedit-audit`, `formkey-check` and the Spriggit round-trip. Guardrail 6 decides it: for the mod's
+spine there must be *something* to verify. Conversely the ~454 class-D actors stay as rules, because
+`filterByPCLevelMult` is a **predicate** that also catches NPCs from other mods and future patches,
+where 454 overrides would only be a snapshot.
+
+Bonus property: the plugin half **degrades gracefully**. If SkyPatcher breaks on a game update the
+world still has its fixed places; under a rules-only design the mod would do nothing at all.
+
+**Masters:** `Skyrim.esm`, `Update.esm`, `Dawnguard.esm`, `Dragonborn.esm`. **Hearthfire excluded.**
+
+The two candidates as they were framed before the decision, kept for context — a third (a
+Synthesis/Mutagen generated patch) was considered and **ruled out: Synthesis is not an option for
+this mod.** Do not revive it.
 
 | Approach | Mechanism | Cost |
 |---|---|---|
 | **A. Plugin overrides** | Override vanilla records directly in Spriggit YAML | Total control, no dependencies. But thousands of override files: a huge repo, unreviewable diffs, and a hard conflict with every other mod touching the same records. Phase 2 measured the ceiling: Requiem is **108 MB / 26,620 records**, MLU **22 MB / 4,751**. |
 | **B. Runtime rule engines** | SkyPatcher INI rules, applied at load by SKSE | Few or no overrides, filter-based, very compatibility-friendly. **SkyPatcher's capabilities are `[verified]` from source** — see `arch-docs/prior-art/skypatcher.md`. It can express the deleveling core of *both* Requiem and MLU. It **cannot** touch `GMST`s or placed-actor `LevelModifier`, and cannot filter zones by location/keyword. Requires SKSE, and **none of this workspace's verification tooling applies to a rule file**. |
 
-**Working recommendation (not yet a decision):** a hybrid — SkyPatcher rules for the broad
-per-NPC/per-list/per-zone distribution, plus a small hand-authored `Ehlnofey.esp` for the handful of
-things rules cannot reach: the `GMST`s, and any new records (keywords, new leveled lists for rules
-to point at). Phase 2 makes this look far more attractive than it did on paper — the plugin half
-plausibly shrinks to a few dozen records, against option A's ceiling above.
-
-**Decide it in Phase 3 and record the verdict here.** The two things that should settle it are both
-cheap in-game tests, not more reading: whether an `ECZN` clamp applied at `kDataLoaded` actually
-takes effect, and whether `MinLevel == MaxLevel` behaves.
+**The one thing the architecture does not solve: the overworld.** Most wilderness has no encounter
+zone, so there is nothing to write a tier into, and the ambient lists still gate on player level.
+Authoring wilderness zones is **not tractable** (attaching them needs `cell/encounterZone=`, and cell
+rules have no keyword/location/region filter, so thousands of exterior cells would have to be
+enumerated). **Phase 4 ships the partial fix**: flatten the ambient `LCharAnimal*` lists by rule, which
+satisfies bone 1 but yields one wilderness mix for the whole province rather than a regional one. The
+mitigation is that `enemy-taxonomy.md` §2.3 shows those ladders already cap out at a level-16 cave
+bear / level-22 frost troll — Skyrim's wilderness is **already effectively deleveled above ~level
+20**, and flattening makes that true from level 1. Regional wilderness variation is deferred, needs
+new records, and would reopen the ESL decision. Same treatment for the 8 unzoned dragon lairs.
 
 ## Naming & FormKey conventions
 
 Fixed now so Phase 4 does not have to argue about it:
 
-- **Plugin:** `Ehlnofey.esp`. Masters: `Skyrim.esm` + `Update.esm`, plus whichever DLC masters the
-  final scope requires (adding a DLC master makes it a hard requirement — decide per phase, in the
-  design docs, not mid-edit).
+- **Plugin:** `Ehlnofey.esp`, **ESL-flagged**. Masters **decided in Phase 3**: `Skyrim.esm`,
+  `Update.esm`, `Dawnguard.esm`, `Dragonborn.esm`. Hearthfire is excluded — it adds no worldspace,
+  region, dungeon or encounter zone, so taking it as a master would buy nothing.
 - **EditorID prefix:** `EHL_`, then the domain, then the specific: `EHL_LVLI_DraugrBossHoard_T4`,
   `EHL_ECZN_BleakFalls`. Tier suffixes are `_T<n>` against the ladder in `design/tiers.md`.
 - **New records** start at `0x800` and are allocated in a **contiguous block per feature** (one block
@@ -372,11 +445,14 @@ Fixed now so Phase 4 does not have to argue about it:
 - **Overrides keep the original master's suffix** (`09BC43:Skyrim.esm`), which is how you tell an
   invented record from a vanilla one at a glance. Ehlnofey will be override-heavy, so this matters
   more here than in a content mod.
-- **ESL decision: open.** Overrides do not consume new FormIDs, so an ESL-flagged plugin stays viable
-  as long as *new* records fit `0x800–0xFFF`. Confirm before exceeding.
+- **ESL decision: RESOLVED — yes, ESL-flag it.** Phase 3's design needs **no new records at all**
+  (`implementation-strategy.md` §2.5): every one of the ~376 plugin records is an override, and
+  overrides consume no new FormIDs. The `0x800–0xFFF` constraint binds only new records, so it is not
+  reached. The decision reopens only if a later phase adds new records — most likely region-scoped
+  leveled lists for the overworld problem.
 - Always `/formkey-check` before claiming a block.
 
-**FormID usage:** none yet. **Next free: `0x800`.**
+**FormID usage:** none, and **none is planned**. **Next free: `0x800`.**
 
 ## Useful FormKey constants
 
@@ -389,7 +465,7 @@ is the payoff of the research phase.
 | `000038:Skyrim.esm` | GameHour global |
 | `000039:Skyrim.esm` | GameDaysPassed global |
 | `00003C:Skyrim.esm` | Tamriel worldspace |
-| `038AB1:Skyrim.esm` | BleakFallsBarrowZone (ECZN) — one of only 5 vanilla zones with a `MaxLevel` |
+| `038AB1:Skyrim.esm` | BleakFallsBarrowZone (ECZN) — one of only 6 vanilla+DLC zones with a `MaxLevel` (see `design/engine-behaviour.md` §2) |
 | `039CFC:Skyrim.esm` | LCharBanditMelee1H (LVLN) — the worked example of vanilla's scaling chain |
 | `0130DB:Skyrim.esm` | LocTypeDungeon keyword (202 locations) |
 | `0F5E80:Skyrim.esm` | LocTypeClearable keyword (199 locations) |
@@ -400,6 +476,10 @@ is the payoff of the research phase.
 | `016E2A:Dragonborn.esm` | DLC2SolstheimLocation — a tenth `LocTypeHold` root (levels 6–40) |
 | `016E2B:Dragonborn.esm` | DLC2ApocryphaLocation — root with **no keywords**; 7 Black Books, all level 25 |
 | `000013:Skyrim.esm` | CreatureFaction — the creature/humanoid divide (660 NPCs) |
+| `01A1D9` / `01A1DB` / `01A1DA` / `023C0B` `:Skyrim.esm` | `fLeveledActorMult` Easy/Medium/Hard/VeryHard — vanilla 0.33/0.67/1/1.25, Ehlnofey 0.70/0.85/1.00/1.25 (`design/tiers.md` §4) |
+| `10FEDD` / `10FEDF` / `10FEDE` `:Skyrim.esm` | `fSpecialLootMinZoneLevelMult` 0.4 / `…MaxZoneLevelMult` 1.0 / `…MinPCLevelMult` 0.6 — the boss-chest loot roll. The `…MinPCLevelMult` is a **live bone-1 leak** (floor at 0.6 × *player* level, zone-independent); one record to close |
+| `01E60D:Skyrim.esm` | `EncBandit04TemplateMelee` — the vanilla `L=0` bug; Ehlnofey sets it to 14 |
+| `0BC0A4` / `0F5BA8` `:Skyrim.esm` | ColdRockPass / ShrineofBoethiah — MLU's two `Min == Max` overrides of vanilla zones (its third is its own `1D6A71:MLU.esp`) |
 
 The full primary-source list is `arch-docs/world/enemy-taxonomy.md` §8 — cite from there rather than
 re-deriving.
@@ -475,6 +555,30 @@ Fill this as the project teaches you things.
 - **Comparing a mod against vanilla means comparing against the *winning* vanilla record**, and the
   join key must be `<hex>_<master>`, never bare hex — see the "resolve FormKeys by master" gotcha
   above. Requiem overrides records from six different masters. `[verified]`
+
+- **A flag census is not a gate census.** `overview.md` and `enemy-taxonomy.md` §4 both sized the loot
+  job as "1,959 of 3,075 `LVLI` are player-gated" — that is the count carrying
+  `CalculateFromAllLevelsLessThanOrEqualPlayer`. Only **1,382** have any entry above level 1, and only
+  **1,378** have more than one distinct entry level. **1,693 lists (55%) are flat variety pools
+  carrying the flag over entries that are all level 1.** Always count the entries, not the flag.
+  `[verified]`
+- **Never conclude from a truncated read.** `head -40` on `LItemBanditCuirass` (`037C22`) shows forty
+  consecutive `Level: 1` entries and looks like a flat pool; its gates at 6/7/8/9/19…28 are further
+  down the file. Spriggit orders entries as authored, not by level. Parse the whole record — or at
+  minimum `grep` for the field across it — before saying what shape it is. `[verified]`
+- **Search `GameSettings/` by keyword before believing a mechanic is undocumented.** The engine names
+  its own operands: `fSpecialLootMinZoneLevelMult` / `…MaxZoneLevelMult` / `…MinPCLevelMult` settled a
+  question (does the zone level reach loot?) that UESP itself tags as needing verification, and turned
+  up a live bone-1 leak in the process. 1,584 GMSTs exist; `ls | grep -i <concept>` is seconds.
+  `[verified]`
+- **A "player-visible signal" is only a differentiator if it is not collinear with one you already
+  use.** `difficulty-map.md`'s first draft bumped dungeon tier on an ancient tileset
+  (`LocSetNordicRuin` / `LocSetDwarvenRuin`) as well as on the type keyword — but essentially every
+  `DraugrCrypt` *is* a `NordicRuin`, so the rule differentiated nothing and merely relabelled the
+  whole type one tier up. Check the cross-tab before adding a signal. `[verified]`
+- **`ls */ | grep` over `reference/` times out the same way `grep -rl` does.** The CLAUDE.md gotcha
+  about filename matching applies to *globbed* directory listings too — `ls Npcs | grep <id>` is
+  instant, `ls */ | grep <id>` is a 2-minute timeout. Name the one directory. `[verified]`
 
 Candidates still to confirm:
 
