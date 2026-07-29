@@ -245,11 +245,17 @@ Free, pure record technique, no patcher (`prior-art/requiem/lessons-for-ehlnofey
 |---|---|
 | **`Level: 9999`** | disable an entry in place. It stays in the record so diffs and merges still see it, but can never roll. Better than deletion for the truncation pass |
 | **`EHL_NULL_` rename** | retire a record without deleting it — deletion breaks every reference. Requiem has 197 such `LVLI`, 63 `LVLN` |
-| **`Count` as a weight** | Skyrim has no weight field, and a flat pool makes every variant equally likely. `Count: 5` with `CalculateForEachItemInCount` is the workaround |
+| **Weighting by duplicate entries** | Skyrim has no weight field, and a flat pool makes every variant equally likely. Repeat the entry N times to weight it |
 
 The third is not optional here. **Flattening costs variety** — Requiem had to build a whole actor
 variation generator to pay it back. Weighting is how a flattened bandit pool stays mostly grunts with
 the occasional chief instead of a coin flip. Budget for it in the first archetype, not the last.
+
+> **Note the mechanism, which is easy to get wrong.** Weighting is *literal entry duplication*, not a
+> `Count` field: `Count` is how many actors an entry spawns, and `CalculateForEachItemInCount` rolls
+> each of them separately. Requiem's `_CLI_` convention writes `Count: 5` as authoring shorthand and
+> its **patcher unrolls it into five entries** (`lessons-for-ehlnofey.md` §4). Ehlnofey has no
+> patcher, so it writes the duplicates out — costs bytes, needs nothing.
 
 ---
 
@@ -361,10 +367,10 @@ zones, which lets 410 lists keep their gates untouched.
 
 **Step 1 — the outfit-reachability census.** ✅ **DONE** (§5.1–§5.5). The loot half is ~450 records.
 
-**Step 2 — assign every archetype family its tier** (§4.2), from `enemy-taxonomy.md`'s archetype table
-cross-checked against `lore-constraints.md`'s name hierarchy. This is the design work the pivot
-creates, and it replaces `difficulty-map.md`'s role for actors. Output: a table, reviewed, before a
-record is touched.
+**Step 2 — assign every archetype family its tier** (§4.2). ✅ **DONE** — `archetype-tiers.md`.
+~67 lists and ~76 NPC records for the whole actor half. It also closes `lore-constraints.md` §6.1:
+the Dremora, Warlock and Vampire ladders each land 1:1 on T1–T7, so the tier number is a real
+cross-archetype currency and "is a Draugr Scourge worse than a Forsworn Ravager" becomes answerable.
 
 **Step 3 — delete `src/ExampleMod/` and `src/EhlnofeyProbe/`.** Both are marked throwaway; the probe
 has served its purpose.
