@@ -407,12 +407,39 @@ the T7-and-above set.
 | `DLC1HarkonCombat` | 01A93D:Dawnguard | ×1.4 [10–60] | **60** — both records or the transformation is a downgrade |
 | `DLC2Miraak` | 017F7D:Dragonborn | ×1 [35–**200**] | **65** |
 | `DLC2MiraakMQ06` | 01FB98:Dragonborn | ×1.1 [35–150] | **65** |
+| `DLC2AcolyteZahkriisos` | 0248E8:Dragonborn | ×1 [25–60] | **60** — matches his fixed siblings |
 | Dragon Priests ×8 + Vahlok | — | fixed 50 | **50 (T7)** — unchanged |
 | Ahzidal, Dukaan | 0248E9, 0248E1 | fixed 60 | **60** — unchanged |
-| `EncBandit04TemplateMelee` | 01E60D | **level 0** (vanilla bug) | **14** |
+| ~~`EncBandit04TemplateMelee`~~ | 01E60D | level 0 | **no record needed** — see below |
 
 Harkon at 55/60 clears his own court (Volkihar 48 / Volkihar Master 53), satisfying
 `lore-constraints.md` §3's purity requirement `[verified]`.
+
+### 7.1 The `EncBandit04TemplateMelee` bug is already fixed by Dragonborn.esm
+
+**Found while authoring the record, 2026-07-29.** `[verified]` The L=0 bug is real in
+`Skyrim.esm` — the record serializes with no `Level:` line and a vestigial `CalcMinLevel: 14`. But
+**`Dragonborn.esm` overrides `01E60D:Skyrim.esm` and re-authors it properly**:
+
+```yaml
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 14          # <- present only in the Dragonborn override
+  CalcMinLevel: 14
+```
+
+It also adds `Health: 318`, `Stamina: 152` and four stat values the `Skyrim.esm` record lacks. Since
+Ehlnofey masters `Dragonborn.esm`, the winning record already carries the fix, and an Ehlnofey
+override would be a pure ITM.
+
+**This is CLAUDE.md's own last-wins gotcha catching a Phase 1 analysis that read the wrong file.**
+The claim originates in `enemy-taxonomy.md` §1 (*"Reading the `L=0` entries"*), which read
+`reference/Base/01Skyrim/`. Four documents repeat it and need correcting: `enemy-taxonomy.md` §1
+and §8, `tiers.md` §10, `CLAUDE.md`'s *Useful FormKey constants* table, and
+`implementation-strategy.md` §2.4.
+
+**Caveat worth keeping:** the fix is Dragonborn's, so it holds *only because* Ehlnofey requires
+Dragonborn. Anyone lifting this design onto a Skyrim-only plugin must re-add the override.
 
 ---
 

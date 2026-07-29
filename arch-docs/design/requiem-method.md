@@ -372,16 +372,24 @@ zones, which lets 410 lists keep their gates untouched.
 the Dremora, Warlock and Vampire ladders each land 1:1 on T1–T7, so the tier number is a real
 cross-archetype currency and "is a Draugr Scourge worse than a Forsworn Ravager" becomes answerable.
 
-**Step 3 — delete `src/ExampleMod/` and `src/EhlnofeyProbe/`.** Both are marked throwaway; the probe
-has served its purpose.
+**Step 3 — delete `src/ExampleMod/` and `src/EhlnofeyProbe/`.** ✅ **DONE.** `build/staging/Example
+Mod/fomod/` is **kept deliberately** — CLAUDE.md's FOMOD-image gotcha cites it as the only
+confirmed-working worked example, and `build.ps1` iterates `manifest.releases` only, so an unreferenced
+staging tree is inert.
 
-**Step 4 — scaffold `Ehlnofey.esp`** via `mod-new-plugin`. Masters `Skyrim.esm`, `Update.esm`,
-`Dawnguard.esm`, `Dragonborn.esm`; ESL-flagged.
+**Step 4 — scaffold `Ehlnofey.esp`.** ✅ **DONE.** ESL-flagged, four masters, own FOMOD, own manifest
+release. Empty scaffold built clean before any record was added.
 
-**Step 5 — the constants.** `fSpecialLootMinPCLevelMult = 0`, the 12 `LevelGate*` globals → 1, the 6
-named records. Smallest slice verifiable end-to-end: deserialize → `xedit-audit` → `package-mod` →
-`mod-deploy` → launch. Proves the pipeline before volume rides on it. **Note the two
-`fLeveledActorMult*` overrides are dropped** (§4.1).
+**Step 5 — the constants.** ✅ **DONE — 19 records** (not 20; see §7.1 of `archetype-tiers.md`):
+`fSpecialLootMinPCLevelMult` → 0, the 12 `LevelGate*` globals → 1, and 6 named capstones converted
+from `PcLevelMult` to fixed levels. The two `fLeveledActorMult*` overrides are dropped (§4.1), and
+`EncBandit04TemplateMelee` turned out to need no record at all.
+
+Verified four ways: `build.ps1` clean · `build.ps1 -CheckFomod` parity OK · `Test-RecordYaml.ps1`
+20 files no issues · **Spriggit round-trip byte-identical on content**. Every FormKey reference was
+also machine-checked against the declared master list — all resolve, no HearthFires leak.
+
+**Not verified: `xedit-audit` and the launch.** See §9.
 
 **Step 6 — the 355 zones**, generated from `difficulty-map.md` as already planned. They now serve
 container loot only, but nothing about the records or the generator changes.
@@ -445,6 +453,27 @@ a fixed level is the right answer anyway**, but the set has not been individuall
 during step 8; it is a read, not a redesign, and `deathItem=` is rule-expressible (`npc.cpp:142`).
 
 ---
+
+## 9. Environment blockers found at step 5
+
+Neither is a defect in the mod; both stop guardrail 6 from being satisfied and need the user's input.
+
+1. **`tools.json` points at a game install with no DLC.** `gameDataDir` is
+   `claudemoddev/modlist/Game Root/Data`, which holds **only `Skyrim.esm`** — a tooling stub, not a
+   playable install. Ehlnofey masters `Update`, `Dawnguard` and `Dragonborn`, so nothing can load it
+   there. A full set does exist at `C:/modding/modlists/LoreRim/Stock Game/Data` (all five masters).
+   **Decision needed:** repoint `gameDataDir` (and possibly the other `claudemoddev` tool paths) at
+   LoreRim, or install the DLC into the stub. Not changed unilaterally — `papyrusCompiler`,
+   `creationKit`, `champollion` and the xEdit tools all point into `claudemoddev`, and moving one
+   path without the others is how a workspace ends up half-configured.
+
+2. **`SSEEditQuickAutoClean` blocks on a GUI dialog** even with `-autoload`. The skill documents this
+   risk for the *Check for Errors* pass; it applies to QuickAutoClean too on this build. The run was
+   killed and the staged plugin and its backup removed from the LoreRim Data folder.
+   **Consequence: `xedit-audit` has never been run against Ehlnofey.esp.** The substitute checks
+   above are strong for *this* slice — every record was copied verbatim from `reference/`, so its
+   FormKeys are valid by construction — but they will not stay sufficient once step 8 authors records
+   by transformation rather than by copy.
 
 ## Sources
 
