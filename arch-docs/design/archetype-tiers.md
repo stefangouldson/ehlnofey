@@ -203,25 +203,111 @@ not set a level — it fixes **which animals live where**.
 | `LCharMudcrab` 02183E | Medium 1 → Large → Giant | **Medium ×3** · Large ×2 · Giant ×1 |
 | `LCharCustomIceWraithFrostTroll` 106386 | Ice Wraith 9 → Frost Troll 22 | **Ice Wraith ×2** · Frost Troll ×1 |
 
-### 4.1 The biome ambient lists — flatten in place, keep the geography
+### 4.1 The biome ambient lists — enumerated
 
 `requiem-method.md` §5.4: Bethesda **already partitions wilderness by biome** `[verified]`, so
 flattening each list in place yields fixed *and* regionally varied wildlife with zero new records.
+Pulled from `reference/` by `arch-docs/design/biome-rosters.ps1`. **19 lists exist**, not 18.
 
-The rosters are the vanilla species already on each list, weighted to their biome's identity:
+#### 4.1.1 The finding that decides how to flatten them
 
-| List | Roster | Reads as |
+**The ambient lists are a density ramp, not a tier ladder.** They repeat the *same* creature at
+successive gates, so as the player levels, more copies of the dangerous species enter the pool while
+the harmless ones stay at a fixed count. `LCharAnimalForestPredator` (042297) in full `[verified]`:
+
+```
+Wolf@1 ×4  Skeever@1  SpiderLarge@6,7,8,10  Bear@12,13,13,14,14  Troll@14,15,15,16
+BearCave@16,20,24,28,28,30,30,35
+```
+
+Eligible mix by player level — the same 26 entries, filtered:
+
+| PC | eligible | mix |
 |---|---|---|
-| `LCharAnimalForestPredator` 042297 | Wolf ×4 · Skeever ×2 · **Frostbite Spider ×2** · Bear ×1 · Troll ×1 | pine forest — T1–T3 |
-| `LCharAnimalMountainSnowPredator` 04229D | Ice Wolf ×3 · **Snow Sabre Cat ×2** · Ice Wraith ×2 · Snow Bear ×1 · Frost Troll ×1 | high country — T2–T4 |
-| `…PlainsPredator` · `…CanyonPredator` · `…MarshPredator` · `…CoastSnowPredator` · `…ForestSnowPredator` · `LCharAnimalHills` · `LCharAnimalSnowFields` | same treatment, per biome | — |
-| prey counterparts (`…Prey`, `LCharDeer`, `LCharElk`) | already flat — **leave alone** | T1 |
+| 4 | 5 | Wolf ×4 · Skeever ×1 |
+| 8 | 8 | Wolf ×4 · SpiderLarge ×3 · Skeever ×1 |
+| **14** | 15 | **Bear ×5 · SpiderLarge ×4 · Wolf ×4 · Troll ×1 · Skeever ×1** |
+| 21 | 20 | Bear ×5 · SpiderLarge ×4 · Troll ×4 · Wolf ×4 · BearCave ×2 · Skeever ×1 |
+| 30 | 25 | **BearCave ×7** · Bear ×5 · Troll ×4 · Wolf ×4 · SpiderLarge ×4 · Skeever ×1 |
 
-> **This is where the pivot pays off most.** `enemy-taxonomy.md` §2.3 found the wilderness is *already*
-> effectively deleveled above ~level 20 — forest predators cap at a level-16 cave bear, mountain
-> predators at a level-22 frost troll — *"the danger gradient Ehlnofey wants for the overworld largely
-> exists, it just stops mattering because the player outgrows it."* `[verified]` Flattening keeps the
-> gradient and removes the outgrowing. **No zones, no new records, 18 rules.**
+Two consequences, and the first is a trap:
+
+1. **Naive flattening inherits the level-35 mix.** Move every entry to `Level: 1` and a Falkreath
+   pine wood becomes cave-bear soup — 7 of 26 draws, the *most* dangerous composition vanilla ever
+   produces. The flattening must therefore **target a reference level**, not just collapse the gates.
+2. **It vindicates the weighting mechanism** (§1 rule 2): vanilla weights by literal entry
+   duplication, exactly as Ehlnofey will. This is not an invented technique.
+
+> **This refines `enemy-taxonomy.md` §2.3.** That section found the wilderness *already* effectively
+> deleveled above ~level 20 — *"forest predators top out at a level-16 cave bear"* — and concluded the
+> overworld gradient largely exists already. **True of the species ceiling, false of the
+> composition:** the species stops climbing at 16 but its *share of the pool* keeps climbing to gate
+> 35. The wilderness does not stop scaling at 20; it stops introducing new animals at 20 and goes on
+> concentrating the worst one.
+
+#### 4.1.2 The rule: freeze each biome at its own tier
+
+Each list keeps **vanilla's own eligible mix, frozen at the reference level of the tier assigned to
+that biome.** Zero invention — every roster below is a filtered vanilla list, and the weights are
+Bethesda's.
+
+| List | FormKey | **Tier** | **Roster (frozen mix)** |
+|---|---|---|---|
+| `LCharAnimalPlainsPredator` | 042293 | **T2** | Wolf ×4 · SabreCat ×1 · Skeever ×1 |
+| `LCharAnimalForestPredator` | 042297 | **T3** | Bear ×5 · SpiderLarge ×4 · Wolf ×4 · Troll ×1 · Skeever ×1 |
+| `LCharAnimalCanyonPredator` | 04229B | **T3** | Bear ×4 · Wolf ×4 · SabreCat ×3 · Skeever ×1 |
+| `LCharAnimalMarshPredator` | 042295 | **T3** | Chaurus ×3 · SpiderLarge ×3 · Spider ×2 · Troll ×1 |
+| `LCharAnimalHills` | 01E78F | **T3** | Bear ×3 · Wolf ×3 · SabreCat ×2 · Skeever ×1 |
+| `LCharAnimalCoastSnowPredator` | 0422A3 | **T3** | SabreCatSnow ×4 · WolfIce ×4 · Wolf ×2 |
+| `LCharAnimalForestSnowPredator` | 042299 | **T4** | IceWraith ×4 · SabreCatSnow ×3 · SpiderSnowLarge ×3 · BearSnow ×2 · SpiderSnow ×1 |
+| `LCharAnimalMountainSnowPredator` | 04229D | **T5** | IceWraith ×4 · WolfIce ×4 · BearSnow ×3 · SabreCatSnow ×3 · **TrollFrost ×3** · Wolf ×2 |
+| `LCharAnimalSnowFields` | 01E78E | **T4** | WolfIce ×3 · SabreCatSnow ×2 · IceWraith ×2 · BearSnow ×1 |
+| `LCharAnimalForest` | 01E790 | **T3** | Bear ×2 · SabreCat ×2 · Wolf ×1 |
+| `LCharAnimalPlains` | 01E78D | **T2** | Wolf ×3 · SabreCat ×1 |
+| `DLC2LCharAnimalForestPredator` | 01E1C5:DB | **T3** | Bear ×5 · **BoarWild ×4** · Wolf ×4 · Troll ×1 · Skeever ×1 |
+| `DLC2LCharAnimalMountainSnowPredator` | 01E1C6:DB | **T5** | as mainland mountain, BoarWild ×4 in place of the spiders |
+
+**The gradient falls out geographically**: plains T2 → forest / canyon / marsh / hills / coast T3 →
+snowy forest and snow fields T4 → **mountains T5**. That is a legible map with no zone anywhere in it.
+
+**Mountains at T5 are doing specific work.** `tiers.md` §8 sets the twelve `LevelGate*` globals to 1,
+which removes vanilla's only systematic protection against a level-5 character meeting a frost troll.
+`lore-constraints.md` §4 item 4 says the geography must then carry the warning instead: *"frost trolls
+belong on mountains, and the player must be able to see the mountain."* T5 is the only band whose
+frozen mix contains `TrollFrost` — it appears at gate 28 and nowhere below. **The mountain is the
+warning, and it is visible from anywhere in Skyrim.**
+
+#### 4.1.3 Seven prey lists need no edit at all
+
+Already flat, every entry at gate 1 `[verified]`:
+
+| List | Contents |
+|---|---|
+| `LCharAnimalForestPrey` 042298 · `MarshPrey` 042296 · `PlainsPrey` 042294 | `LCharElk` + `LCharDeer` |
+| `LCharAnimalCanyonPrey` 04229C · `MountainSnowPrey` 0422A2 | `EncGoatWild` (L=1) |
+| `LCharAnimalCoastSnowPrey` 0422A4 | `EncHorker` (L=3) |
+| `LCharDeer` 0ABEDC · `LCharElk` 0DB2AC · `LCharDeerSprigganCompanion` 0D2071 | L=1 |
+
+#### 4.1.4 The remaining ambient lists
+
+| List | FormKey | **Tier** | **Roster** | Note |
+|---|---|---|---|---|
+| `LCharMudcrab` | 02183E | **T1** | Medium ×2 · Large ×2 · Giant ×1 | levels are 1 / 2 / **3** — "Giant" is a size, not a tier |
+| `LCharBearPlainsForestHills` | 01E796 | **T3** | Bear ×3 · BearCave ×1 | |
+| `LCharSpriggan` | 10EC84 | **T2** | Spriggan ×3 · Matron ×1 | **Dawnguard overrides this record** and adds `DLC1EncSprigganEarthMother` (L=30) at gate 30 `[verified]` — reserve it, per rule 4 |
+| `LCharSprigganCompanion` | 01E776 | **T2** | Wolf ×2 · SabreCat ×1 | must track the spriggan that summons it |
+| `LCharSprigganCompanionFrost` | 0640BD | **T3** | WolfIce ×2 · SabreCatSnow ×1 | |
+| `LCharWitchAny` | 074F9D | **T2** | `LCharWitch01Any` ×3 · `LCharWitch02Any` ×1 | |
+
+#### 4.1.5 Flattening makes the flag question moot
+
+Three lists carry **no `Flags:` block** — `LCharAnimalForest`, `LCharAnimalPlains`,
+`LCharAnimalSnowFields`, plus `LCharMudcrab`, `LCharBearPlainsForestHills` `[verified]` — so vanilla
+selects only the highest qualifying rung rather than drawing from all of them
+(`enemy-taxonomy.md` §1). **Once every entry sits at `Level: 1` the two behaviours coincide**: the
+highest qualifying level *is* 1, and every entry is at it. So Ehlnofey does not need to normalise the
+flag on any flattened list, and `enemy-taxonomy.md` §1's warning — *"Ehlnofey must not assume the flag
+is uniformly set"* — stops applying to this population. It still applies to any list left gated.
 
 **Hard lore constraint, carried:** giants, mammoths and most `PredatorFaction` wildlife are
 **passive** and must stay passive (`lore-constraints.md` §4 item 1). Difficulty comes from what they
@@ -313,13 +399,15 @@ Harkon at 55/60 clears his own court (Volkihar 48 / Volkihar Master 53), satisfy
 | | count |
 |---|---|
 | Class A lists to flatten (§3) | **~40** |
-| Class B lists to flatten (§4, incl. 18 biome lists) | **~27** |
+| Class B substitution lists (§4) | **9** |
+| Class B biome + ambient lists (§4.1.2, §4.1.4) | **19** |
+| Class B prey lists — **already flat, 0 edits** (§4.1.3) | 9 |
 | Class C — verify only | 8 families, **0 edits** |
 | Class D — SkyPatcher rules (§6) | **~6 lines** |
 | Followers — hand-set `NPC_` overrides (§6.1) | **~68** |
 | Named capstones (§7) | **8 records** |
 
-**~67 leveled lists and ~76 NPC records** for the entire actor half — against `requiem-method.md`
+**~68 leveled lists and ~76 NPC records** for the entire actor half — against `requiem-method.md`
 §5.5's ~450 for the loot half. The actors were never the expensive part; `enemy-taxonomy.md` §6 said
 so in Phase 1 (*"the dominant cost is E, not the actors at all"*) and the pivot has not changed it.
 
@@ -336,9 +424,13 @@ so in Phase 1 (*"the dominant cost is E, not the actors at all"*) and the pivot 
 3. **Weights are guesses.** The rungs are `[verified]`; the ×3/×2/×1 ratios are design judgement with
    no vanilla precedent to copy, because vanilla never needed weights. Expect to retune.
 4. **Follower tiers are untested as a design** (§6.1).
-5. **Ambient biome rosters (§4.1) are sketched, not enumerated.** The nine `LCharAnimal*` lists need
-   their actual entries read out of `reference/` before authoring — this table gives the shape and two
-   worked examples, not the full membership.
+5. ~~Ambient biome rosters are sketched, not enumerated.~~ **CLOSED** — §4.1 now carries all 19 lists
+   from `reference/`, and the exercise found the density-ramp trap (§4.1.1) that a sketch would have
+   walked straight into. The biome *tier assignments* in §4.1.2 remain design judgement; the rosters
+   themselves are vanilla's, filtered.
+6. **`LCharAnimalSnowFields`, `…Forest` and `…Plains` are the three lists whose frozen rosters were
+   hand-built rather than filtered**, because with no flags and one entry per gate there is no
+   "eligible mix" to freeze. They are small (3–6 entries) but they are the only invented rows in §4.1.
 
 ---
 
