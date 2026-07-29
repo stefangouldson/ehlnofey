@@ -253,23 +253,96 @@ the occasional chief instead of a coin flip. Budget for it in the first archetyp
 
 ---
 
-## 5. Scope control — the 2,025-list ceiling is not the target
+## 5. Scope control — the loot job is 202 lists, not 1,756
 
-### 5.1 The census that has to happen before anything is costed
+### 5.1 The reachability census — DONE (2026-07-29, this branch)
 
 Under Twist 1, **container-only lists keep their gates and need no edit.** Only lists reachable from
-an **outfit or an NPC `Items:` block** are broken. Nobody has measured that split.
+an **outfit or an NPC `Items:` block** are bone-1 leaks. `arch-docs/design/lvli-reachability.ps1`
+measures the split: roots are NPC `Items:` plus `DefaultOutfit`/`SleepingOutfit` → `OTFT Items:`
+(actor side) and `CONT Items:` (container side), closed transitively over `LVLI → LVLI` edges, load
+order last-wins. All `[verified]`:
 
-**Deliverable, step 1:** partition the 1,756 gated `LVLI` into *outfit-reachable* and
-*container-only*. Pure `reference/` parse, no game launch. This single number decides whether the
-loot half is ~50 lists or ~900, and **nothing downstream should be estimated until it exists.**
+| gated `LVLI` (1,754 of 3,817) | count |
+|---|---|
+| reachable from **both** actors and containers | **986** |
+| container-only — **no edit** | 410 |
+| actor-only | 181 |
+| unreached from either root | 177 |
 
-Expect it to be small. The Swindler's Den trace (`probe-test-protocol.md` §6.1) found the whole
-bandit-chief wardrobe reached through **five** lists — `LItemBanditCuirass` `037C22`,
-`LItemBanditBoots` `037C23`, `LItemBanditGauntlets50` `037C25`, `LItemBanditShield20` `0C0196`,
-plus the already-flat `LItemBanditWeapon1H` `037C1B` — and `BanditArmorMeleeShield20Outfit`
-(`0C0197`) is shared by **90 NPCs** `[verified]`. Sharing cuts both ways: it is why vanilla tiers
-leak, and it is why the fix is cheap.
+Taken at face value that says 1,167 lists to fix. **It massively overstates the job**, because the
+actor side does not need every *reachable* list rewritten — only the ones an outfit or inventory
+points at **directly**. Everything below that is subtree, fixed implicitly once the entry point is
+flattened.
+
+**The boundary is 202 lists** `[verified]`:
+
+| | count | treatment |
+|---|---|---|
+| gated lists an actor references **directly** | **202** | |
+| ↳ actor-only — **flatten in place** | **126** | free; no fork, no repointing |
+| ↳ also container-reachable — **fork or judge** | **76** | §5.2 |
+
+That is the number the whole loot half was waiting on, and it is closer to the Swindler's Den trace's
+five lists than to 1,756. (`probe-test-protocol.md` §6.1: the entire bandit-chief wardrobe ran
+through `LItemBanditCuirass` `037C22`, `LItemBanditBoots` `037C23`, `LItemBanditGauntlets50`
+`037C25`, `LItemBanditShield20` `0C0196`, plus the already-flat `LItemBanditWeapon1H` `037C1B`.)
+
+### 5.2 The 76 shared lists split three ways, and only one band needs forking
+
+Naming them settles it. Of the 76, **only the generic material ladders actually conflict** — the rest
+are already scoped to an archetype or a category, so flattening them in place is correct on *both*
+sides. `[verified]`, with the count of NPCs holding a direct reference:
+
+| Band | Lists | NPC refs | Treatment |
+|---|---|---|---|
+| **Gold** — `LootBanditGold` (303), `LootBanditGoldBoss` (71), `LootCWImperialsGold`, `LootCWSonsGold`, `LootDraugrGold*`, `TGRewardGold` | 7 | **383** | **flatten in place.** A fixed purse and a fixed strongbox are both correct |
+| **Consumables & sundries** — potions (168), soul gems (101), `LItemGems`, jewelry, minerals, hunter parts, vendor stock, poisons | ~39 | ~270 | **flatten in place.** Category-scoped, no tier meaning |
+| **Material ladders** — `LItemWeaponDagger` (67), `LItemWeaponMace` (52), `LItemArmorShieldHeavy` (19), `LItemArrowsAll` (19), `LItemStaffsAll` (15), `LItemWeaponDaggerBest` (14), `LItemWeaponBow`/`Sword`/`WarAxe`/`Warhammer`/`BattleAxe` + `…Town`/`…Best` variants, `LItemEnchWeapon*`, `LItemArmor*`, `LItemSoldierSons*` | **~30** | **~250** | **FORK.** These carry the entire gear leak |
+
+So the real fork set is **~30 lists**, not 76 — and the residual cost is the **~250 NPC records**
+holding a direct `Items:` reference to one of them.
+
+### 5.3 What can and cannot be done by rule — read from source
+
+`[verified]` against `reference/mods/SkyPatcherSrc/npc.cpp`, this branch:
+
+| Need | Verdict |
+|---|---|
+| Repoint an NPC's **outfit** at a forked list | ✅ `outfitDefault=` (`npc.cpp:138`), `outfitSleep=` (`:140`). **This closes `probe-test-protocol.md` §6.3's open question** — SkyPatcher *can* set `DefaultOutfit`. Only **16 of 605** outfits reference a fork list, so this half is trivial |
+| Repoint an NPC's **inventory** (`Items:`) | ❌ **no key exists.** `npc.cpp` has `outfitDefault`, `outfitSleep`, `deathItem` and nothing else item-shaped. The ~250 must be **plugin `NPC_` overrides** |
+| Flatten a list | ✅ `leveledList/` `clear` + `addToLLs` + `calcLevelAndEachItem` |
+
+**Do not invert the fork direction.** Forking the *container* side instead — leaving the shared list
+flat for actors and giving chests a gated copy — looks cheaper until it is measured: the 76 sit
+*below* container sublists, so their upward cone is **521 `LVLI`** and **267 of 571 containers**
+reach one. Forking downstream of 521 lists is far worse than 250 NPC overrides. `[verified]`
+
+### 5.4 Two more subtractions
+
+- **The 23 already-flat overworld lists** need nothing — `LCharSoldierImperial`, `LCharSoldierSons`
+  (all 943 Civil War refs) and `LCharAmbientCreatures` (623 refs). The single biggest block of
+  overworld actors was never a scaling problem `[verified]`.
+- **Biome partitioning is already done.** `LCharAnimalForestPredator`, `…MountainSnowPredator`,
+  `…CoastSnowPredator`, `LCharAnimalHills`, `LCharMudcrab` (209 refs) and kin already split wildlife
+  by biome, so flattening each list *in place* yields fixed **and** regionally varied wildlife with
+  zero new records `[verified]`. This is the population where Requiem's method is strictly better
+  than the zone architecture, and it retires §6.4's 238-cell bolt-on for the wildlife half outright.
+
+### 5.5 The loot half, costed
+
+| Work | Size |
+|---|---|
+| Flatten in place — 126 actor-only + ~46 safe shared | **~172 `LVLI` overrides** |
+| Fork the material ladders | **~30 new `LVLI`** (first real FormID block) |
+| Repoint outfits | 16 — **by rule**, `outfitDefault=` |
+| Repoint NPC inventories | **~250 `NPC_` overrides** — plugin only |
+| Container-only gated lists | **410 — untouched**, the zone supplies their level |
+| Unreached gated lists | 177 — see §8.5 |
+
+**~450 records total for the entire loot half.** Against Requiem's 2,125 `LVLI` overrides and MLU's
+400-list truncation pass, that is a small mod — and it is small precisely *because* Twist 1 keeps the
+zones, which lets 410 lists keep their gates untouched.
 
 ### 5.2 Two more subtractions
 
@@ -286,7 +359,7 @@ leak, and it is why the fix is cheap.
 
 ## 6. Order of work
 
-**Step 1 — the outfit-reachability census** (§5.1). Nothing is authored or costed before this.
+**Step 1 — the outfit-reachability census.** ✅ **DONE** (§5.1–§5.5). The loot half is ~450 records.
 
 **Step 2 — assign every archetype family its tier** (§4.2), from `enemy-taxonomy.md`'s archetype table
 cross-checked against `lore-constraints.md`'s name hierarchy. This is the design work the pivot
@@ -352,6 +425,18 @@ is a mechanical transform of vanilla records and must be produced by a script, t
 4. **Deleveled followers are untested as a design.** §4.3 argues it is a feature; nobody has played
    it. Revisit after step 9 with actual play, and treat reverting to Requiem's exception as a live
    option rather than a defeat.
+
+### 8.5 The 177 unreached gated lists
+
+Gated `LVLI` that neither an NPC/outfit nor a container references. Sampling them shows what they
+are: quest rewards (`LvlQuestReward*`, `DLC2MQ06MiraakRewardMaskL`), death items
+(`DLC1DeathItemGargoyle`), dungeon-specific enchanted sets (`dunSilentMoonsLItemEnchSteel*`),
+`SublistEnch*` fragments, and unique gear (`LItemWeaponNightingaleSword`, `TGLvlItemNightingaleBoots`).
+
+They are reached from roots this census does not walk — `QUST` reward packages, `FLST` form lists,
+`NPC_` death items, and leveled items placed directly as world references. **Most are one-offs where
+a fixed level is the right answer anyway**, but the set has not been individually triaged. Triage it
+during step 8; it is a read, not a redesign, and `deathItem=` is rule-expressible (`npc.cpp:142`).
 
 ---
 
