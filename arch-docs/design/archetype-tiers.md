@@ -119,17 +119,39 @@ inversion; no special handling.
 
 ### 3.2 Draugr — the anchor ladder
 
+The rungs are **sublists**, not NPCs — `SubCharDraugr0N<role>` `[verified]` — so a roster is expressed
+by keeping and re-weighting the sublist references. Bethesda's own head-variant weighting inside them
+(`SubCharDraugr04Melee2HMSublist` repeats `HeadM01/02/03` three times each) is left untouched.
+
 | List | Vanilla rungs | **Ehlnofey roster** | Band |
 |---|---|---|---|
-| `LCharDraugrMelee1HMale` 055936, `Melee2H` 01E772, `Missile` 0A6844 | Draugr 1 · Restless 6 · Wight 13 · Scourge 21 · Deathlord 30 | Draugr ×2 · Restless ×3 · **Wight ×3** · Scourge ×2 · Deathlord ×1 | **T3** (T1–T5) |
+| `LCharDraugrMelee1HMale` 055936, `Melee2H` 01E772, `Missile` 0A6844 | Draugr 1 · Restless 6 · Wight 13 · Scourge 21 · Deathlord 30 · Ebony Deathlord 40 | `SubCharDraugr02` Restless ×3 · **`SubCharDraugr03` Wight ×3** · `SubCharDraugr04` Scourge ×2 | **T3** (T2–T4) |
 | `LCharDraugrWarlockMale` 0BF7BB | 6 · 13 · 21 | 6 ×1 · **13 ×3** · 21 ×2 | **T3** (T2–T4) |
-| `LCharDraugrBoss` 042480 | Overlord 7 · Wight Lord 15 · Scourge Lord 24 · Death Overlord 34 · 45 · 50 | Wight Lord ×2 · **Scourge Lord ×3** · Death Overlord ×2 · 45 ×1 | **T4** (T3–T6) |
+| `LCharDraugrBoss` 042480 | Overlord 7 · Wight Lord 15 · Scourge Lord 24 · Death Overlord 34 · 45 · 50 | Wight Lord ×2 · **Scourge Lord ×3** · **Deathlord ×2** · Death Overlord ×2 · 45 ×1 | **T4** (T3–T6) |
 | `LCharDraugrBossNoDragonPriest` 0DD9D8 | 7 · 15 · 24 · 34 · 45 | same as above, minus the priest attachment | **T4** |
 
-Draugr get the **widest band in the table (T1–T5)**, deliberately: they are the most-placed archetype
-in the game, they carry the deepest named ladder, and `lore-constraints.md` requires draugr power to
-track the tomb. The tomb is gone as an input, so the *spread* has to carry the texture instead. This
-is the row most likely to need retuning after step 7 play-testing.
+**Narrowed from T1–T5 to T2–T4 (2026-07-29).** The draft gave draugr the widest band in the table on
+the argument that, with the tomb gone as an input, the *spread* had to carry the texture. Rejected:
+a five-tier pool is not a fixed difficulty, it is a random one, and §1 rule 3 exists precisely to stop
+that. A barrow is now reliably Restless→Wight→Scourge, and reads as one place rather than a lottery.
+
+Two rungs leave the generic pool, and rule 4 says reserve rather than drop:
+
+- **Deathlord (L=30, T5) moves to the boss list**, at ×2. That is where a player meets one in practice
+  — guarding the word wall or the sarcophagus — and L=30 sits neatly between Scourge Lord (24) and
+  Death Overlord (34), so the boss band absorbs it without stretching.
+- **The Ebony Deathlord** (gate 40) is the same L=30 actor in better gear `[verified]` — a *gear*
+  upgrade, not a tier. It follows the Deathlord into boss placements.
+
+**One consequence to decide separately:** the plain **Draugr (L=1)** now appears in no generic pool at
+all, so the archetype's own base name effectively leaves the game. That is defensible — a tomb full
+of Restless Draugr is a better tomb — but it is a legibility cost under rule 4, and the cheapest
+mitigation is to keep `SubCharDraugr01` ×1 on the *Missile* list only, where a weak skirmisher reads
+naturally. **Flagged, not taken.**
+
+**And it raises the floor.** The old pool was 2/9 plain Draugr; the new floor is Restless (L=6). Every
+Nordic tomb in the game gets harder at the bottom and easier at the top. **Bleak Falls Barrow is the
+one to watch** — it is main-quest-critical and reached at character level ~2–5.
 
 **Lore invariant preserved:** the Dragon Priest (fixed 50, T7) outranks every draugr in his barrow —
 the boss band tops at 45. `[verified]` against `lore-constraints.md` §3.
@@ -415,9 +437,17 @@ so in Phase 1 (*"the dominant cost is E, not the actors at all"*) and the pivot 
 
 ## 9. Open questions
 
-1. **The draugr band (T1–T5) is the widest in the table and the least defended.** It is carrying
-   texture that the zone used to carry. If step 7 play-testing says barrows feel random rather than
-   fixed, narrow it to T2–T4 and push Deathlords to boss placements only. **Most likely row to move.**
+1. ~~The draugr band (T1–T5) is the widest in the table and the least defended.~~ **RESOLVED
+   2026-07-29 — narrowed to T2–T4**, Deathlords pushed to boss placements (§3.2). Two residual
+   decisions are recorded there: whether the plain Draugr (L=1) keeps a home on the Missile list, and
+   whether Bleak Falls Barrow survives a raised floor at main-quest level.
+
+1a. **Rule 3 is violated by nine other rows, and narrowing draugr exposed it.** §1 rule 3 says a
+   roster spans *"at most three adjacent tiers"*. These span four: Forsworn rank-and-file (T1–T4) and
+   boss (T3–T6), Warlock (T2–T5), Vampire (T2–T5), Falmer melee (T2–T5), Dremora (T2–T5), Dragon
+   (T3–T6), Gargoyle (T3–T6), Draugr boss (T3–T6). Either the rule relaxes to four, or those nine
+   narrow the way draugr just did. **Not decided here** — it is one choice applied nine times, and it
+   should be made deliberately rather than folded into an unrelated edit.
 2. **Bandits become trivial after ~T3, and they are ~40% of the placed world.** That is the honest
    cost of a fixed world and Requiem accepts it. The alternative — widening the bandit band — trades
    legibility for relevance. Do not decide this on paper; decide it after walking into three camps.
