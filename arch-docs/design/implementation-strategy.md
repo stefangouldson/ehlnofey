@@ -85,7 +85,12 @@ These six *could* be rules (`skypatcher.md` §4.1 does NPC levels natively). The
 because they are a fixed, named, six-item list where an override is more legible than a filter, and
 because putting them here means they are covered by `xedit-audit` and the Spriggit round-trip.
 
-### 2.5 FormID budget — zero
+### 2.5 FormID budget — zero for the records in §2, but no longer zero overall
+
+> **Revised 2026-07-29.** Everything enumerated in §2 is still an override. But §6.4 now adds **~7
+> new wilderness `ECZN`**, and `probe-test-protocol.md` §6.3 may add per-tier gear lists and outfits.
+> So the headline below — "FormID usage: none, after Phase 4" — **no longer holds**, and a block does
+> need claiming. The ESL *verdict* is unaffected: tens of records against 2,048 slots.
 
 **Every record above is an override.** Overrides keep the original master's FormKey suffix and consume
 no new FormIDs. So:
@@ -174,28 +179,102 @@ The same argument covers the ambient leveled lists (`difficulty-map.md` §4.1 op
 
 ---
 
-## 6. The unsolved problem, stated honestly
+## 6. The overworld — SOLVED (revised 2026-07-29)
 
-**The overworld cannot be tiered by this architecture**, and Phase 3 did not solve it
-(`tiers.md` §8, `difficulty-map.md` §4.1–4.2).
+> **This section previously read "The unsolved problem, stated honestly" and shipped a partial fix.**
+> It was costed against a census that was never taken. Now that the Tamriel worldspace has actually
+> been scanned, the job is **65 leveled lists and 238 cells**, and it is fully tractable. The old
+> text is superseded; the reasoning that replaced it is below.
 
-Most wilderness has no encounter zone, so there is nothing to write a tier into, and the ambient
-lists still gate on player level. The three options and what Phase 3 learned about each:
+### 6.1 What the overworld actually contains
 
-| Option | Verdict after costing |
+Full scan of `reference/…/Worldspaces/Tamriel - 00003C_Skyrim.esm` — 12,148 exterior cell files,
+1.3 GB, every `PlacedNpc` base resolved through its template chain. All `[verified]`:
+
+| | count |
 |---|---|
-| **(a)** author wilderness `ECZN` and attach them to exterior cells | **not tractable.** New zones are fine (plugin), but attaching them needs `cell/encounterZone=`, and cell rules have **no keyword, location or region filter** (`skypatcher.md` §4.4) — Skyrim's exterior cells would have to be enumerated in the thousands. |
-| **(b)** flatten the ambient `LCharAnimal*` lists so they stop scaling | **tractable, and partial.** One rule per list. But with no way to bind a list to a region, it yields **one wilderness mix for the whole province** — bone 1 satisfied, bone 2's regional legibility not. |
-| **(c)** accept a scaling overworld as a documented bone-1 exception | honest, but it is the largest exception in the mod. |
+| Tamriel exterior cell files | 12,148 |
+| …carrying an `EncounterZone` | **40 (0.3%)**, referencing 16 distinct zones |
+| …containing any `PlacedNpc` | 1,919 |
+| …containing a `PlacedNpc` **and** zoned | **33 (1.7%)** |
+| unzoned leveled actor refs | **3,512** (vs 367 zoned) |
 
-**Decision: ship (b) in Phase 4, and say so in the mod description.** The mitigating fact is real —
-`enemy-taxonomy.md` §2.3 shows the ambient ladders already cap out (forest predators at a level-16
-cave bear, mountain predators at a level-22 frost troll), so **Skyrim's wilderness is already
-effectively deleveled above ~level 20**; flattening it makes that true from level 1 instead.
-Regional wilderness variation is deferred, needs new records, and reopens the ESL decision (§2.5).
+**But those 3,512 refs resolve to only 88 distinct leveled lists**, and 23 of them are *already flat*:
 
-The **8 unzoned dragon lairs** (`difficulty-map.md` §4.2) get the same treatment: fix
-`LCharDragonAny` selection by rule rather than author twelve zones.
+| | lists | refs |
+|---|---|---|
+| already flat — nothing to do | 23 | 2,460 |
+| **level-gated — the real job** | **65** | **1,052** |
+
+The flat 23 include `LCharSoldierImperial`, `LCharSoldierSons` (all 943 Civil War refs) and
+`LCharAmbientCreatures` / `…Snow` (623 refs). **The single biggest block of overworld actors was
+never a scaling problem.**
+
+**The reframing that unlocks this: you fix 65 lists, not 12,148 cells.**
+
+### 6.2 It is two populations, not one
+
+**(a) Wildlife — flatten the lists. Regional variation survives for free.**
+
+Vanilla already partitions wilderness spawns by biome `[verified]`: `LCharAnimalForestPredator`,
+`…PlainsPredator`, `…CanyonPredator`, `…MarshPredator`, `…MountainSnowPredator`,
+`…CoastSnowPredator`, `…ForestSnowPredator`, `LCharAnimalHills`, `LCharAnimalSnowFields`, each with a
+prey counterpart, plus `LCharMudcrab` (209 refs), `LCharBearPlainsForestHills`, `LCharSpriggan`,
+`LCharWitchAny`. Flattening **each list to its own fixed roster** gives fixed *and* regionally varied
+wildlife, with **zero new records**.
+
+> **This retracts the old §6's central objection** — that flattening yields "one wilderness mix for
+> the whole province", and that regional variation "needs new records and reopens the ESL decision".
+> Bethesda already did the partitioning; Ehlnofey only has to freeze each list in place.
+
+**(b) Humanoids — cannot be flattened; they are shared with the dungeons.**
+
+`LCharBanditMissile` (93 overworld refs), `LCharBanditMelee1HTank` (25), `LCharBanditWizard` (18),
+`LCharForswornMissile` (35), `LCharForswornMelee1H` (30), `LCharWarlockNecromancer` (16) and friends
+are **the same lists the 355 dungeon zones tier**. Flattening them would destroy the zone tiering
+that `probe-test-protocol.md` §5 test 2a proved works. ~250 refs sit on lists that must stay gated.
+
+For those the answer is to give the cells a zone — and the count is the thing the old §6 got wrong:
+**238 unzoned Tamriel exterior cells contain humanoid-list spawns.** Not thousands. That is an
+enumerable list.
+
+### 6.3 What SkyPatcher can and cannot do here — read from source
+
+All `[verified]` against `reference/mods/SkyPatcherSrc/cell.cpp`:
+
+| Claim | Verdict |
+|---|---|
+| `encounterZone=` can **attach** a zone to a cell that has none | ✅ `cell.cpp:781–802` — adds a new `ExtraEncounterZone` when absent, overwrites when present. Exactly what the overworld needs |
+| cell rules have "**no keyword** filter" (`skypatcher.md` §4.4) | ❌ **wrong** — `filterByKeywords` / `Or` / `Excluded` exist |
+| …but is that useful? | **No.** **0 of 12,148** Tamriel exterior cells carry any `Keywords`. The filter exists and the data is empty |
+| `filterBySkyRegion` is a region filter | ⚠️ it reads `ExtraCellSkyRegion` (XCCM), and **0 of 12,148** Tamriel cells set it. Matches nothing |
+| a general region filter on `Regions` (XCLR) | ❌ does not exist — though **6,999 cells do populate `Regions`**, so this is the one filter worth requesting upstream |
+| cell rules have no **location** filter | ✅ correct, and 930 exterior cells do carry a `Location` |
+
+**So the region shortcut is dead and the 238 cells must be enumerated by FormID.** That is fine:
+`filterByCells=` takes a list, so the whole overworld is **one rule line per tier**, ~7 lines total.
+
+**Rules beat plugin records here**, unusually for this project: an exterior-cell override in the
+plugin carries the whole cell record and conflicts with every mod that touches that cell's lighting,
+water or occlusion. A SkyPatcher `cell/` rule sets only the zone pointer and conflicts with nothing.
+
+### 6.4 The plan
+
+| Step | Where | Size |
+|---|---|---|
+| New wilderness `ECZN` records, one per tier | **plugin** | **~7 new records** — the mod's first |
+| Assign them to the 238 humanoid-bearing cells, tier by region (`regions.md`'s gradient) | rules — `cell/` | ~7 lines |
+| Flatten the ~18 biome wildlife lists, each to its own roster | rules — `leveledList/` | ~18 rules |
+| `LCharDragonAny` (11 refs, gated 1/18/27/36/45) + the 8 unzoned dragon lairs | either | 1 decision |
+| The 23 already-flat lists | — | leave alone |
+
+**This reopens the ESL decision** (§2.5), which had been closed on "no new records at all". Seven
+wilderness zones — plus whatever the gear work in `probe-test-protocol.md` §6.3 needs — are nowhere
+near ESL's 2,048-slot `0x800–0xFFF` range, so the answer is unchanged; but the *premise* has changed
+and §2.5 should no longer say the mod adds no records.
+
+**Scope:** Tamriel only. Solstheim (`DLC2SolstheimWorld`) and the smaller worldspaces have not been
+scanned, and per CLAUDE.md's DLC trap they must be measured separately rather than extrapolated.
 
 ---
 
@@ -261,8 +340,8 @@ bandits), `WolfSkullCave02` `09DA1F`–`09DA22` (`MS06NecromancerCultist1–4`),
    It is the one to run first.
 
 **Scope caveat:** `Skyrim.esm` interiors only. `Worldspaces/` and the DLC were not censused, and per
-CLAUDE.md's DLC trap (b) they must be checked separately rather than extrapolated. The overworld is
-in any case already the acknowledged unsolved problem of §6.
+CLAUDE.md's DLC trap (b) they must be checked separately rather than extrapolated. `Worldspaces/` has
+since been censused in its own right — see the rewritten §6.
 
 ---
 

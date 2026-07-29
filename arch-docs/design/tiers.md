@@ -394,6 +394,13 @@ must be able to see the mountain. That obligation is discharged in `difficulty-m
 > `difficulty-map.md` — the candidates being (a) author wilderness zones, (b) flatten the ambient
 > lists so they no longer scale, or (c) accept a scaling overworld as a documented exception.
 > `[verified]` that the hole exists; `[unverified]` which fix is cheapest.
+>
+> **CLOSED 2026-07-29 — the answer is (a) and (b) together, and it is cheap.**
+> `implementation-strategy.md` §6 scanned Tamriel: the 3,512 unzoned leveled refs resolve to **88
+> lists, 23 already flat**, so the job is **65 lists**, not 12,148 cells. Wildlife takes (b) and keeps
+> its regional variation for free — vanilla already ships biome-split lists. Humanoid lists cannot
+> take (b) (they are shared with the dungeons this document tiers), so their **238** cells take (a),
+> which SkyPatcher can do because `cell/encounterZone=` *adds* a zone where none exists.
 
 ---
 
@@ -489,7 +496,8 @@ tables above are computed **assuming the first two are fixed**:
    `implementation-strategy.md` §7.1. The highest-value unresolved question is now gear resolution
    (`loot-model.md` §3).
 2. **The absolute offset** (§9) — needs a real playthrough, not a record read. `[unverified]`
-3. **The unzoned overworld** (§8) — zone-based tiering does not reach exteriors. Structural, unsolved.
+3. ~~**The unzoned overworld** (§8) — structural, unsolved.~~ **CLOSED 2026-07-29** —
+   `implementation-strategy.md` §6: 65 lists to flatten, 238 cells to zone, ~7 new `ECZN`.
 4. **Is `Min == Max` right, or should Ehlnofey band like MLU?** MLU chose `+10`/`+15` for 357 of 360
    zones. Zero-width is the stricter reading of bone 1 and the whole point of the mod, but it is the
    biggest untested assumption here. `engine-behaviour.md` §2 establishes it *works*; it does not

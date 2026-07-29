@@ -430,16 +430,18 @@ this mod.** Do not revive it.
 | **A. Plugin overrides** | Override vanilla records directly in Spriggit YAML | Total control, no dependencies. But thousands of override files: a huge repo, unreviewable diffs, and a hard conflict with every other mod touching the same records. Phase 2 measured the ceiling: Requiem is **108 MB / 26,620 records**, MLU **22 MB / 4,751**. |
 | **B. Runtime rule engines** | SkyPatcher INI rules, applied at load by SKSE | Few or no overrides, filter-based, very compatibility-friendly. **SkyPatcher's capabilities are `[verified]` from source** — see `arch-docs/prior-art/skypatcher.md`. It can express the deleveling core of *both* Requiem and MLU. It **cannot** touch `GMST`s or placed-actor `LevelModifier`, and cannot filter zones by location/keyword. Requires SKSE, and **none of this workspace's verification tooling applies to a rule file**. |
 
-**The one thing the architecture does not solve: the overworld.** Most wilderness has no encounter
-zone, so there is nothing to write a tier into, and the ambient lists still gate on player level.
-Authoring wilderness zones is **not tractable** (attaching them needs `cell/encounterZone=`, and cell
-rules have no keyword/location/region filter, so thousands of exterior cells would have to be
-enumerated). **Phase 4 ships the partial fix**: flatten the ambient `LCharAnimal*` lists by rule, which
-satisfies bone 1 but yields one wilderness mix for the whole province rather than a regional one. The
-mitigation is that `enemy-taxonomy.md` §2.3 shows those ladders already cap out at a level-16 cave
-bear / level-22 frost troll — Skyrim's wilderness is **already effectively deleveled above ~level
-20**, and flattening makes that true from level 1. Regional wilderness variation is deferred, needs
-new records, and would reopen the ESL decision. Same treatment for the 8 unzoned dragon lairs.
+**The overworld: SOLVED, and it was never as bad as it looked** (`implementation-strategy.md` §6,
+rewritten 2026-07-29 after the Tamriel worldspace was actually scanned). Only **40 of 12,148**
+exterior cells carry an encounter zone — but the 3,512 unzoned leveled refs resolve to just **88
+lists, 23 of them already flat**, so the job is **65 lists**, not 12,148 cells. It splits in two:
+**wildlife** flattens by rule and *keeps its regional variation for free*, because vanilla already
+ships biome-partitioned lists (`LCharAnimalForestPredator`, `…MountainSnowPredator`, …) — this
+retracts the old claim that flattening gives "one wilderness mix for the whole province". **Humanoid
+lists cannot be flattened** (they are the same lists the dungeon zones tier), so the **238** unzoned
+cells holding them get wilderness zones via SkyPatcher `cell/encounterZone=`, which *adds* a zone
+where none exists (`cell.cpp:781–802`, `[verified]`). ~7 new `ECZN` + ~7 rule lines + ~18 list
+flattens. Rules beat plugin records here: an exterior-cell override carries the whole cell and
+conflicts with every lighting/water mod. **Scope: Tamriel only — Solstheim unmeasured.**
 
 ## Naming & FormKey conventions
 
@@ -455,14 +457,16 @@ Fixed now so Phase 4 does not have to argue about it:
 - **Overrides keep the original master's suffix** (`09BC43:Skyrim.esm`), which is how you tell an
   invented record from a vanilla one at a glance. Ehlnofey will be override-heavy, so this matters
   more here than in a content mod.
-- **ESL decision: RESOLVED — yes, ESL-flag it.** Phase 3's design needs **no new records at all**
-  (`implementation-strategy.md` §2.5): every one of the ~376 plugin records is an override, and
-  overrides consume no new FormIDs. The `0x800–0xFFF` constraint binds only new records, so it is not
-  reached. The decision reopens only if a later phase adds new records — most likely region-scoped
-  leveled lists for the overworld problem.
+- **ESL decision: RESOLVED — yes, ESL-flag it.** The verdict is unchanged but **its premise is not**:
+  Phase 3 closed this on "no new records at all", and Phase 4 testing has since added two sources of
+  new records — **~7 wilderness `ECZN`** for the overworld (`implementation-strategy.md` §6.4) and
+  whatever per-tier gear lists/outfits the loot fix needs (`probe-test-protocol.md` §6.3). Both are
+  tens of records against ESL's **2,048-slot** `0x800–0xFFF` range, so ESL still holds comfortably —
+  but the mod is no longer override-only, and `implementation-strategy.md` §2.5 still says it is.
 - Always `/formkey-check` before claiming a block.
 
-**FormID usage:** none, and **none is planned**. **Next free: `0x800`.**
+**FormID usage:** none yet. **Planned: ~7 wilderness `ECZN`, plus per-tier gear lists/outfits if the
+loot fix takes instrument 2.** **Next free: `0x800`.**
 
 ## Useful FormKey constants
 

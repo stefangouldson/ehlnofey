@@ -247,6 +247,15 @@ Three gaps, stated plainly rather than buried.
 
 ### 4.1 The overworld is not mapped, and cannot be by this mechanism
 
+> **Superseded 2026-07-29 — it can be, and `implementation-strategy.md` §6 now maps it.** The
+> recommendation below picks (b) alone on the grounds that (a) is "plausible, untested"; a scan of
+> the Tamriel worldspace since shows the real answer is **(a) and (b) together**, split by
+> population. Wildlife takes (b) *per biome list*, so regional variation survives — the "point
+> regions at different variants" hope in the (b) row turns out to need no new variants at all,
+> because vanilla already ships them. The ~250 humanoid refs cannot take (b) (their lists are the
+> ones §7 tiers), so their **238** cells take (a) — **~7 new `ECZN` and ~7 rule lines**, not the
+> open-ended cost assumed here. Read §6 of the implementation strategy, not this section.
+
 `tiers.md` §8 flagged it and it is unresolved here. Most of Skyrim's wilderness has **no encounter
 zone**, so there is nothing to write a tier into — and the ambient creature lists
 (`LCharAnimalForestPredator` `042297` and kin) still carry player-level gates. Neutralising the twelve
@@ -334,8 +343,10 @@ for a SkyPatcher rule: on an existing save, a zone the player has already entere
    *tier* and not a level, re-calibrating is re-issuing seven numbers, not re-auditing 355 rows.
 2. **Is T7 a tier or a special case?** One zone uses it (§2). If no second use appears, fold it into
    T6 and fix Harkon's court per-record.
-3. **The overworld** (§4.1) and **the unzoned dragon lairs** (§4.2) — both unsolved, both needing a
-   non-zone mechanism.
+3. ~~**The overworld** (§4.1) and **the unzoned dragon lairs** (§4.2) — both unsolved.~~ **The
+   overworld is CLOSED** (`implementation-strategy.md` §6): 65 lists, 238 cells, ~7 new `ECZN`, and
+   it needs *both* a non-zone mechanism (wildlife) and zones after all (humanoids). The **dragon
+   lairs** remain open — `LCharDragonAny` is 11 overworld refs plus the 8 lairs, one decision.
 4. **The fallback bucket is 104 zones (29%)** derived from vanilla floors rather than from a type
    signal (§1.4). It is the lowest-confidence third of the map and would repay a manual pass, most
    cheaply by adding `LocType*` keywords to the locations that deserve them.

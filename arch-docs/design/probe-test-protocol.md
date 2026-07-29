@@ -101,8 +101,17 @@ Both bandit ladders are rungs at **L1 / L5 / L9 / L14 / L19 / L25**
 
 ```
 prid 0002137C
+enable
+moveto player
 getlevel
 ```
+
+> **All four bandits are enable-parented to `07126E` = `MQ105EnableDungeonMarker`** `[verified]` —
+> the main-quest marker for *The Horn of Jurgen Windcaller*. On a fresh `coc` with MQ105 unstarted
+> their enable state is **`[unverified]`**, and if they are off, the cell simply looks empty and the
+> test reads as a failure for the wrong reason. Hence the explicit `enable` + `moveto player` above:
+> it works either way. This is also *why* these nine refs are unmodified — every one of the nine is
+> quest-placed content, which is the population vanilla never hand-tuned.
 
 Compare against a modifier-tagged neighbour in the same cell, e.g. `0235FF` (Medium, draugr —
 0.67 × 4 ≈ 2) or `023600` (Easy, draugr). If the bandits read ~25 while the draugr read ~1–2, the
@@ -136,12 +145,21 @@ Swindler's Den holds **22 modifier-tagged leveled bandits** — the densest such
 the only one carrying all four modifier classes. Predicted lookup levels at zone 30 with vanilla
 multipliers:
 
-| Modifier | Lookup | Rung (ladder 1/5/9/14/19/25) | Example ref |
-|---|---|---|---|
-| Easy ×0.33 | 9 | **L9**, but Easy draws from *all* rungs ≤ 9, so L1/L5/L9 mixed | `042467` `LvlBanditMelee1H` |
-| Medium ×0.67 | 20 | **L19**, uniform across all Medium refs | `04244C` `LvlBanditMeleeAny` |
-| Hard ×1.00 | 30 | **L25** | `04246A` `LvlBanditMissile` |
-| Very Hard ×1.25 | 37 | **L25** + the bump rule | `042469` `LvlBanditBoss` |
+| Modifier | Lookup | Rung (ladder 1/5/9/14/19/25) | Example ref | `getlevel` |
+|---|---|---|---|---|
+| Easy ×0.33 | 9 | **L9**, but Easy draws from *all* rungs ≤ 9, so L1/L5/L9 mixed | `042467` `LvlBanditMelee1H` | 1, 5 or **9** |
+| Medium ×0.67 | 20 | **L19**, uniform across all Medium refs | `04244C` `LvlBanditMeleeAny` | **19** |
+| Hard ×1.00 | 30 | **L25** | `04246A` `LvlBanditMissile` | **25** |
+| Very Hard ×1.25 | 37 | `LCharBanditBoss` has an extra **L29** rung | `042469` `LvlBanditBoss` | **29** |
+
+The rungs are nested `SubCharBandit0N*` lists resolving to `EncBandit0N*` NPCs, whose templates carry
+**fixed** levels — `EncBandit01…06Template* = 1 / 5 / 9 / 14 / 19 / 25` `[verified]`. So `getlevel`
+returns those numbers exactly; the tier index is legible in the EditorID (`EncBandit06…` = top rung).
+
+> **One expected anomaly.** `EncBandit04TemplateMelee` (`01E60D`) is the vanilla `L=0` bug already
+> recorded in CLAUDE.md — Ehlnofey sets it to 14. If a *melee* bandit that should be rung L14 reads
+> level 0 or 1, that is the known bug, **not** a probe failure. None of the modifiers above land on
+> rung L14 at zone 30, so it should not appear in this test.
 
 Kill the Hard ref (`prid 0004246A`) and read what it was wearing:
 
@@ -259,15 +277,152 @@ but it is routine. The test that can still move a large amount of work is **gear
 
 ---
 
-## 5. Results
+## 5. Results — run 2026-07-28, all `[verified]` in-game
 
-Fill in when run. Mark `[verified]` only for what was actually observed in-game.
+| Test | Verdict |
+|---|---|
+| 1 — `LevelModifier: None` | **Honours the zone.** None ≙ Hard ×1.0. Nothing to do — not even the 9 |
+| 2a — actor levels under a zone clamp | **Works exactly as designed.** Every modifier class landed on its predicted rung |
+| 2b — NPC **gear** resolution | **Resolves at the PLAYER's level.** The working assumption was wrong — see §6 |
+| 3 — `fSpecialLootMinPCLevelMult` = 0 | **Zone-locks, does not disable.** Ship `0` |
 
-| Test | Verdict | Date | Notes |
+**Test 1** — Ustengrav pinned to 4. The four unmodified `MQ105`-parented bandits read low at player
+45 *and* at player 5. The player-45 arm is the discriminating one: zone-bound. The CK wiki's "None →
+the player's level" wording is sloppy, not literal. `tiers.md` §4's contingency table and
+`engine-behaviour.md` §4 implication 2 are both resolved in the cheap direction.
+
+**Test 2a** — Swindler's Den pinned to 30, observed at player 5 and player 45, **identical both
+times**. Levels seen: **1 / 5 / 9 / 19 / 28**, against predicted Easy → 1, 5 or 9 · Medium → 19 ·
+Very Hard → 28. (The protocol predicted 29 for the boss: 29 is the *rung gate*, the
+`EncBandit06Boss1H*` NPCs carry a fixed **`L=28`**. Corrected above.) **This is the mod's whole
+thesis working**: a level-5 character and a level-45 character met the same fixed dungeon.
+
+**Test 3** — Bleak Falls Barrow pinned to 4, player 45. Vanilla arm (`setgs … 0.6`) produced a
+**glass dagger** — a T5 material out of a T1 dungeon, the bone-1 leak in its purest form. Probe arm
+(`0`) produced a few items and one low-tier enchanted piece, **identical at player 1 and player 45**.
+Zeroing the PC floor zone-locks special loot rather than disabling it. The feared "empty chest"
+failure mode did not occur.
+
+---
+
+## 6. The one failure: gear resolves at the player's level
+
+**Observation** `[verified]`: the Swindler's Den bandit chief was **level 28 in both runs**, but wore
+**iron at player level 5 and Nordic at player level 45**.
+
+The three candidate operands are fully separated by that single observation:
+
+| If gear resolved at… | Value in both runs | Predicted gear | Matches? |
 |---|---|---|---|
-| 1 — `LevelModifier: None` | | | |
-| 2 — NPC gear resolution | | | |
-| 3 — `fSpecialLootMinPCLevelMult` = 0 | | | |
+| the **NPC's** level | 28 / 28 | identical | ✗ |
+| the **zone** level | 30 / 30 | identical | ✗ |
+| the **player's** level | 5 / 45 | **different** | **✓** |
+
+Only player level varied between the runs, so it is the only operand that can explain the change.
+
+**Consequences:**
+
+1. **`enemy-taxonomy.md` §4 was right and `engine-behaviour.md` §3 was wrong.** §3 asserted
+   *"outfit/inventory lists resolve against the NPC's own level"*; §4 asserted *"fixing an NPC's tier
+   does not fix its equipment"*. `loot-model.md` §3 flagged the contradiction, adopted §3's reading as
+   its working assumption, and marked the whole of §6's cost estimate contingent on it. **That
+   contingency has now failed.**
+2. **`loot-model.md`'s headline claim does not survive.** §1's *"the tier ladder IS the material
+   ladder… no truncation pass needed"* depends on the zone tier reaching gear through the actor. It
+   does not. Bone 3 does **not** fall out of the difficulty map for free.
+3. **MorrowLoot Ultimate's truncation pass was necessary after all.** Phase 3 concluded MLU's
+   ~400-list edit was redundant; MLU does both the `ECZN` clamp *and* the list truncation, and this
+   result says that is why. Phase 2's reading of MLU stands; Phase 3's inference from it does not.
+4. **Scope moves.** Up to **1,378** player-gated `LVLI` are live bone-1 leaks. SkyPatcher can reach
+   them (`removeFromLLs`), so it lands in the rules half — but that half stops being "tens of lines"
+   and becomes the largest single job in the mod.
+
+### 6.1 Second run — the mechanism, traced end to end
+
+Second observation `[verified]`: the same chief kept **one constant item** across both player levels
+(a dagger) while **every other slot moved** — iron boots/cuirass/gauntlets → Nordic, iron axe →
+dwarven sword.
+
+That splits the inventory cleanly, and the records explain it exactly:
+
+| Source on `EncBandit06Boss1H*` | Shape | Behaviour |
+|---|---|---|
+| `Items:` → `ElvenDagger` (`01398E` = Orcish on the Imperial-M variant) | **flat, non-leveled form** | **constant** ✓ |
+| `Items:` → `LItemBanditBossWeapon1H` (`03DF1C`) | leveled but **all entries `Level: 1`** — picks the *type* | random axe/sword/mace ✓ |
+| ↳ `LItemBanditBossSword` / `…Mace` / `…WarAxe` | **gated 1 / 6 / 9 / 12 / 19 / 27 / 36** | material tracks player ✓ |
+| the outfit's armour lists | gated the same way | iron → Nordic ✓ |
+
+**9 of the 10 `EncBandit06Boss*` variants carry a flat `ElvenDagger`** in `Items:` `[verified]` —
+the constant item was not a fluke of one actor.
+
+The sword ladder resolves to **Steel 1 · Orcish 6 · Dwarven 12 · Elven 19 · Glass 27 · Ebony 36**
+`[verified]`. Two things follow:
+
+1. **`loot-model.md` §1's material ladder was correct.** T1–T7 really do land on
+   Steel/Orcish/Dwarven/Elven/Glass/Ebony/Daedric, one rung each. The error was never the ladder —
+   it is that the ladder is **indexed by player level**, and there is no zone hook on it at all.
+2. **`CalculateFromAllLevelsLessThanOrEqualPlayer` is set on these lists**, so every rung ≤ the
+   player's level is eligible and one is picked uniformly. That is why player 5 gave iron (only the
+   bottom rung was eligible) and player 45 gave *dwarven* rather than the top rung (everything was
+   eligible). It also means the fix is **truncation** — deleting rungs above a cap — which is
+   precisely MLU's method and precisely what SkyPatcher's `removeFromLLs` does.
+
+### 6.2 Correction — gear *can* follow the place, transitively
+
+An earlier draft of this section concluded that random worn gear **"cannot be made to follow the
+place"** and could "only be capped, not redirected". **That is wrong** and is retracted here.
+
+It is true that the *list* has no zone operand — nothing about `LItemBanditCuirass` can be made to
+consult an `ECZN`. But gear does not need to reach the zone directly, because **the zone already
+picks the actor, and the actor picks the gear**:
+
+```
+zone level  →  LVLN rung  →  EncBandit0N  →  DefaultOutfit  →  material list  →  item
+   fixed        fixed         fixed          ← the only player-gated hop is here
+```
+
+Everything left of the outfit is already deterministic and already verified (test 2a). If the list at
+the end is **flat**, the whole chain is deterministic and player level drops out entirely.
+
+**What actually blocks it in vanilla is sharing, not the engine.** `EncBandit01Melee1HNordM`,
+`EncBandit03…` and `EncBandit06…` all point at the **same** `DefaultOutfit: 0C0197`
+(`BanditArmorMeleeShield20Outfit`), shared by **90 NPCs** `[verified]`. Vanilla makes tier-1 and
+tier-6 bandits differ by letting one player-gated list serve both. De-share that and the tiers
+separate permanently.
+
+Its four lists `[verified]`:
+
+| List | FormKey | Gates |
+|---|---|---|
+| `LItemBanditCuirass` | `037C22` | 1, 6, 7, 8, 9, 19, 20, 21, 22, 25, 26, 27, 28 |
+| `LItemBanditBoots` | `037C23` | same |
+| `LItemBanditGauntlets50` | `037C25` | same |
+| `LItemBanditShield20` | `0C0196` | 1, 12, 13, 14, 15 |
+| `LItemBanditWeapon1H` | `037C1B` | **flat already** — picks type, not material |
+
+### 6.3 The three instruments, cheapest first
+
+| # | Instrument | Result | Cost |
+|---|---|---|---|
+| **1** | **Truncate the shared lists** — `removeFromLLs=<list>~><N>~none` | one gear ceiling for the whole archetype, everywhere, at any player level | **~5 SkyPatcher lines.** No new records |
+| **2** | **Per-tier outfits** — new flat lists + new outfits, repoint each `EncBandit0N*` | gear follows the **place**, via the actor. Full bone 3 | new records + ~90 NPC repoints *per outfit family*; whether SkyPatcher can set `DefaultOutfit` is **unchecked** (it can `filterBy` outfit and `formsToReplace` within one) |
+| **3** | **Literal forms in `Items:`** — the `ElvenDagger` pattern | absolute, unconditional guarantee on one actor | 1 record each; only sane for signature NPCs |
+
+Note truncation does **not** cost variety: the gates cluster (1 / 6–9 / 19–22 / 25–28), so keeping
+everything `≤ 9` still leaves iron *and* steel variants in the pool. Flat ≠ single item.
+
+**Recommendation for `loot-model.md`:** instrument 1 as the global floor-and-ceiling (cheap, immediate,
+kills the bone-1 leak), instrument 2 for the two or three archetypes whose tier spread the player
+actually reads — bandits and draugr — and instrument 3 for named bosses. Instrument 2 is what makes
+bone 3 true rather than merely capped, and it reopens the ESL question, since per-tier lists and
+outfits are the mod's **first new records**.
+
+**Still open:** whether hand-placed unique gear is unaffected (it should be — `ElvenDagger` is the
+proof of shape), and whether SkyPatcher's `npc/` module can set `DefaultOutfit`. Both are
+`loot-model.md` questions, not further in-game tests.
+
+This does **not** touch tests 1, 2a or 3, all of which passed. The places are fixed; it is the gear
+on the actors standing in them that still scales.
 
 ---
 

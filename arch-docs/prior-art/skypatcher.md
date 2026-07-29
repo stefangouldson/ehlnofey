@@ -308,9 +308,23 @@ filters set `found = true`.)
 removes it with `null`). That is MLU's `C.Encounter` work — 138 cell records — as rules.
 
 Cell filters are thin, though: `filterByCells` / `Excluded`, `filterByAcousticSpace`,
-`filterByMusicType`, `filterBySkyRegion`, `filterByImageSpace`. **No keyword or location filter**,
-so cells must largely be enumerated. Useful escape hatches for compatibility:
+`filterByMusicType`, `filterBySkyRegion`, `filterByImageSpace`, and — **corrected 2026-07-29** —
+`filterByKeywords` / `Or` / `Excluded`, which this section originally said did not exist. **No
+location filter**, so cells must largely be enumerated. Useful escape hatches for compatibility:
 `skipRecordByModNameContains=` and `skipRecordByLightingTemplateFromMod=`.
+
+**The conclusion survives the correction, for a better reason** — the two filters that look like they
+could target the wilderness in bulk both match *nothing* in the base game `[verified]`:
+
+| Filter | Reads | Tamriel exterior cells carrying it |
+|---|---|---|
+| `filterByKeywords` | cell `Keywords` | **0 of 12,148** |
+| `filterBySkyRegion` | `ExtraCellSkyRegion` (XCCM) | **0 of 12,148** |
+| *(no filter exists)* | cell `Regions` (XCLR) | 6,999 of 12,148 ← the one worth requesting upstream |
+
+`encounterZone=` also **adds** an `ExtraEncounterZone` to a cell that has none (`cell.cpp:781–802`),
+not merely reassign an existing one — which is what makes the overworld reachable at all. See
+`design/implementation-strategy.md` §6.3.
 
 ### 4.5 `location/` — rich filters, but it cannot set a level
 
