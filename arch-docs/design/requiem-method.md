@@ -391,20 +391,75 @@ also machine-checked against the declared master list — all resolve, no Hearth
 
 **Not verified: `xedit-audit` and the launch.** See §9.
 
-**Step 6 — the 355 zones**, generated from `difficulty-map.md` as already planned. They now serve
-container loot only, but nothing about the records or the generator changes.
+### Steps 6–9 were replaced by the extract (2026-07-30)
 
-**Step 7 — one archetype, end to end: bandits.** Flatten its `LVLN` leaves, truncate its five gear
-lists, weight the pools. Then **launch and walk into two different bandit camps at player 5 and
-player 45**. Guardrail 6: this is the only thing that proves the architecture. Do not author
-archetype #2 until a character has been correctly killed by archetype #1.
+Scope was cut to **one deliverable: a copy of Requiem with only the deleveling in it**. Steps 6–8 as
+written above assumed Ehlnofey would re-derive every flat list from `reference/Base/` by rule — ~962
+records of original authoring. It does not have to: Requiem's flat records are overwhelmingly built
+from **vanilla FormKeys only**, and an override keeps its defining master's FormKey suffix, so for
+most records the job is a file copy. `src/Ehlnofey/extract-requiem.ps1` does it in five buckets.
 
-**Step 8 — generate the rest.** Guardrail 3 (*copy records verbatim, never retype hex*): flattening
-is a mechanical transform of vanilla records and must be produced by a script, the way
-`build-difficulty-map.py` produces the zone map.
+> **Release note.** Verbatim-copied records make the plugin a derivative of Requiem — fine to build
+> and play privately, but publishing needs their permission. Bucket D, the part that most defines
+> the mod's character, can't be copied anyway and stays original Ehlnofey work.
 
-**Step 9 — followers by hand** (§4.3), then the SkyPatcher `npc/` rules for the remaining ~454
-`PcLevelMult` actors, then the rule linter (`implementation-strategy.md` §8).
+**Step 6 — the extract.** ✅ **DONE — 2,845 records.**
+
+| | | |
+|---|---:|---|
+| **A** copied verbatim | 1,896 | `LVLN`/`LVLI` whose every FormKey is one of our four masters |
+| **B** stripped | 173 | `LVLI` that also referenced Requiem-only gear; those entries dropped |
+| **C** vanilla flatten | 259 | Requiem never covered it, or B emptied it: vanilla record, `Level` → 1 |
+| **D** provisional `LVLN` | 66 | nothing copyable — see below |
+| **E** level graft | 437 | vanilla `NPC_` record, Requiem's `Configuration.Level` only |
+| *skipped* | 1,900 | not ours: Requiem's own records, HearthFires, Creation Club, USSEP |
+| *skipped* | 307 | ITMs |
+
+Closure is the result that made this viable: of every vanilla `LVLN` reachable from Requiem's flat
+lists **0 remain player-gated**, and for `LVLI` only 7. Of the **257** gated vanilla `LVLN` in the
+whole game Requiem covers **249**. There is no `REQ_NULL_` contamination — 0 entries in live lists
+point at a record Requiem neutered.
+
+Deliberately **not** taken: Requiem's perks, spells, magic effects, weapons, armour, crafting and
+economy; its 8 encounter zones (none is a level record); its `fDiffMultHP*`/`fDiffMultXP*`
+difficulty-slider flattening. Requiem's `HealthOffset` and its dropped `AutoCalcStats` flag are its
+capability overhaul, so bucket E takes the level field and nothing else. The ~150 EditorIDs Requiem
+renamed into its own taxonomy (`LItemWeaponSword` → `REQ_LI_Loot_Weapon_Sword`) are restored to the
+vanilla name; `REQ_NULL_` / `REQ_LEGACY_` / `REQ_BashedPatch_` records are dropped, since
+disconnecting a record is not deleveling.
+
+Every entry in every leveled list is now `Level: 1` or the `9999` disable sentinel. Four residual
+Requiem gates were flattened for bone 1: `SublistEnchElvenBattleaxeStamina` (25),
+`SublistEnchOrcishSwordAbsorbHealth` (11), `SublistEnchOrcishSwordTurn` (11) and
+`DLC2LCharDragonAny` (**55** — Requiem gates Solstheim's any-dragon list behind level 55; flattening
+it means those dragons are reachable from level 1, which is the design, but it is a judgement call).
+
+Verified: `build.ps1` clean · `Test-RecordYaml.ps1` 2,846 files no issues · **round-trip byte-stable**
+· **zero new FormIDs** · masters exactly Skyrim/Update/Dawnguard/Dragonborn. **Not launched.**
+
+**Step 7 — bucket D, the 66 `LVLN` that could not be copied.** Requiem's versions delegate to
+`REQ_LChar_VoiceSpawns_*` sublists that are Requiem-only **and still player-gated** (1/2/5/8/9/10),
+so nothing came across. The set is the whole `LCharBandit*` ladder, the 19 `LCharAnimal*` biome
+rosters, `LCharSkeletonMeleeMixed`, `LCharChaurus`, `LCharWolf`, `LCharSabrecat`, `LCharDeer`,
+`LCharElk`, `LCharMudcrab`, `LCharVampireCompanionFrost`, `SubCharVigilantOfStendarr*` and the
+`DLC2LCharBandit*` set — listed in `bucket-d-provisional.txt`. They currently hold a **naive vanilla
+flatten**, which for the biome rosters is actively wrong: §4.1 of `archetype-tiers.md` shows a naive
+flatten inherits the level-35 density-ramp mix (`BearCave ×7` dominant) instead of freezing each
+biome at the reference level of its assigned tier. Author these from `archetype-tiers.md` §4/§4.1.
+
+**Step 8 — launch.** Guardrail 6. Level-1 character, `coc bleakfallsbarrow01`; then
+`player.setlevel 40` and enter a *different* uncleared barrow. Same spawns, same loot tier, or the
+architecture is not doing what the census says it is.
+
+**Step 9 — followers by hand** (§4.3): the 65 `PcLevelMult` allies Requiem deliberately leaves
+scaling and therefore supplies no level for, plus the 114 vanilla `PcLevelMult` NPCs Requiem never
+reaches. Then the rule linter (`implementation-strategy.md` §8) if any SkyPatcher rules survive.
+
+> **Re-running the extract.** `extract-requiem.ps1` regenerates from `reference/`, so its output is
+> pre-round-trip: Spriggit normalises field order, and collapses the multi-language `Values:` block
+> vanilla `NPC_` records carry into a single `Value:`. After any re-run, **deserialize, re-serialize,
+> and adopt Spriggit's output as the committed source** — the same rule as CLAUDE.md's field-order
+> gotcha. The committed tree is already in that normalised form.
 
 ---
 

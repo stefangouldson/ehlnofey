@@ -215,10 +215,41 @@ mod, not a new-content mod. Ehlnofey changes *where the numbers come from*, and 
 
 ## Current phase
 
-**Phase 3 is complete** (2026-07-28). Five documents in `arch-docs/design/`. **Phase 4 is next**, and
-`implementation-strategy.md` §9 is its order of work.
+**Phase 4 is under way and `Ehlnofey.esp` exists: 2,845 records** (2026-07-30, branch
+`design/requiem-method`). Read **`arch-docs/design/requiem-method.md` first** — it is the live
+architecture doc, and its §6 is the current order of work. Everything below it in this section is
+the Phase 3 record, kept because most of it still holds, but **the architecture it decided has been
+replaced.**
 
-The four decisions Phase 3 was convened to make:
+**What changed.** Encounter zones govern only 0.3% of the outdoors and cannot reach worn gear, so the
+zone-first hybrid could not deliver bone 1. The mod pivoted to **Requiem's method** — flatten the
+`LVLN`/`LVLI` gate, keep the pool, fix `PcLevelMult` NPCs — and then to the cheapest possible way of
+getting it: **extract Requiem's deleveling layer directly.** Requiem's flat records are
+overwhelmingly built from vanilla FormKeys only, and an override keeps its defining master's FormKey
+suffix, so most of the job is a file copy. `src/Ehlnofey/extract-requiem.ps1` is the generator.
+
+| | | |
+|---|---:|---|
+| A copied verbatim | 1,896 | `LVLN`/`LVLI`, every FormKey one of our four masters |
+| B stripped | 173 | `LVLI` minus their Requiem-only gear entries |
+| C vanilla flatten | 259 | not covered by Requiem, or emptied by B |
+| D provisional | 66 | `LCharBandit*` + the 19 biome rosters — **still owed**, see below |
+| E level graft | 437 | vanilla `NPC_` record + Requiem's `Configuration.Level`, nothing else |
+
+Every entry in every leveled list is now `Level: 1` or the `9999` disable sentinel. Builds clean,
+`Test-RecordYaml.ps1` passes 2,846 files, round-trip is byte-stable, **zero new FormIDs**, masters
+exactly Skyrim/Update/Dawnguard/Dragonborn. **It has never been launched** (guardrail 6).
+
+**Owed next:** bucket D's 66 `LVLN` from `archetype-tiers.md` §4/§4.1 (they hold a naive vanilla
+flatten, which for the biome rosters is actively wrong — see `bucket-d-provisional.txt`), then the
+launch, then the 65 follower + 114 unreached `PcLevelMult` NPCs.
+
+**Licensing:** verbatim-copied records make the plugin a derivative of Requiem. Private use is fine;
+publishing needs their permission.
+
+---
+
+The four decisions Phase 3 was convened to make (**the architecture row is superseded**):
 
 | Decision | Verdict |
 |---|---|
@@ -241,7 +272,8 @@ Three findings worth carrying, each of which overturned something the repo previ
    difficulty map, and **MLU's 400-list truncation pass is unnecessary**. Daedric ends up reachable in
    ~2 places, both apex, without editing a single list.
 3. **No new records are needed.** The whole mod is overrides, so FormID usage stays at zero and
-   ESL-flagging is free.
+   ESL-flagging is free. **Still true after the pivot** — the extract added 2,845 records and every
+   one is an override; the planned wilderness `ECZN` belonged to the replaced architecture.
 
 **Three cheap in-game tests still gate Phase 4** (`implementation-strategy.md` §7) — run them before
 authoring: `LevelModifier: None`, NPC gear resolution level, and zeroing
@@ -250,16 +282,16 @@ authoring: `LevelModifier: None`, NPC gear resolution level, and zeroing
 can still move a large amount of work (up to 1,378 `LVLI`); the `LevelModifier` test's exposure
 turned out to be 9 records, not ~1,928.
 
-No Ehlnofey *shipping* records exist yet. `src/` holds the template's `ExampleMod`, kept only as a
-worked pipeline example, plus **`src/EhlnofeyProbe/`** — a 4-record throwaway that pins three
-encounter zones to zero-width bands and zeroes `fSpecialLootMinPCLevelMult`, built to run the three
-gating tests (`design/probe-test-protocol.md`). Neither is part of the mod; both are deleted in
-Phase 4. The probe is deliberately **not** in `build/manifest.json` — build it with a direct
-`spriggit deserialize`, as the protocol shows. `reference/` holds
+`src/` holds exactly one mod, **`src/Ehlnofey/`** — the 2,845-record plugin plus its two generator
+scripts, `author-constants.ps1` (the 13 constants) and `extract-requiem.ps1` (everything else).
+`ExampleMod` and `EhlnofeyProbe` were deleted; `build/staging/Example Mod/fomod/` is kept on purpose
+as the only confirmed-working FOMOD image example (see the gotcha), and is inert because `build.ps1`
+iterates `manifest.releases` only. `reference/` holds
 Spriggit decompiles of `Skyrim.esm`, `Update.esm` and all three DLCs — Phase 1's evidence — plus
-third-party mods under `reference/mods/` as Phase 2 reads them. **`reference/` is now also a build
-input**, not only a lookup: `arch-docs/design/build-difficulty-map.py` regenerates the difficulty map
-from it.
+third-party mods under `reference/mods/` as Phase 2 reads them. **`reference/` is a build input**,
+not only a lookup: `extract-requiem.ps1` reads both `reference/Base/` and
+`reference/mods/RequiemYaml/` to regenerate the plugin, and
+`arch-docs/design/build-difficulty-map.py` regenerates the difficulty map from it.
 
 **Phase 2 is complete.** Three subjects were read: **Requiem** (`prior-art/requiem/`),
 **MorrowLoot Ultimate** (`prior-art/morrowloot.md`) and **SkyPatcher** (`prior-art/skypatcher.md`).
@@ -345,6 +377,15 @@ arch-docs/
     # ^ Phase 2 is CLOSED. Open World Loot, SPID and Synthesis were dropped on
     #   purpose — see "Current phase". Do not add files here without a reason.
   design/
+    requiem-method.md            # EXISTS — READ FIRST. THE live architecture: the pivot away from
+                                 #   encounter zones, the four Ehlnofey twists, and 6 = the current
+                                 #   order of work. Supersedes implementation-strategy.md 1.
+    archetype-tiers.md           # EXISTS — the archetype tier table + the 19 biome rosters. 4/4.1
+                                 #   is what bucket D of the extract still has to be authored from.
+    bucket-d-provisional.txt     # GENERATED — the 66 LVLN the extract could not copy and left as a
+                                 #   naive vanilla flatten. Regenerated by extract-requiem.ps1.
+    lvli-reachability.ps1        # EXISTS — plus roster-census / leveled-list-census / lvli-fork-*
+                                 #   / biome-rosters .ps1: the evidence scripts behind 5 and 4.1.
     engine-behaviour.md          # EXISTS — the five gating engine questions, answered with sources
                                  #   (ECZN clamp scope, Min==Max, loot, LevelModifier, SkyPatcher
                                  #    timing/saves). Read before tiers/difficulty-map/implementation.
@@ -397,7 +438,15 @@ Mutagen/Spriggit field name in `reference/` before writing YAML**, and record th
 | Spawn gating by player level | 12 `LevelGate*` `GLOB` records (Spriggan 8 … Giant 24) | Vanilla's only systematic level gate — it withholds world-encounter *creatures* until the player is roughly their level. **This is a bone-1 violation that already exists**; delete or document as an exception. `[verified]` |
 | Capability, not level | `PERK`, `SPEL`, `CSTY` (combat style) | A level-20 bandit's threat comes largely from perks/spells/AI. Deleveling levels without capability produces a flat, boring world. `[community]` |
 
-## Implementation strategy — DECIDED (Phase 3)
+## Implementation strategy — SUPERSEDED (Phase 3 record)
+
+> ⚠️ **Replaced by `arch-docs/design/requiem-method.md`.** The shipped architecture is a
+> **single plugin, no rules**: 2,845 override records extracted from Requiem's deleveling layer —
+> flat `LVLN`/`LVLI` plus grafted `NPC_` levels. There are **no encounter-zone bands and no
+> SkyPatcher rules** in it. Zones govern 0.3% of the outdoors and cannot reach worn gear, which is
+> what killed the hybrid; and once every list is flat there is nothing left for a zone to clamp.
+> The section below is kept for the reasoning, which is still worth reading, and because §§2.2–2.4,
+> §4 and §8 of `implementation-strategy.md` survive intact.
 
 **Verdict: a hybrid — places and constants in the plugin, actors in rules.** Full reasoning and the
 record-by-record manifest are in `arch-docs/design/implementation-strategy.md`; this is the summary.
@@ -465,8 +514,9 @@ Fixed now so Phase 4 does not have to argue about it:
   but the mod is no longer override-only, and `implementation-strategy.md` §2.5 still says it is.
 - Always `/formkey-check` before claiming a block.
 
-**FormID usage:** none yet. **Planned: ~7 wilderness `ECZN`, plus per-tier gear lists/outfits if the
-loot fix takes instrument 2.** **Next free: `0x800`.**
+**FormID usage: none, and none planned.** All 2,845 shipped records are overrides. The ~7 wilderness
+`ECZN` and the per-tier gear lists belonged to the replaced architecture and are not being built.
+**Next free: `0x800`.**
 
 ## Useful FormKey constants
 
@@ -613,6 +663,21 @@ Fill this as the project teaches you things.
   *every line changed* on a clean round-trip. Compare with **`diff -r --strip-trailing-cr`** (or
   `git diff`, which normalizes) and judge the round-trip on content only. Note `.gitattributes`'
   own comment says Spriggit "uses LF" — that is inaccurate for 0.40 on Windows. `[verified]`
+- **PowerShell 5.1's `Set-Content -Encoding utf8` writes a BOM; Spriggit does not.** Any record file
+  authored by a script that way differs from Spriggit's output on line 1 and produces a phantom diff
+  on the next round-trip. Write YAML with
+  `[System.IO.File]::WriteAllLines($path, $lines, (New-Object System.Text.UTF8Encoding($false)))`.
+  `[verified]`
+- **Overriding a vanilla `NPC_` in a non-localized `.esp` collapses its name to one language.**
+  `Skyrim.esm` records serialize a multi-language `Values:` block (the STRINGS table); an `.esp`
+  without one stores a single `Value:`, so Spriggit picks English and the other eight are gone. This
+  hit all 393 base-game NPCs in the extract's bucket E. It is unavoidable without shipping `.STRINGS`
+  — dropping `Name:` is *not* the fix, because a Skyrim override replaces the record wholesale and an
+  NPC with no `FULL` has no name at all. Accept it, or ship a localized plugin. `[verified]`
+- **A PowerShell function returning `,@(...)` breaks `foreach`, even though it fixes `.Count`.** The
+  comma-wrap is needed so a 0- or 1-element result keeps `.Count`, but `foreach ($x in Get-Thing)`
+  then iterates **once with `$x = @()`** instead of zero times — which reads as a phantom result, not
+  an error. Assign to a variable first and check `.Count` before enumerating. `[verified]`
 
 Candidates still to confirm:
 
