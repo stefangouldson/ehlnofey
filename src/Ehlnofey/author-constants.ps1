@@ -38,7 +38,10 @@ $named = @(
 foreach ($n in $named) {
   $p = Copy-Record $n.f 'Npcs'
   $out = New-Object System.Collections.ArrayList
-  $state = 0   # 0 = scanning, 1 = inside the Level: block, 2 = eating CalcMin/CalcMaxLevel
+  # 0 = scanning, 1 = inside the Level: block. CalcMin/CalcMaxLevel are KEPT: they are inert once
+  # the level is fixed, vanilla NpcLevel records carry them anyway, and Requiem keeps them too -
+  # dropping them made these the only records that differ from vanilla outside the Level block.
+  $state = 0
   foreach ($line in (Get-Content $p)) {
     if ($state -eq 0 -and $line -eq '  Level:') {
       [void]$out.Add('  Level:')
@@ -51,14 +54,9 @@ foreach ($n in $named) {
       if ($line -match '^    (MutagenObjectType|LevelMult):') { continue }
       $state = 2
     }
-    if ($state -eq 2) {
-      # CalcMinLevel / CalcMaxLevel are PcLevelMult-only siblings on Configuration - inert now
-      if ($line -match '^  Calc(Min|Max)Level:') { continue }
-      $state = 3
-    }
     [void]$out.Add($line)
   }
-  if ($state -lt 3) { throw "level block not found in $p" }
+  if ($state -lt 2) { throw "level block not found in $p" }
   $out | Set-Content $p -Encoding utf8
   "NPC_  {0,-26} -> fixed {1}" -f (($n.f -split '/')[-1] -replace ' - .*',''), $n.lvl
 }

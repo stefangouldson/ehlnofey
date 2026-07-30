@@ -24,6 +24,8 @@ Configuration:
   Level:
     MutagenObjectType: NpcLevel
     Level: 60
+  CalcMinLevel: 25
+  CalcMaxLevel: 60
   SpeedMultiplier: 100
   HealthOffset: 410
 Factions:

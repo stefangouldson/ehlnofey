@@ -129,6 +129,7 @@ $stats = [ordered]@{
     'D provisional LVLN'  = 0
     'E level graft'       = 0
     'skipped, ITM'        = 0
+    'skipped, sentinel'   = 0   # Requiem's Level: 999 placeholder
     'skipped, not ours'   = 0   # Requiem's own new records, HearthFires, CC, USSEP
     'skipped, no vanilla' = 0
 }
@@ -171,7 +172,16 @@ foreach ($type in @('LeveledNpcs', 'LeveledItems')) {
             $name = Split-Path $vpath -Leaf
         }
 
-        if ($foreign.Count -eq 0) {
+        # Requiem empties some vanilla lists outright (LootDraugrGold, DeathItemDraugrGold, the
+        # Forsworn jewellery lists...) because it removes gold and trinkets from those sources.
+        # That is its ECONOMY design, not deleveling - copying it verbatim would delete loot from
+        # the game. Fall through to the vanilla flatten instead.
+        $reqEntries = @($lines | Where-Object { $_ -match '^    Level: \d+$' }).Count
+        $vanEntries = 0
+        if ($vpath) { $vanEntries = @(Get-Content -LiteralPath $vpath | Where-Object { $_ -match '^    Level: \d+$' }).Count }
+        $emptied = ($reqEntries -eq 0 -and $vanEntries -gt 0)
+
+        if ($foreign.Count -eq 0 -and -not $emptied) {
             if ($vpath -and -not (Compare-Object (Get-Comparable $lines) (Get-Comparable @(Get-Content -LiteralPath $vpath)))) {
                 $stats['skipped, ITM']++; continue                                          # bucket A, but an ITM
             }
@@ -182,7 +192,7 @@ foreach ($type in @('LeveledNpcs', 'LeveledItems')) {
         # A leveled-NPC list that leans on Requiem's own spawn records cannot be salvaged by
         # stripping - what is left is not the archetype. Fall through to the vanilla flatten and
         # mark it for hand-authoring.
-        if (-not $isLvln) {
+        if (-not $isLvln -and -not $emptied) {
             $split = Split-Entries $lines
             $keep = @($split.Blocks | Where-Object { (Get-ForeignMasters $_).Count -eq 0 })
             if ($keep.Count -gt 0) {
@@ -234,6 +244,10 @@ foreach ($f in Get-ChildItem -LiteralPath (Join-Path $req 'Npcs') -Filter '*.yam
     $ri = Get-NpcLevel @(Get-Content -LiteralPath $f.FullName)
     if ($ri.Type -ne 'NpcLevel') { continue }     # Requiem left it scaling - stage 2 decides
     if (-not $ri.Owns) { continue }               # TemplateFlags: Stats - its own level is inert
+    # 999 is Requiem's "unreachable" sentinel (the SummonAtronach*ThrallPotent conjures), not a
+    # tier - prior-art/requiem/plugin-analysis.md 1c. Vanilla has them at 35, and with vanilla
+    # AutoCalcStats behind it a level-999 summon is meaningless. Keep vanilla.
+    if ([int]$ri.Value -ge 999) { $stats['skipped, sentinel']++; continue }
     $vpath = $vnpc[$key]
     if (-not $vpath) { $stats['skipped, no vanilla']++; continue }
 
