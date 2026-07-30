@@ -1,0 +1,18 @@
+FormKey: 08B60A:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricGreatswordTurn
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028D88:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D8D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D92:Skyrim.esm
+    Count: 1

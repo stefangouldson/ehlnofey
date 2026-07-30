@@ -1,0 +1,14 @@
+FormKey: 00F1A2:Dawnguard.esm
+VersionControl: 5468178
+EditorID: DLC1LItemWeaponDwarvenCrossBowGated
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Global: 00F19A:Dawnguard.esm
+Entries:
+- Data:
+    Level: 1
+    Reference: 00B647:Dawnguard.esm
+    Count: 1

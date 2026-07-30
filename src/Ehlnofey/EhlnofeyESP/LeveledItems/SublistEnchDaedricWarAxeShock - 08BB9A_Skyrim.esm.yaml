@@ -1,0 +1,18 @@
+FormKey: 08BB9A:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarAxeShock
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 029588:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029589:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02958A:Skyrim.esm
+    Count: 1

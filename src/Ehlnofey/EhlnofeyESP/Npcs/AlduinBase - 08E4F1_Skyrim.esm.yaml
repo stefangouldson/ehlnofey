@@ -18,7 +18,9 @@ Configuration:
   - BleedoutOverride
   Level:
     MutagenObjectType: NpcLevel
-    Level: 60
+    Level: 250
+  CalcMinLevel: 10
+  CalcMaxLevel: 100
   SpeedMultiplier: 100
   DispositionBase: 35
   TemplateFlags:

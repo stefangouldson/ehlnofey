@@ -1,0 +1,21 @@
+FormKey: 1072D8:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarhammerAbsorbMagicka
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 02959B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02959C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02959D:Skyrim.esm
+    Count: 1

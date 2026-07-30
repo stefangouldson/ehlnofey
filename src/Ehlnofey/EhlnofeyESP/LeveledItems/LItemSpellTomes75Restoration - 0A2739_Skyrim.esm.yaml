@@ -1,0 +1,27 @@
+FormKey: 0A2739:Skyrim.esm
+EditorID: LItemSpellTomes75Restoration
+Version2: 6
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A2722:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A2726:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A2728:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A2729:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0DD643:Skyrim.esm
+    Count: 1

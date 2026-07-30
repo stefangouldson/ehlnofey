@@ -1,0 +1,36 @@
+FormKey: 01A32F:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditBossCommonerF
+FormVersion: 40
+Version2: 7
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 03DEDE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEDE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEDE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEE7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEF2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEFC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DF06:Skyrim.esm
+    Count: 1

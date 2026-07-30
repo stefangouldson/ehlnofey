@@ -1,0 +1,258 @@
+FormKey: 0030D8:Dawnguard.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: DLC1Durnehviir
+Version2: 9
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: defaultAllowPCDialogueScript
+  - Name: DLC1Durnehviir
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: crDragonUnarmedDamage02
+      Object: 0F77FA:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: crDragonUnarmedDamage03
+      Object: 10C4E3:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: crDragonUnarmedDamage04
+      Object: 10C4E4:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: crDragonUnarmedDamage05
+      Object: 10C4E5:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1crDragonUnarmedDamage06
+      Object: 008439:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1crDragonUnarmedDamage07
+      Object: 00C5FC:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DragonDrainVitalityShout03
+      Object: 0181B8:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DragonDrainVitalityShout04
+      Object: 0181B7:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DragonDrainVitalityShout05
+      Object: 0181B6:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DragonDrainVitalityShout06
+      Object: 008442:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DragonDrainVitalityShout07
+      Object: 00C5F9:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DragonFrostBreathShout06
+      Object: 00843C:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DragonFrostBreathShout07
+      Object: 00C5FB:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DurnehvirStatsBoost02
+      Object: 012CD1:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DurnehvirStatsBoost03
+      Object: 012CD2:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DurnehvirStatsBoost04
+      Object: 012CD3:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DurnehvirStatsBoost05
+      Object: 012CD4:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DurnehvirStatsBoost06
+      Object: 012CD5:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DLC1DurnehvirStatsBoost07
+      Object: 012CD6:Dawnguard.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DragonFrostBreathShout02
+      Object: 0549B2:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DragonFrostBreathShout03
+      Object: 0F8100:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DragonFrostBreathShout04
+      Object: 0F810A:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: DragonFrostBreathShout05
+      Object: 10C4E1:Skyrim.esm
+  - Name: dragonactorscript
+    Properties:
+    - MutagenObjectType: ScriptFloatProperty
+      Name: deathFXrange
+      Data: 1024
+    - MutagenObjectType: ScriptObjectProperty
+      Name: dragonFOVfx
+      Object: 06C0DA:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: forestDragonSkin
+      Object: 087557:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDragonLandingImpactSet
+      Object: 02BD39:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDragonTailstompImpactSet
+      Object: 03F819:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: FXDragonTakeoffImpactSet
+      Object: 019A01:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: knockBackExplosion
+      Object: 078C57:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: NPCDragonFlyby
+      Object: 018B58:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: SnowDragonSkin
+      Object: 085808:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: TundraDragonSkin
+      Object: 087556:Skyrim.esm
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WI
+      Object: 035D64:Skyrim.esm
+ObjectBounds:
+  First: -320, -352, 0
+  Second: 320, 352, 384
+Configuration:
+  Flags:
+  - Essential
+  - AutoCalcStats
+  - Summonable
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 100
+  CalcMinLevel: 10
+  CalcMaxLevel: 70
+  SpeedMultiplier: 100
+Factions:
+- Faction: 007A66:Dawnguard.esm
+  Fluff: 0x000000
+- Faction: 0083A6:Dawnguard.esm
+  Fluff: 0x000000
+- Faction: 000013:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 032D9C:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 07A0DF:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 0F2E10:Skyrim.esm
+Voice: 02992B:Skyrim.esm
+Race: 0117DE:Dawnguard.esm
+ActorEffect:
+- 018244:Dawnguard.esm
+- 0549B2:Skyrim.esm
+- 0F77F9:Skyrim.esm
+- 0F77FA:Skyrim.esm
+WornArmor: 011A6E:Dawnguard.esm
+FarAwayModel: 011A78:Dawnguard.esm
+AttackRace: 012E82:Skyrim.esm
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 10
+  Responsibility: NoCrime
+  Mood: Angry
+  Assistance: HelpsAllies
+Class: 017008:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 34
+  - Key: TwoHanded
+    Value: 35
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 28
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 28
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 22
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 999
+  Magicka: 150
+  Stamina: 186
+  FarAwayModelDistance: 10000
+  GearedUpWeapons: 1
+CombatStyle: 00BFEC:Dawnguard.esm
+NAM5: 255
+Height: 1
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 02F2F0:Skyrim.esm
+DefaultOutfit: 011A73:Dawnguard.esm
+SleepingOutfit: 011A73:Dawnguard.esm
+DefaultPackageList: 09C21B:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

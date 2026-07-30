@@ -1,0 +1,40 @@
+FormKey: 01FF08:Dragonborn.esm
+VersionControl: 2847491
+EditorID: DLC2LItemArmorHelmetHeavyBest
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 012E4D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F28:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01394F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013959:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013963:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000EFC:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01396D:Skyrim.esm
+    Count: 1

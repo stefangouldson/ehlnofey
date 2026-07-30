@@ -1,0 +1,18 @@
+FormKey: 08B609:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricGreatswordStamina
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028D82:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D83:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D84:Skyrim.esm
+    Count: 1

@@ -1,0 +1,18 @@
+FormKey: 08A9A5:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricBattleAxeStamina
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 01DFCF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DFD0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DFD1:Skyrim.esm
+    Count: 1

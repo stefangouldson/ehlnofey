@@ -1,0 +1,21 @@
+FormKey: 1072CE:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricMaceAbsorbHealth
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 028DC6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028DC9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028DD4:Skyrim.esm
+    Count: 1

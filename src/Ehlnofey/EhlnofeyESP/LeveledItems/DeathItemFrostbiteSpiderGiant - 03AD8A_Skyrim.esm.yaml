@@ -1,0 +1,16 @@
+FormKey: 03AD8A:Skyrim.esm
+VersionControl: 944407
+EditorID: DeathItemFrostbiteSpiderGiant
+FormVersion: 40
+Version2: 6
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 0E41B8:Skyrim.esm
+    Count: 2
+- Data:
+    Level: 1
+    Reference: 0F961F:Skyrim.esm
+    Count: 1

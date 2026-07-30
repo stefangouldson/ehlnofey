@@ -1,0 +1,18 @@
+FormKey: 08B611:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricMaceShock
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028DF5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028DF6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028DF7:Skyrim.esm
+    Count: 1

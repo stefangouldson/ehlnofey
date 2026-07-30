@@ -1,0 +1,228 @@
+FormKey: 083D99:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: TalsgarTheWanderer
+Version2: 2
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: WETalsgarTheWandererDeathScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WETalsgarIsDead
+      Object: 0B8142:Skyrim.esm
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - Unique
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 50
+  CalcMaxLevel: 100
+  SpeedMultiplier: 100
+  HealthOffset: 50
+Factions:
+- Faction: 053514:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0CF8F9:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013AE6:Skyrim.esm
+Race: 013746:Skyrim.esm
+ActorEffect:
+- 013018:Skyrim.esm
+- 02F3B8:Skyrim.esm
+- 04DEE9:Skyrim.esm
+- 05AD5D:Skyrim.esm
+Items:
+- Item:
+    Item: 016578:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 03FFFB:Skyrim.esm
+    Count: 2
+- Item:
+    Item: 03FFFC:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 087131:Skyrim.esm
+    Count: 3
+- Item:
+    Item: 0E3E99:Skyrim.esm
+    Count: 3
+AIData:
+  Aggression: Aggressive
+  Confidence: Average
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsFriendsAndAllies
+Class: 01325D:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Talsgar the Wanderer
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 33
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 28
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 40
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 70
+  - Key: Alteration
+    Value: 40
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 41
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 249
+  Magicka: 132
+  Stamina: 104
+  GearedUpWeapons: 1
+HeadParts:
+- 08555F:Skyrim.esm
+- 024244:Skyrim.esm
+- 0C710A:Skyrim.esm
+- 051406:Skyrim.esm
+- 017508:Skyrim.esm
+HairColor: 0A0439:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 25
+SoundLevel: Normal
+DefaultOutfit: 09593C:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+HeadTexture: 0D071D:Skyrim.esm
+TextureLighting: '#00706156'
+FaceMorph:
+  NoseLongVsShort: -0.3
+  NoseUpVsDown: -0.1
+  JawUpVsDown: -0.12
+  JawNarrowVsWide: -0.9
+  JawForwardVsBack: -0.16
+  CheeksUpVsDown: 0.42
+  CheeksForwardVsBack: 1
+  EyesUpVsDown: 0.4
+  EyesInVsOut: -0.06
+  BrowsUpVsDown: 0.7
+  BrowsInVsOut: 0.5
+  BrowsForwardVsBack: 0.3
+  LipsUpVsDown: 0.4
+  LipsInVsOut: 0.2
+  ChinNarrowVsWide: -0.54
+  ChinUpVsDown: -0.8
+  ChinUnderbiteVsOverbite: -0.02
+  EyesForwardVsBack: -0.64
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 14
+  Unknown: 4294967295
+  Eyes: 15
+  Mouth: 15
+TintLayers:
+- Index: 1
+  Color: '#00706156'
+  InterpolationValue: 1
+  Preset: 79
+- Index: 2
+  Color: '#00A95452'
+  InterpolationValue: 0.38
+  Preset: 86
+- Index: 3
+  Color: '#00A95452'
+  InterpolationValue: 0.38
+  Preset: 94
+- Index: 5
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 103
+- Index: 7
+  Color: '#00A95452'
+  InterpolationValue: 0.38
+  Preset: 116
+- Index: 8
+  Color: '#00A95452'
+  InterpolationValue: 0.19
+  Preset: 120
+- Index: 9
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 129
+- Index: 10
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 135
+- Index: 21
+  Color: '#00000000'
+  InterpolationValue: 0
+  Preset: 151
+- Index: 25
+  Color: '#00000000'
+  InterpolationValue: 0.42
+  Preset: 587
+MajorFlags:
+- 0x40000

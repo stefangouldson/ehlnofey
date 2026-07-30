@@ -1,0 +1,18 @@
+FormKey: 08C862:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarhammerSoulTrap
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 0295B7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0295B8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0295B9:Skyrim.esm
+    Count: 1

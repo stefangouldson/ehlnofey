@@ -1,0 +1,10 @@
+FormKey: 01421C:Dawnguard.esm
+EditorID: LItemDawnguardWeaponAny
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 00DD55:Dawnguard.esm
+    Count: 1

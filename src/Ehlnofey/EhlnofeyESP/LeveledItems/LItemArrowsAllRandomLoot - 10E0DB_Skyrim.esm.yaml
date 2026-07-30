@@ -1,0 +1,122 @@
+FormKey: 10E0DB:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemArrowsAllRandomLoot
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 037C0D:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C0D:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C15:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C15:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C15:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C0F:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C0F:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C0F:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 6
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 6

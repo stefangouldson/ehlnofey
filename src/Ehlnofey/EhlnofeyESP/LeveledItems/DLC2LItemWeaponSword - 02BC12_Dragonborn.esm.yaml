@@ -1,0 +1,65 @@
+FormKey: 02BC12:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemWeaponSword
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 012EB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013991:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013999:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB1:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB8:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139B1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F15:Skyrim.esm
+    Count: 1

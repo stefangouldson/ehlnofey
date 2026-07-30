@@ -1,0 +1,18 @@
+FormKey: 08B5E8:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricGreatswordFear
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028D69:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D6A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D6B:Skyrim.esm
+    Count: 1

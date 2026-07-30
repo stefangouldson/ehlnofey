@@ -1,0 +1,56 @@
+FormKey: 01FF19:Dragonborn.esm
+VersionControl: 2847491
+EditorID: DLC2LItemEnchWeaponWarhammerBest
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 08992A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 08992A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 08992A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A6A28:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A6A28:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A6A28:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A28:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A38:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CAF50:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3BB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3CD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3DF:Skyrim.esm
+    Count: 1

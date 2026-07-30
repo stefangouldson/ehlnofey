@@ -1,0 +1,33 @@
+FormKey: 08FFE8:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemEnchOrcishBattleaxeFire
+FormVersion: 40
+Version2: 3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0AA118:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA118:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA119:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA119:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA11A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA11A:Skyrim.esm
+    Count: 1

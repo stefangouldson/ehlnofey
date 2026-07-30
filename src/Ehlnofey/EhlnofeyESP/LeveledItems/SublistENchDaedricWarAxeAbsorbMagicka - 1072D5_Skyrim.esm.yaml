@@ -1,0 +1,21 @@
+FormKey: 1072D5:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistENchDaedricWarAxeAbsorbMagicka
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 029567:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029571:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029572:Skyrim.esm
+    Count: 1

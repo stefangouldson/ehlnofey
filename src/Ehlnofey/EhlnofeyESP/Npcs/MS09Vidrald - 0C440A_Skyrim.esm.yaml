@@ -1,0 +1,170 @@
+FormKey: 0C440A:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: MS09Vidrald
+Version2: 14
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 15
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 09DD4F:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013ADA:Skyrim.esm
+Race: 013746:Skyrim.esm
+Items:
+- Item:
+    Item: 016577:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Average
+  EnergyLevel: 50
+  Responsibility: NoCrime
+Class: 013176:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Vidrald
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 20
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 50
+  Magicka: 50
+  Stamina: 50
+  GearedUpWeapons: 1
+HeadParts:
+- 02425C:Skyrim.esm
+- 0513FF:Skyrim.esm
+- 0C3CE4:Skyrim.esm
+- 051080:Skyrim.esm
+- 08555F:Skyrim.esm
+HairColor: 0A0433:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 100
+SoundLevel: Normal
+DefaultOutfit: 0D16EE:Skyrim.esm
+TextureLighting: '#00C6B0A8'
+FaceMorph:
+  NoseUpVsDown: 0.3
+  JawUpVsDown: -0.22
+  JawNarrowVsWide: 0.8
+  CheeksUpVsDown: 0.66
+  CheeksForwardVsBack: 1
+  EyesUpVsDown: 0.5
+  EyesInVsOut: 0.18
+  BrowsUpVsDown: -0.8
+  BrowsInVsOut: -0.4
+  BrowsForwardVsBack: 0.1
+  LipsUpVsDown: 0.76
+  LipsInVsOut: -0.18
+  ChinNarrowVsWide: 1
+  ChinUpVsDown: 0.22
+  ChinUnderbiteVsOverbite: 0.24
+  EyesForwardVsBack: -0.7
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 14
+  Unknown: 4294967295
+  Eyes: 17
+  Mouth: 6
+TintLayers:
+- Index: 1
+  Color: '#00C6B0A8'
+  InterpolationValue: 1
+  Preset: 75
+- Index: 5
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 103
+- Index: 11
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 138
+- Index: 67
+  Color: '#00563112'
+  InterpolationValue: 1
+  Preset: 593
+MajorFlags:
+- 0x40000

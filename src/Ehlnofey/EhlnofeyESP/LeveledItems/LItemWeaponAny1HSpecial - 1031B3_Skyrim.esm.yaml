@@ -1,0 +1,33 @@
+FormKey: 1031B3:Skyrim.esm
+EditorID: LItemWeaponAny1HSpecial
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 1031AB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1031AB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1031AE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1031B0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1031B0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1031B1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 1031B1:Skyrim.esm
+    Count: 1

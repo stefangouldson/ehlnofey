@@ -1,0 +1,58 @@
+FormKey: 10BFF3:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemVigilantHeavyGauntlets50
+FormVersion: 40
+Version2: 3
+ChanceNone: 0.5
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0F6F27:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F27:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F27:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F27:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1

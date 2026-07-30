@@ -1,0 +1,173 @@
+FormKey: 00A877:Dawnguard.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: DLC1Gelebor
+Version2: 14
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Essential
+  - AutoCalcStats
+  - Unique
+  - IsGhost
+  - Invulnerable
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 50
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 01681B:Dawnguard.esm
+  Fluff: 0x000000
+Voice: 01681D:Dawnguard.esm
+Race: 00377D:Dawnguard.esm
+Items:
+- Item:
+    Item: 01681E:Dawnguard.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+Class: 017008:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+ShortName:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 20
+  - Key: Conjuration
+    Value: 20
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 25
+  - Key: Restoration
+    Value: 20
+  - Key: Enchanting
+    Value: 20
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 50
+  Magicka: 50
+  Stamina: 50
+  GearedUpWeapons: 1
+HeadParts:
+- 0029DE:Dawnguard.esm
+HairColor: 00378E:Dawnguard.esm
+NAM5: 255
+Height: 1
+Weight: 25
+SoundLevel: Normal
+DefaultOutfit: 002B49:Dawnguard.esm
+HeadTexture: 0F204B:Skyrim.esm
+TextureLighting: '#007F7F7F'
+FaceMorph:
+  JawUpVsDown: 0.94000006
+  JawNarrowVsWide: 0.67999995
+  CheeksUpVsDown: 0.5
+  CheeksForwardVsBack: 0.41999996
+  BrowsUpVsDown: 0.65999997
+  BrowsInVsOut: -0.65999997
+  BrowsForwardVsBack: 1
+  ChinNarrowVsWide: 0.55999994
+  ChinUpVsDown: -0.74
+FaceParts:
+  Nose: 13
+  Eyes: 26
+  Mouth: 14
+TintLayers:
+- Index: 1
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 2
+  Color: '#0061817D'
+  InterpolationValue: 1
+  Preset: -1
+- Index: 3
+  Color: '#00617D7F'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 8
+  Color: '#00FFFFFF'
+  InterpolationValue: 1
+  Preset: 88
+- Index: 4
+  Color: '#00EDAFAF'
+  InterpolationValue: 0.58
+  Preset: -1
+- Index: 50
+  Color: '#00563112'
+  InterpolationValue: 1
+  Preset: 369
+MajorFlags:
+- 0x40000

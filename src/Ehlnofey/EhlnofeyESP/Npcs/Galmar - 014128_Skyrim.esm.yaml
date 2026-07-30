@@ -1,0 +1,236 @@
+FormKey: 014128:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: Galmar
+Version2: 7
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: cwfieldcoscript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: CWS
+      Object: 019E53:Skyrim.esm
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Essential
+  - AutoCalcStats
+  - Unique
+  - LoopedScript
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 52
+  CalcMinLevel: 10
+  CalcMaxLevel: 30
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 000EA5:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 01C9FD:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0267E3:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 027EB5:Skyrim.esm
+  Rank: -1
+  Fluff: 0x000000
+- Faction: 028173:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 02BF9B:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 03662A:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 036634:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 047A01:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 05091F:Skyrim.esm
+  Rank: -1
+  Fluff: 0x000000
+- Faction: 050ACB:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 073EE0:Skyrim.esm
+  Rank: -1
+  Fluff: 0x000000
+- Faction: 073EE1:Skyrim.esm
+  Rank: -1
+  Fluff: 0x000000
+- Faction: 094393:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 09E0E5:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0C4A99:Skyrim.esm
+  Fluff: 0x000000
+Voice: 0E5002:Skyrim.esm
+Race: 013746:Skyrim.esm
+Items:
+- Item:
+    Item: 013980:Skyrim.esm
+    Count: 1
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 048502:Skyrim.esm
+- 048500:Skyrim.esm
+- 048501:Skyrim.esm
+Class: 013176:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Galmar Stone-Fist
+ShortName:
+  TargetLanguage: English
+  Value: Galmar
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 39
+  - Key: TwoHanded
+    Value: 32
+  - Key: Archery
+    Value: 28
+  - Key: Block
+    Value: 33
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 35
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 155
+  Magicka: 50
+  Stamina: 80
+  GearedUpWeapons: 1
+HeadParts:
+- 0C7123:Skyrim.esm
+- 0CDD71:Skyrim.esm
+- 051410:Skyrim.esm
+HairColor: 0A0437:Skyrim.esm
+CombatStyle: 0E6C50:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 75
+SoundLevel: Normal
+DefaultOutfit: 08CF6B:Skyrim.esm
+SleepingOutfit: 01697D:Skyrim.esm
+CrimeFaction: 0267E3:Skyrim.esm
+HeadTexture: 07325B:Skyrim.esm
+TextureLighting: '#007F7F7F'
+FaceMorph:
+  NoseLongVsShort: -0.19999999
+  NoseUpVsDown: 0.76
+  JawUpVsDown: 1
+  JawNarrowVsWide: 0.34000003
+  EyesUpVsDown: 0.44000006
+  EyesInVsOut: -0.6
+  BrowsUpVsDown: -1
+  LipsUpVsDown: 0.76
+  ChinNarrowVsWide: 0.64
+  ChinUpVsDown: 0.32000005
+  ChinUnderbiteVsOverbite: 0.76
+FaceParts:
+  Nose: 2
+  Eyes: 16
+  Mouth: 20
+TintLayers:
+- Index: 1
+  Color: '#0087C0F3'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 3
+  Color: '#000F0440'
+  InterpolationValue: 0.22
+  Preset: 98
+- Index: 5
+  Color: '#00680002'
+  InterpolationValue: 0.18
+  Preset: -1
+- Index: 6
+  Color: '#00E2ACF0'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 7
+  Color: '#00680002'
+  InterpolationValue: 0.18
+  Preset: -1
+- Index: 10
+  Color: '#004A8D93'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 11
+  Color: '#004A8D93'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 12
+  Color: '#004A8D93'
+  InterpolationValue: 0
+  Preset: -1
+MajorFlags:
+- 0x40000

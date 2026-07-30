@@ -1,0 +1,184 @@
+FormKey: 01C184:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: Haran
+Version2: 14
+SkyrimMajorRecordFlags:
+- Compressed
+Configuration:
+  Flags:
+  - Female
+  - AutoCalcStats
+  - Unique
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 22
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 02816F:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 028181:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 09DA61:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0CA20A:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0CD698:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013ADE:Skyrim.esm
+Race: 013746:Skyrim.esm
+Items:
+- Item:
+    Item: 01397E:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 1046D1:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Average
+  EnergyLevel: 50
+  Responsibility: NoCrime
+Packages:
+- 05031B:Skyrim.esm
+- 024B74:Skyrim.esm
+Class: 013256:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Haran
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 24
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 22
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 22
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 19
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 27
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 75
+  Magicka: 60
+  Stamina: 60
+  GearedUpWeapons: 1
+HeadParts:
+- 040228:Skyrim.esm
+- 0EAA72:Skyrim.esm
+- 0EC1B2:Skyrim.esm
+- 0E4DA4:Skyrim.esm
+HairColor: 0A0430:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 0DAB77:Skyrim.esm
+CrimeFaction: 02816F:Skyrim.esm
+HeadTexture: 03B522:Skyrim.esm
+TextureLighting: '#00DDDDDD'
+FaceMorph:
+  NoseLongVsShort: -0.100000024
+  NoseUpVsDown: 0.5
+  CheeksUpVsDown: -0.6
+  CheeksForwardVsBack: -0.7
+  EyesUpVsDown: -0.060000002
+  EyesInVsOut: 0.4
+  BrowsUpVsDown: 0.58000004
+  LipsUpVsDown: 0.5
+  LipsInVsOut: 0.4
+  ChinNarrowVsWide: 0.5
+  ChinUpVsDown: -0.6
+  ChinUnderbiteVsOverbite: -0.5
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 10
+  Unknown: 4294967295
+  Eyes: 19
+  Mouth: 12
+TintLayers:
+- Index: 27
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 630
+- Index: 31
+  Color: '#000F0440'
+  InterpolationValue: 0.35
+  Preset: 659
+- Index: 54
+  Color: '#00563112'
+  InterpolationValue: 0
+  Preset: 1127
+- Index: 65
+  Color: '#00563112'
+  InterpolationValue: 0
+  Preset: 1132
+- Index: 66
+  Color: '#00563112'
+  InterpolationValue: 1
+  Preset: 1137
+MajorFlags:
+- 0x40000

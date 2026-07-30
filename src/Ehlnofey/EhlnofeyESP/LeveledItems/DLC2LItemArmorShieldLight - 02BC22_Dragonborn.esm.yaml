@@ -1,0 +1,14 @@
+FormKey: 02BC22:Dragonborn.esm
+EditorID: DLC2LItemArmorShieldLight
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0165E3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 026235:Dragonborn.esm
+    Count: 1

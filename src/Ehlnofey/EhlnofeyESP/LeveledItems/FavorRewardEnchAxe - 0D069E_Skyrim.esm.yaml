@@ -1,0 +1,17 @@
+FormKey: 0D069E:Skyrim.esm
+VersionControl: 944407
+EditorID: FavorRewardEnchAxe
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 04B587:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 08992E:Skyrim.esm
+    Count: 1

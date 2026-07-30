@@ -1,0 +1,18 @@
+FormKey: 08BAB5:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarAxeFrost
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 02957F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029580:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029581:Skyrim.esm
+    Count: 1

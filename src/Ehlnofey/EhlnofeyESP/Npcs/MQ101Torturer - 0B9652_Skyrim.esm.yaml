@@ -1,0 +1,172 @@
+FormKey: 0B9652:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: MQ101Torturer
+Version2: 2
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - Unique
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 10
+  CalcMinLevel: 5
+  CalcMaxLevel: 12
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 01C9FC:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 02BF9A:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 094393:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013AD9:Skyrim.esm
+Race: 067CD8:Skyrim.esm
+ActorEffect:
+- 013018:Skyrim.esm
+- 02DD2A:Skyrim.esm
+Perks:
+- Perk: 05CEC0:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 013986:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Mood: Disgusted
+  Assistance: HelpsAllies
+Class: 01E7D0:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Torturer
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 16
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 17
+  - Key: Conjuration
+    Value: 16
+  - Key: Destruction
+    Value: 17
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 17
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 59
+  Magicka: 56
+  Stamina: 50
+  GearedUpWeapons: 1
+HeadParts:
+- 08555F:Skyrim.esm
+- 051403:Skyrim.esm
+- 0F5009:Skyrim.esm
+- 0C716E:Skyrim.esm
+- 024250:Skyrim.esm
+HairColor: 0A0431:Skyrim.esm
+CombatStyle: 03BE1C:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 5
+SoundLevel: Normal
+DefaultOutfit: 0B9653:Skyrim.esm
+TextureLighting: '#00A7867A'
+FaceMorph:
+  NoseLongVsShort: -0.64
+  NoseUpVsDown: 0.6
+  JawUpVsDown: 0.7
+  JawNarrowVsWide: -1
+  JawForwardVsBack: -1
+  CheeksUpVsDown: 1
+  CheeksForwardVsBack: 0.3
+  EyesUpVsDown: 0.6
+  EyesInVsOut: -0.26
+  BrowsUpVsDown: -1
+  BrowsInVsOut: 0.7
+  BrowsForwardVsBack: 0.5
+  LipsUpVsDown: 0.26
+  LipsInVsOut: -0.4
+  ChinNarrowVsWide: -0.2
+  ChinUpVsDown: -1
+  ChinUnderbiteVsOverbite: 0.8
+  EyesForwardVsBack: -0.94
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 11
+  Unknown: 4294967295
+  Eyes: 11
+  Mouth: 13
+MajorFlags:
+- 0x40000

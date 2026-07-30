@@ -1,0 +1,65 @@
+FormKey: 02BC02:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemEnchWeaponBattleAxe
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 089928:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 089928:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 089928:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A69FE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A69FE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A69FE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A22:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A31:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02B0D2:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CAEFF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB01F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02B9EA:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3C6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F1B:Skyrim.esm
+    Count: 1

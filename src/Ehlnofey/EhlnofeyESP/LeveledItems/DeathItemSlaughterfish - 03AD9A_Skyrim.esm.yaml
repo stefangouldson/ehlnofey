@@ -1,0 +1,10 @@
+FormKey: 03AD9A:Skyrim.esm
+EditorID: DeathItemSlaughterfish
+Version2: 4
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 03AD70:Skyrim.esm
+    Count: 5

@@ -1,0 +1,13 @@
+FormKey: 0422A2:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharAnimalMountainSnowPrey
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 02EBE2:Skyrim.esm
+    Count: 1

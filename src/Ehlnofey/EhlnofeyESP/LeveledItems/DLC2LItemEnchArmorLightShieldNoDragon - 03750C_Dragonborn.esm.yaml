@@ -1,0 +1,93 @@
+FormKey: 03750C:Dragonborn.esm
+VersionControl: 2847768
+EditorID: DLC2LItemEnchArmorLightShieldNoDragon
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 07A834:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA5A:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0B421C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA5B:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0B421D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA5C:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA75:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 084B65:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA76:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 084B66:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA77:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 084B67:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA90:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA91:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BA92:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BAAB:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0FD9FA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BAAC:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0FD9FB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02BAAD:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0FD9FC:Skyrim.esm
+    Count: 1

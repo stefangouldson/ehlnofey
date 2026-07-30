@@ -1,0 +1,18 @@
+FormKey: 0165D8:Skyrim.esm
+EditorID: LItemWeaponAny2HTown
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0165BF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0165C0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0165C1:Skyrim.esm
+    Count: 1

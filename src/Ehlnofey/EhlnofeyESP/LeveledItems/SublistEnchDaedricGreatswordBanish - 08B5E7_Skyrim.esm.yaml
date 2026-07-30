@@ -1,0 +1,18 @@
+FormKey: 08B5E7:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricGreatswordBanish
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028D66:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D67:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D68:Skyrim.esm
+    Count: 1

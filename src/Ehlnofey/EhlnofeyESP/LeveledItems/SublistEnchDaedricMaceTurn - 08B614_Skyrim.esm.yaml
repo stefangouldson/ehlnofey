@@ -1,0 +1,18 @@
+FormKey: 08B614:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricMaceTurn
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028E6A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E75:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E76:Skyrim.esm
+    Count: 1

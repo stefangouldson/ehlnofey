@@ -1,0 +1,65 @@
+FormKey: 02BC10:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemWeaponGreatSword
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01359D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01359D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01359D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013987:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013987:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013987:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01398F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013997:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDAF:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01399F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB6:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139AF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F11:Skyrim.esm
+    Count: 1

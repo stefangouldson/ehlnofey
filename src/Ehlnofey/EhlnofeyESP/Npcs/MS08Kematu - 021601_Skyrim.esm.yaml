@@ -1,0 +1,203 @@
+FormKey: 021601:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: MS08Kematu
+Version2: 10
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - Unique
+  StaminaOffset: 50
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 35
+  CalcMinLevel: 5
+  CalcMaxLevel: 50
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 50
+Factions:
+- Faction: 0215D3:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 058B3D:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 094393:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013AD2:Skyrim.esm
+Race: 013748:Skyrim.esm
+AttackRace: 013748:Skyrim.esm
+Items:
+- Item:
+    Item: 03DED1:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 07A91A:Skyrim.esm
+    Count: 2
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 109490:Skyrim.esm
+Class: 06766B:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Kematu
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 33
+  - Key: TwoHanded
+    Value: 24
+  - Key: Archery
+    Value: 20
+  - Key: Block
+    Value: 26
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 18
+  - Key: LightArmor
+    Value: 21
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 20
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 144
+  Magicka: 50
+  Stamina: 116
+  GearedUpWeapons: 1
+HeadParts:
+- 08555F:Skyrim.esm
+- 0E756D:Skyrim.esm
+- 0C3CDC:Skyrim.esm
+- 0C7259:Skyrim.esm
+- 0E7AED:Skyrim.esm
+- 08555F:Skyrim.esm
+HairColor: 0A0435:Skyrim.esm
+CombatStyle: 016E25:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 80
+SoundLevel: Normal
+DefaultOutfit: 06A15C:Skyrim.esm
+TextureLighting: '#002D211E'
+FaceMorph:
+  NoseLongVsShort: -0.1
+  NoseUpVsDown: 0.3
+  JawUpVsDown: -0.74
+  JawNarrowVsWide: -0.56
+  JawForwardVsBack: 1
+  CheeksUpVsDown: 0.94
+  CheeksForwardVsBack: 0.68
+  EyesUpVsDown: 0.1
+  EyesInVsOut: 0.24
+  BrowsUpVsDown: -1
+  BrowsInVsOut: -0.8
+  BrowsForwardVsBack: -0.84
+  LipsUpVsDown: 1
+  LipsInVsOut: -0.8
+  ChinNarrowVsWide: 0.26
+  ChinUpVsDown: 0.5
+  ChinUnderbiteVsOverbite: 0.9
+  EyesForwardVsBack: -0.34
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 16
+  Unknown: 4294967295
+  Eyes: 1
+  Mouth: 7
+TintLayers:
+- Index: 1
+  Color: '#002D211E'
+  InterpolationValue: 1
+  Preset: 81
+- Index: 11
+  Color: '#00212B52'
+  InterpolationValue: 0.35
+  Preset: 86
+- Index: 12
+  Color: '#00212B52'
+  InterpolationValue: 0.35
+  Preset: 94
+- Index: 14
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 104
+- Index: 15
+  Color: '#00212B52'
+  InterpolationValue: 0.35
+  Preset: 110
+- Index: 20
+  Color: '#00A95452'
+  InterpolationValue: 0.07
+  Preset: 134
+- Index: 21
+  Color: '#00000000'
+  InterpolationValue: 1
+  Preset: 141
+MajorFlags:
+- 0x40000

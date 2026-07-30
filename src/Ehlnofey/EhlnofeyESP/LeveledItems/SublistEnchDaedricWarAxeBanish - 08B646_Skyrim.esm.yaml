@@ -1,0 +1,18 @@
+FormKey: 08B646:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarAxeBanish
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 029576:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029577:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029578:Skyrim.esm
+    Count: 1

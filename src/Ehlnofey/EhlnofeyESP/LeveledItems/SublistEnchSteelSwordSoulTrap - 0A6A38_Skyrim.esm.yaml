@@ -1,0 +1,21 @@
+FormKey: 0A6A38:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchSteelSwordSoulTrap
+FormVersion: 40
+Version2: 4
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A69CD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A69CE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A69CF:Skyrim.esm
+    Count: 1

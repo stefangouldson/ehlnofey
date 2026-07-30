@@ -1,0 +1,29 @@
+FormKey: 0B5106:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchArmorSteelShield03
+FormVersion: 40
+Version2: 4
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 10DFC7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0B50F6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0B50F2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0B50F4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0B50F0:Skyrim.esm
+    Count: 1

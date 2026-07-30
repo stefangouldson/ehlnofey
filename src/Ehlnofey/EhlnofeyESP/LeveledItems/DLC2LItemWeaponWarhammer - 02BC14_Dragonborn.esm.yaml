@@ -1,0 +1,65 @@
+FormKey: 02BC14:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemWeaponWarhammer
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013981:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013981:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013981:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01398A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01398A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01398A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013992:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01399A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB3:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139AA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDBA:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139B2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F19:Skyrim.esm
+    Count: 1

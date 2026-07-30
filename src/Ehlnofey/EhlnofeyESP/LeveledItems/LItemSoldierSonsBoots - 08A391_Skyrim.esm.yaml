@@ -1,0 +1,57 @@
+FormKey: 08A391:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemSoldierSonsBoots
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013910:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013910:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013910:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013910:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1

@@ -1,0 +1,19 @@
+FormKey: 00D0EC:Dawnguard.esm
+EditorID: DLC1LItemWeaponDawnguardCrossbowLoot75Gated
+Version2: 4
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 00F1A2:Dawnguard.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00F1A9:Dawnguard.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00F1A9:Dawnguard.esm
+    Count: 1

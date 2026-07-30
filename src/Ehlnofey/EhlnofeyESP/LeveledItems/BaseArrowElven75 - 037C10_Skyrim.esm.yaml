@@ -1,0 +1,34 @@
+FormKey: 037C10:Skyrim.esm
+EditorID: BaseArrowElven75
+ChanceNone: 0.25
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0139BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139BD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139BD:Skyrim.esm
+    Count: 1

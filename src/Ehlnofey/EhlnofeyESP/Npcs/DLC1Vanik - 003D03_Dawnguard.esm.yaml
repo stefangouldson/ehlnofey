@@ -1,0 +1,213 @@
+FormKey: 003D03:Dawnguard.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 537133056
+VersionControl: 1978415
+EditorID: DLC1Vanik
+Version2: 6
+SkyrimMajorRecordFlags:
+- Compressed
+- 0x20000000
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - Unique
+  - BleedoutOverride
+  - LoopedScript
+  - LoopedAudio
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 50
+  CalcMinLevel: 15
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  TemplateFlags:
+  - SpellList
+  - AIData
+  - Script
+  - DefPackList
+  - AttackData
+  - Keywords
+Factions:
+- Faction: 003375:Dawnguard.esm
+  Fluff: 0x000000
+Voice: 013AD8:Skyrim.esm
+Template: 00336F:Dawnguard.esm
+Race: 013746:Skyrim.esm
+Items:
+- Item:
+    Item: 037C1B:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 04F78D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10E0DD:Skyrim.esm
+    Count: 1
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Assistance: HelpsFriendsAndAllies
+  Unused: 63
+Packages:
+- 011BA5:Dawnguard.esm
+Class: 0E7F45:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 40
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 51
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 35
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 25
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 51
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 190
+  Magicka: 50
+  Stamina: 120
+  GearedUpWeapons: 1
+HeadParts:
+- 0E4E19:Skyrim.esm
+- 09F0A1:Skyrim.esm
+- 051403:Skyrim.esm
+- 0E4E2C:Skyrim.esm
+- 0C3CE2:Skyrim.esm
+- 02425B:Skyrim.esm
+- 0C7123:Skyrim.esm
+HairColor: 0A0433:Skyrim.esm
+CombatStyle: 03BE1B:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 60
+SoundLevel: Normal
+DefaultOutfit: 003D04:Dawnguard.esm
+DefaultPackageList: 003424:Dawnguard.esm
+HeadTexture: 0D071D:Skyrim.esm
+TextureLighting: '#00C6B0A8'
+FaceMorph:
+  NoseLongVsShort: -0.64
+  NoseUpVsDown: -0.4
+  JawUpVsDown: -0.3
+  JawNarrowVsWide: -0.1
+  CheeksUpVsDown: 0.6
+  CheeksForwardVsBack: 0.8
+  EyesUpVsDown: 0.08
+  EyesInVsOut: -0.2
+  BrowsUpVsDown: -1
+  BrowsInVsOut: -0.8
+  LipsUpVsDown: -0.33999997
+  LipsInVsOut: 0.3
+  ChinNarrowVsWide: 0.5
+  ChinUpVsDown: 0.54
+  ChinUnderbiteVsOverbite: -0.56
+  EyesForwardVsBack: -0.4
+  Unknown: 3.4028235E+38
+FaceParts:
+  Mouth: 11
+TintLayers:
+- Index: 1
+  Color: '#00C6B0A8'
+  InterpolationValue: 1
+  Preset: 75
+- Index: 21
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 150
+- Index: 39
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 246
+- Index: 23
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 342
+- Index: 43
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 366
+- Index: 60
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 390
+- Index: 62
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 438
+- Index: 64
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 486
+MajorFlags:
+- 0x40000
+- BleedoutOverride

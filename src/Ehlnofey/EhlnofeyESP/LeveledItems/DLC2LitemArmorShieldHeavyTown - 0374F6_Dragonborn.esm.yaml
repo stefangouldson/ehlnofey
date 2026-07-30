@@ -1,0 +1,65 @@
+FormKey: 0374F6:Dragonborn.esm
+VersionControl: 2847768
+EditorID: DLC2LitemArmorShieldHeavyTown
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 012EB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01394B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01394B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01394B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01394B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013955:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013955:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013955:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013955:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 026236:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 026236:Dragonborn.esm
+    Count: 1

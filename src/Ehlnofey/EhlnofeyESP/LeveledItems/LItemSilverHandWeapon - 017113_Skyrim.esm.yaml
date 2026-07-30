@@ -1,0 +1,22 @@
+FormKey: 017113:Skyrim.esm
+EditorID: LItemSilverHandWeapon
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 10AA19:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10AA19:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10C6FB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10C6FB:Skyrim.esm
+    Count: 1

@@ -1,0 +1,45 @@
+FormKey: 02BC31:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemEnchWeaponBowSpecial
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 0AE745:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AE747:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A32:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02B0D3:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CAF00:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB020:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02B9EB:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3C7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F1D:Skyrim.esm
+    Count: 1

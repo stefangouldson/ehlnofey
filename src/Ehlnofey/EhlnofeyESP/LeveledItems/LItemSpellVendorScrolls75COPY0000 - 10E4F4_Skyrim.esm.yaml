@@ -1,0 +1,74 @@
+FormKey: 10E4F4:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemSpellVendorScrolls75COPY0000
+FormVersion: 40
+Version2: 1
+ChanceNone: 0.25
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A44C8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44C8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44C8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44C8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44C9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44C9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44C9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44C9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A44CB:Skyrim.esm
+    Count: 1

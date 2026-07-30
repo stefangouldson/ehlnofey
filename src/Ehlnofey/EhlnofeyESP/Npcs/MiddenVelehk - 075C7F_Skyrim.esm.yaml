@@ -1,0 +1,133 @@
+FormKey: 075C7F:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: MiddenVelehk
+Version2: 12
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - Unique
+  - 0x4000000
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 60
+  SpeedMultiplier: 100
+  DispositionBase: 35
+DeathItem: 03AD80:Skyrim.esm
+Voice: 01F1CE:Skyrim.esm
+Race: 0131F0:Skyrim.esm
+Items:
+- Item:
+    Item: 07A91A:Skyrim.esm
+    Count: 2
+AIData:
+  Confidence: Average
+  EnergyLevel: 50
+  Responsibility: NoCrime
+Packages:
+- 0DA742:Skyrim.esm
+Class: 013176:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Velehk Sain
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 22
+  - Key: TwoHanded
+    Value: 17
+  - Key: Archery
+    Value: 19
+  - Key: Block
+    Value: 19
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 22
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 85
+  Magicka: 50
+  Stamina: 60
+  GearedUpWeapons: 2
+HeadParts:
+- 0C824D:Skyrim.esm
+HairColor: 0F7565:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 100
+SoundLevel: Normal
+DefaultOutfit: 06A15C:Skyrim.esm
+TextureLighting: '#00141414'
+TintLayers:
+- Index: 1
+  Color: '#00000000'
+  InterpolationValue: 0.84
+  Preset: 6
+MajorFlags:
+- 0x40000

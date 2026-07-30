@@ -1,0 +1,17 @@
+FormKey: 049313:Skyrim.esm
+VersionControl: 944407
+EditorID: FavorRewardEnchArmor
+FormVersion: 40
+Version2: 4
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0FDA19:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0FDA18:Skyrim.esm
+    Count: 1

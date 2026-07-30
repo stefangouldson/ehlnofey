@@ -1,0 +1,21 @@
+FormKey: 0DB2AC:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharElk
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 023A91:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0ABEDF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0ABEDF:Skyrim.esm
+    Count: 1

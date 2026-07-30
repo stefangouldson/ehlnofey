@@ -17,7 +17,9 @@ Configuration:
   StaminaOffset: 200
   Level:
     MutagenObjectType: NpcLevel
-    Level: 65
+    Level: 80
+  CalcMinLevel: 35
+  CalcMaxLevel: 150
   SpeedMultiplier: 100
   DispositionBase: 35
   TemplateFlags:

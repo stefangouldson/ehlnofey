@@ -1,0 +1,65 @@
+FormKey: 02BC13:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemWeaponWarAxe
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013790:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013790:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013790:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01398B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013993:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB2:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01399B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB9:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139AB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F17:Skyrim.esm
+    Count: 1

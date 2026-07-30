@@ -1,0 +1,22 @@
+FormKey: 0A2985:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemSpellTomes75AllIllusion
+FormVersion: 40
+Version2: 7
+ChanceNone: 1
+Flags:
+- UseAll
+Global: 0F258E:Skyrim.esm
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A2715:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A2717:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A2718:Skyrim.esm
+    Count: 1

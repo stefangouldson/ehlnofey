@@ -1,0 +1,49 @@
+FormKey: 02BC37:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemEnchWeaponWarhammerSpecial
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 08992A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A6A28:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A28:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A38:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02B0D9:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CAF50:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3BB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 02B9F1:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3CD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F26:Skyrim.esm
+    Count: 1

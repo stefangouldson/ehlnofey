@@ -1,0 +1,9 @@
+FormKey: 0571A3:Skyrim.esm
+EditorID: LItemArmorGauntletsLightBest
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01391C:Skyrim.esm
+    Count: 1

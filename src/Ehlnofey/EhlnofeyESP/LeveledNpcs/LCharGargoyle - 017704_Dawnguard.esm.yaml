@@ -1,0 +1,20 @@
+FormKey: 017704:Dawnguard.esm
+VersionControl: 2846980
+EditorID: LCharGargoyle
+FormVersion: 43
+Version2: 3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 017702:Dawnguard.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 00A2CC:Dawnguard.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 014487:Dawnguard.esm
+    Count: 1

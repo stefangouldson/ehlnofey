@@ -1,0 +1,57 @@
+FormKey: 071656:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemMaceForOrcs
+FormVersion: 40
+Version2: 4
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013990:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013990:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013990:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013990:Skyrim.esm
+    Count: 1

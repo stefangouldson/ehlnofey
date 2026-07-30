@@ -1,0 +1,57 @@
+FormKey: 0374E8:Dragonborn.esm
+VersionControl: 2847768
+EditorID: DLC2LItemWeaponWarAxeTown
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013790:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013790:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013790:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013790:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013983:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01398B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB2:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013993:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01399B:Skyrim.esm
+    Count: 1

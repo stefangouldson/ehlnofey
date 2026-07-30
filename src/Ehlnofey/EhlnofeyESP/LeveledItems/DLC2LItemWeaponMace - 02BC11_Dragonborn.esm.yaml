@@ -1,0 +1,65 @@
+FormKey: 02BC11:Dragonborn.esm
+VersionControl: 2847747
+EditorID: DLC2LItemWeaponMace
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013982:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013988:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013990:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013998:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB0:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB7:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139B0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000F13:Skyrim.esm
+    Count: 1

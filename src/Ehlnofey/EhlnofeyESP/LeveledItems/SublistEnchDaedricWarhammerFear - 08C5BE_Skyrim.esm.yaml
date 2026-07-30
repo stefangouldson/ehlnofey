@@ -1,0 +1,18 @@
+FormKey: 08C5BE:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarhammerFear
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 0295A5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0295A6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0295A7:Skyrim.esm
+    Count: 1
