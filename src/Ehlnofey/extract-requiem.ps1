@@ -63,34 +63,39 @@ function Get-ForeignMasters($lines) {
 # Version noise differs between a Requiem record and a vanilla one for reasons that are not edits.
 function Get-Comparable($lines) { ,@($lines | Where-Object { $_ -notmatch '^(VersionControl|FormVersion|Version2):' }) }
 
-# Leveled-list entries are col-0 '- Data:' blocks; children are indented. Returns the whole file
-# split into (preamble, entry blocks, trailer) so blocks can be dropped without touching anything else.
+# Leveled-list entries are col-0 '- Data:' blocks; children are indented. Returns the file split
+# into (before, entry blocks, after) so blocks can be dropped without touching anything else.
+# The trailer matters: some records carry a Model: block AFTER Entries:, and appending the rebuilt
+# entries instead of splicing them back in place produces invalid YAML.
 function Split-Entries($lines) {
     $pre = New-Object System.Collections.ArrayList
+    $post = New-Object System.Collections.ArrayList
     $blocks = New-Object System.Collections.ArrayList
     $cur = $null
     $seen = $false
+    $doneEntries = $false
     foreach ($l in $lines) {
-        if ($l -eq '- Data:') {
+        if ($l -eq '- Data:' -and -not $doneEntries) {
             if ($cur) { [void]$blocks.Add($cur) }
             $cur = New-Object System.Collections.ArrayList
             [void]$cur.Add($l); $seen = $true; continue
         }
         if ($cur -ne $null) {
-            if ($l -match '^\S') { [void]$blocks.Add($cur); $cur = $null }   # col-0 key ends the entry run
+            if ($l -match '^\S') { [void]$blocks.Add($cur); $cur = $null; $doneEntries = $true }  # col-0 key ends the run
             else { [void]$cur.Add($l); continue }
         }
-        [void]$pre.Add($l)
+        if ($doneEntries) { [void]$post.Add($l) } else { [void]$pre.Add($l) }
     }
     if ($cur) { [void]$blocks.Add($cur) }
-    return [pscustomobject]@{ Pre = $pre; Blocks = $blocks; HasEntries = $seen }
+    return [pscustomobject]@{ Pre = $pre; Post = $post; Blocks = $blocks; HasEntries = $seen }
 }
 
-# Rebuild a list file from its preamble plus a filtered set of entry blocks.
+# Rebuild a list file from its preamble, a filtered set of entry blocks, and its trailer.
 function Join-Entries($split, $blocks) {
     $out = New-Object System.Collections.ArrayList
     foreach ($l in $split.Pre) { [void]$out.Add($l) }
     foreach ($b in $blocks) { foreach ($l in $b) { [void]$out.Add($l) } }
+    foreach ($l in $split.Post) { [void]$out.Add($l) }
     return $out
 }
 

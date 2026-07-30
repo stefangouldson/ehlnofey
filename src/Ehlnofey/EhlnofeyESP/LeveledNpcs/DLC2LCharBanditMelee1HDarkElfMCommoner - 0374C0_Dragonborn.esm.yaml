@@ -13,6 +13,22 @@ Entries:
     Count: 1
 - Data:
     Level: 1
+    Reference: 01E80F:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E80F:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E828:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E828:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
     Reference: 01E828:Dragonborn.esm
     Count: 1
 - Data:
@@ -21,13 +37,9 @@ Entries:
     Count: 1
 - Data:
     Level: 1
+    Reference: 01E846:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
     Reference: 01E85B:Dragonborn.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 01E86E:Dragonborn.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 01E889:Dragonborn.esm
     Count: 1

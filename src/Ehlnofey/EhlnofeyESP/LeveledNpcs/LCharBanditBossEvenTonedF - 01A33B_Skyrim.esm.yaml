@@ -8,23 +8,15 @@ Flags:
 Entries:
 - Data:
     Level: 1
-    Reference: 03DEE2:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 03DEE2:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 03DEE2:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 03DEEB:Skyrim.esm
+    Reference: 03DEF6:Skyrim.esm
     Count: 1
 - Data:
     Level: 1
     Reference: 03DEF6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DF00:Skyrim.esm
     Count: 1
 - Data:
     Level: 1

@@ -233,16 +233,19 @@ suffix, so most of the job is a file copy. `src/Ehlnofey/extract-requiem.ps1` is
 | A copied verbatim | 1,896 | `LVLN`/`LVLI`, every FormKey one of our four masters |
 | B stripped | 173 | `LVLI` minus their Requiem-only gear entries |
 | C vanilla flatten | 259 | not covered by Requiem, or emptied by B |
-| D provisional | 66 | `LCharBandit*` + the 19 biome rosters — **still owed**, see below |
-| E level graft | 437 | vanilla `NPC_` record + Requiem's `Configuration.Level`, nothing else |
+| D authored | 57 | the `LCharBandit*` ladder + the biome rosters, from `archetype-tiers.md` (+9 dropped as already-flat) |
+| E level graft | 434 | vanilla `NPC_` record + Requiem's `Configuration.Level`, nothing else |
 
 Every entry in every leveled list is now `Level: 1` or the `9999` disable sentinel. Builds clean,
-`Test-RecordYaml.ps1` passes 2,846 files, round-trip is byte-stable, **zero new FormIDs**, masters
-exactly Skyrim/Update/Dawnguard/Dragonborn. **It has never been launched** (guardrail 6).
+`Test-RecordYaml.ps1` passes 2,834 files, round-trip is byte-stable, **zero new FormIDs**, masters
+exactly Skyrim/Update/Dawnguard/Dragonborn. It **has** been launched — the player survives, dies and
+respawns without incident; no dungeon or loot verification yet (guardrail 6).
 
-**Owed next:** bucket D's 66 `LVLN` from `archetype-tiers.md` §4/§4.1 (they hold a naive vanilla
-flatten, which for the biome rosters is actively wrong — see `bucket-d-provisional.txt`), then the
-launch, then the 65 follower + 114 unreached `PcLevelMult` NPCs.
+**Generators, and the order they must run in:** `author-constants.ps1` → `extract-requiem.ps1` →
+`author-bucket-d.ps1`, then deserialize → re-serialize → adopt Spriggit's output as the source.
+
+**Owed next:** the launch verification proper (draugr tier and boss-chest loot fixed across two
+player levels), then the 65 follower + 114 unreached `PcLevelMult` NPCs.
 
 **Licensing:** verbatim-copied records make the plugin a derivative of Requiem. Private use is fine;
 publishing needs their permission.

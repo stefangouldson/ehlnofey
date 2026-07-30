@@ -292,6 +292,22 @@ Bethesda's.
 **The gradient falls out geographically**: plains T2 → forest / canyon / marsh / hills / coast T3 →
 snowy forest and snow fields T4 → **mountains T5**. That is a legible map with no zone anywhere in it.
 
+> **Built 2026-07-30 by `src/Ehlnofey/author-bucket-d.ps1`.** The cap rule stated above reproduces
+> this table **exactly** for all eight flagged predator lists — verified entry-for-entry against the
+> built plugin. Two rows needed a decision, because the table and the prose disagree:
+>
+> - **`LCharAnimalSnowFields`** is listed with `IceWraith ×2`, but Ice Wraith sits at **gate 28**,
+>   above T4's own reference level of 21. The build follows the rule, not the row:
+>   `WolfIce ×3 · SabreCatSnow ×2 · BearSnow ×1 · Wolf ×1`. Frost Troll is excluded either way, so
+>   §4.1.2's "T5 is the only band holding `TrollFrost`" still holds.
+> - **`LCharMudcrab`** appears twice with different weights — `Medium ×3` in §4's substitution table,
+>   `Medium ×2` in §4.1.4. The build uses **§4's** (`Medium ×3 · Large ×2 · Giant ×1`), since §4 is
+>   the canonical table for species-substitution lists.
+>
+> The three unflagged lists (`LCharAnimalForest`, `…Plains`, `…SnowFields`) hold one entry per
+> species, so a bare cap would give a flat 1:1:1 mix — the cap decides *which* species are in and
+> the table's weights are applied on top.
+
 **Mountains at T5 are doing specific work.** `tiers.md` §8 sets the twelve `LevelGate*` globals to 1,
 which removes vanilla's only systematic protection against a level-5 character meeting a frost troll.
 `lore-constraints.md` §4 item 4 says the geography must then carry the warning instead: *"frost trolls

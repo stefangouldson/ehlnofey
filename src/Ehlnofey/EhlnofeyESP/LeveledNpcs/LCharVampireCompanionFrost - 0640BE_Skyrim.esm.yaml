@@ -31,10 +31,6 @@ Entries:
     Level: 1
     Reference: 017702:Dawnguard.esm
     Count: 1
-- Data:
-    Level: 1
-    Reference: 00A2CC:Dawnguard.esm
-    Count: 1
 Model:
   File: Actors\Skeever\Skeever_static2.nif
   Data: 0x020000000000000000000000

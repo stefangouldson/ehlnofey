@@ -13,6 +13,22 @@ Entries:
     Count: 1
 - Data:
     Level: 1
+    Reference: 039CF8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039CF8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D04:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D04:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
     Reference: 039D04:Skyrim.esm
     Count: 1
 - Data:
@@ -21,13 +37,9 @@ Entries:
     Count: 1
 - Data:
     Level: 1
+    Reference: 039D0C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
     Reference: 039D14:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 039D1C:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 039D24:Skyrim.esm
     Count: 1
