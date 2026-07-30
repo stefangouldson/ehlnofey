@@ -1,0 +1,56 @@
+FormKey: 01FF15:Dragonborn.esm
+VersionControl: 2847491
+EditorID: DLC2LItemEnchWeaponBowBest
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0AE745:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AE745:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AE745:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AE746:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AE746:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AE746:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AE747:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A32:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CAF00:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB020:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3C7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3D9:Skyrim.esm
+    Count: 1

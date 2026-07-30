@@ -1,0 +1,45 @@
+FormKey: 01A323:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditMeleeEvenTonedM
+FormVersion: 40
+Version2: 6
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 039CF9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D05:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D05:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D05:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D05:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D0D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D0D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D0D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D15:Skyrim.esm
+    Count: 1

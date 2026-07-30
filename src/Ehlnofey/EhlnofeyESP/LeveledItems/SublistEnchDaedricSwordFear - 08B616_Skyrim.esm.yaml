@@ -1,0 +1,18 @@
+FormKey: 08B616:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricSwordFear
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028E84:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E85:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E86:Skyrim.esm
+    Count: 1

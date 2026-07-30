@@ -1,0 +1,22 @@
+FormKey: 0029A2:Dawnguard.esm
+VersionControl: 5468178
+EditorID: DLC1LCharChaurusHunter
+FormVersion: 43
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 0029A1:Dawnguard.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0029A1:Dawnguard.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0029A1:Dawnguard.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 005204:Dawnguard.esm
+    Count: 1

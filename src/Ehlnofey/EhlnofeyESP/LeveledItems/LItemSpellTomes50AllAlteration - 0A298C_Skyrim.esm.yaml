@@ -1,0 +1,24 @@
+FormKey: 0A298C:Skyrim.esm
+EditorID: LItemSpellTomes50AllAlteration
+Version2: 5
+ChanceNone: 1
+Flags:
+- UseAll
+Global: 0F2584:Skyrim.esm
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A26E4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A26E5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A26E6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A26E7:Skyrim.esm
+    Count: 1

@@ -1,0 +1,45 @@
+FormKey: 01B0F5:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditWizardEvenTonedM
+FormVersion: 40
+Version2: 5
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 039D35:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D3C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D3C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D3C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D3C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D47:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D47:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D47:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D4E:Skyrim.esm
+    Count: 1

@@ -1,0 +1,10 @@
+FormKey: 0CD9EE:Skyrim.esm
+EditorID: LItemArmorCuirassHeavyReward
+Version2: 4
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 06851E:Skyrim.esm
+    Count: 1

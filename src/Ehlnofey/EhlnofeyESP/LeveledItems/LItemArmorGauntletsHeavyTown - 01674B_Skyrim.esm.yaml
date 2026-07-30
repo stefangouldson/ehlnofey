@@ -1,0 +1,18 @@
+FormKey: 01674B:Skyrim.esm
+EditorID: LItemArmorGauntletsHeavyTown
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 012E46:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012E46:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013953:Skyrim.esm
+    Count: 1

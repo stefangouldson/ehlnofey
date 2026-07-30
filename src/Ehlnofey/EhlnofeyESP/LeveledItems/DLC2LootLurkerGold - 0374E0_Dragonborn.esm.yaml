@@ -1,0 +1,22 @@
+FormKey: 0374E0:Dragonborn.esm
+VersionControl: 2847768
+EditorID: DLC2LootLurkerGold
+FormVersion: 43
+Version2: 1
+Entries:
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 250
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 400
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 500
+- Data:
+    Level: 1
+    Reference: 00000F:Skyrim.esm
+    Count: 600

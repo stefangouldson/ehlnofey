@@ -1,0 +1,18 @@
+FormKey: 08A9A2:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricBattleAxeParalyze
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 01DFC6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DFC7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DFC8:Skyrim.esm
+    Count: 1

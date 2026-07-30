@@ -1,0 +1,33 @@
+FormKey: 08FFEC:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemEnchOrcishBattleaxeSoulTrap
+FormVersion: 40
+Version2: 3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0AA124:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA124:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA125:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA125:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA126:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA126:Skyrim.esm
+    Count: 1

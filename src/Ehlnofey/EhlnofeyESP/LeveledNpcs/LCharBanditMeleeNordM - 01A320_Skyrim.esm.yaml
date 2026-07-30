@@ -1,0 +1,81 @@
+FormKey: 01A320:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditMeleeNordM
+FormVersion: 40
+Version2: 5
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01BCD8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03CF5D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE56:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE56:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE56:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE56:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D01:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D01:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D01:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D01:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE5B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE5B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE5B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D09:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D09:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D09:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DE60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D11:Skyrim.esm
+    Count: 1

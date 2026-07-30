@@ -1,0 +1,21 @@
+FormKey: 1072D3:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricSwordAbsorbStamina
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 028E7E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E7F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E80:Skyrim.esm
+    Count: 1

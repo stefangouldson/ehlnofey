@@ -1,0 +1,25 @@
+FormKey: 10C45C:Skyrim.esm
+VersionControl: 944407
+EditorID: SubCharVigilantOfStendarrEvenTonedMAccented01
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 10C454:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10C456:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10C457:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 10C458:Skyrim.esm
+    Count: 1

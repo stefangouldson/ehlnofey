@@ -1,0 +1,18 @@
+FormKey: 08B608:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricGreatswordSoulTrap
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028D7C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D80:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D81:Skyrim.esm
+    Count: 1

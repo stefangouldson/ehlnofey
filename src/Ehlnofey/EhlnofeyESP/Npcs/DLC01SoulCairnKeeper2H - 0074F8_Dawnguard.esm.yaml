@@ -1,0 +1,158 @@
+FormKey: 0074F8:Dawnguard.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: DLC01SoulCairnKeeper2H
+Version2: 2
+SkyrimMajorRecordFlags:
+- Compressed
+Configuration:
+  Flags:
+  - AutoCalcStats
+  MagickaOffset: 200
+  StaminaOffset: 100
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 80
+  CalcMinLevel: 10
+  CalcMaxLevel: 80
+  SpeedMultiplier: 100
+  TemplateFlags:
+  - Script
+  - AttackData
+  - Keywords
+  HealthOffset: 250
+Factions:
+- Faction: 007A66:Dawnguard.esm
+  Fluff: 0x000000
+- Faction: 000013:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 02D1DF:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 01A186:Dawnguard.esm
+Voice: 0BFB2B:Skyrim.esm
+Template: 02D1E0:Skyrim.esm
+Race: 007AF3:Dawnguard.esm
+ActorEffect:
+- 01A885:Dawnguard.esm
+CombatOverridePackageList: 00EA76:Dawnguard.esm
+Perks:
+- Perk: 01A16F:Dawnguard.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 01A171:Dawnguard.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 01A172:Dawnguard.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 053128:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 01A185:Dawnguard.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+Packages:
+- 09448B:Skyrim.esm
+- 088978:Skyrim.esm
+- 09BCBD:Skyrim.esm
+Class: 023C0C:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 34
+  - Key: TwoHanded
+    Value: 35
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 28
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 28
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 22
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 20
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 390
+  Magicka: 200
+  Stamina: 225
+  GearedUpWeapons: 1
+CombatStyle: 0559F5:Skyrim.esm
+NAM5: 255
+Height: 1.5
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 0BFB2A:Skyrim.esm
+DefaultOutfit: 007B0C:Dawnguard.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000

@@ -1,0 +1,203 @@
+FormKey: 064ABA:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 944407
+EditorID: DA13EncAfflicted06TemplateMissile
+FormVersion: 40
+Version2: 7
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - LoopedScript
+  - LoopedAudio
+  MagickaOffset: -25
+  StaminaOffset: 20
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 1
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  TemplateFlags:
+  - Factions
+  - SpellList
+  - AIPackages
+  - BaseData
+  - Script
+  - DefPackList
+  - AttackData
+  HealthOffset: -20
+Factions:
+- Faction: 043AB7:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013AD2:Skyrim.esm
+Template: 064A42:Skyrim.esm
+Race: 097A3D:Skyrim.esm
+ActorEffect:
+- 059327:Skyrim.esm
+AttackRace: 097A3D:Skyrim.esm
+Items:
+- Item:
+    Item: 013986:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 037BFD:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 037C27:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 08FFFB:Skyrim.esm
+    Count: 1
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Brave
+  EnergyLevel: 50
+  Assistance: HelpsFriendsAndAllies
+Class: 015BE7:Skyrim.esm
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 48
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 65
+  - Key: Block
+    Value: 32
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 32
+  - Key: LightArmor
+    Value: 48
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 49
+  - Key: Alchemy
+    Value: 20
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 20
+  - Key: Conjuration
+    Value: 25
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 20
+  - Key: Restoration
+    Value: 20
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 283
+  Magicka: 25
+  Stamina: 162
+  GearedUpWeapons: 1
+HeadParts:
+- 051507:Skyrim.esm
+HairColor: 0A0431:Skyrim.esm
+CombatStyle: 03BE1D:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 064ACF:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00764F32'
+TintLayers:
+- Index: 2
+  Color: '#00764F32'
+  InterpolationValue: 1
+  Preset: -1
+- Index: 3
+  Color: '#000F0440'
+  InterpolationValue: 0.22
+  Preset: 40
+- Index: 4
+  Color: '#000F0440'
+  InterpolationValue: 0.19
+  Preset: 48
+- Index: 5
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: -1
+- Index: 6
+  Color: '#000F0440'
+  InterpolationValue: 0.22
+  Preset: -1
+- Index: 7
+  Color: '#FFFFFF'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 8
+  Color: '#006B3D16'
+  InterpolationValue: 1
+  Preset: -1
+- Index: 9
+  Color: '#00AC0000'
+  InterpolationValue: 0.13
+  Preset: -1
+- Index: 10
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 79
+- Index: 11
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 85
+- Index: 12
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 88
+- Index: 13
+  Color: '#000F0440'
+  InterpolationValue: 0.22
+  Preset: -1
+MajorFlags:
+- 0x40000

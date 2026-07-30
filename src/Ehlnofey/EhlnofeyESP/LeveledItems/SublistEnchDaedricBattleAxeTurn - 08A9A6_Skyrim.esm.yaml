@@ -1,0 +1,18 @@
+FormKey: 08A9A6:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricBattleAxeTurn
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 01DFD2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DFD3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DFD4:Skyrim.esm
+    Count: 1

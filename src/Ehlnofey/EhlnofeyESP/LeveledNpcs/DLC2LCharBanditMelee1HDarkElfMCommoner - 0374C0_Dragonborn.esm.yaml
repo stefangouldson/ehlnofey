@@ -1,0 +1,45 @@
+FormKey: 0374C0:Dragonborn.esm
+VersionControl: 3503128
+EditorID: DLC2LCharBanditMelee1HDarkElfMCommoner
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01E80F:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E828:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E828:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E828:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E828:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E846:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E846:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E846:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E85B:Dragonborn.esm
+    Count: 1

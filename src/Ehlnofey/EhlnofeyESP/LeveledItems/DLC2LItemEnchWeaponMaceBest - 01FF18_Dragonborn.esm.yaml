@@ -1,0 +1,57 @@
+FormKey: 01FF18:Dragonborn.esm
+VersionControl: 2847491
+EditorID: DLC2LItemEnchWeaponMaceBest
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 04B57F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04B57F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04B57F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04B582:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04B582:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04B582:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A25:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C9A35:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CAF03:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3B8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3CA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0CB3DC:Skyrim.esm
+    Count: 1

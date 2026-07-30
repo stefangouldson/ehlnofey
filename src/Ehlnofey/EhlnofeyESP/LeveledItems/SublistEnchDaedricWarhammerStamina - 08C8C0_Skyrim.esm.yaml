@@ -1,0 +1,18 @@
+FormKey: 08C8C0:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarhammerStamina
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 0295BA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0295BB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0295BC:Skyrim.esm
+    Count: 1

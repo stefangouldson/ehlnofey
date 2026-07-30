@@ -1,0 +1,14 @@
+FormKey: 0DD645:Skyrim.esm
+EditorID: LItemSpellTomes100Alteration
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0D2B4E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0DD646:Skyrim.esm
+    Count: 1

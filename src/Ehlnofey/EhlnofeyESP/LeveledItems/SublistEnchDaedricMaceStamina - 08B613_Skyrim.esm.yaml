@@ -1,0 +1,18 @@
+FormKey: 08B613:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricMaceStamina
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028E32:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E33:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028E5D:Skyrim.esm
+    Count: 1

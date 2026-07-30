@@ -1,0 +1,9 @@
+FormKey: 0571A0:Skyrim.esm
+EditorID: LItemArmorCuirassLightBest
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0896A3:Skyrim.esm
+    Count: 1

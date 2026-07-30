@@ -1,0 +1,45 @@
+FormKey: 03DECA:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditMelee2HBerserk
+FormVersion: 40
+Version2: 6
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 03DEB8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEBB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEBB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEBB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEBB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEBE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEBE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEBE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03DEC1:Skyrim.esm
+    Count: 1

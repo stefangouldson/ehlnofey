@@ -1,0 +1,45 @@
+FormKey: 008BF8:Dawnguard.esm
+VersionControl: 5468178
+EditorID: LCharBanditMissileKhajiitM
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 09A549:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54E:Skyrim.esm
+    Count: 1

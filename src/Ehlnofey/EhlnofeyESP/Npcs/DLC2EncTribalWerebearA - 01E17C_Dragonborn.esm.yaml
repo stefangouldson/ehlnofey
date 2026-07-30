@@ -1,0 +1,204 @@
+FormKey: 01E17C:Dragonborn.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: DLC2EncTribalWerebearA
+Version2: 10
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: DLC2TribalWerebearScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: WerebearChange
+      Object: 01E178:Dragonborn.esm
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Respawn
+  - AutoCalcStats
+  - Unique
+  MagickaOffset: -25
+  StaminaOffset: 20
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 25
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  TemplateFlags:
+  - SpellList
+  - AIData
+  - AIPackages
+  - DefPackList
+  - AttackData
+  - Keywords
+  HealthOffset: 15
+Factions:
+- Faction: 02655F:Dragonborn.esm
+  Fluff: 0x000000
+Voice: 013AE6:Skyrim.esm
+Template: 03DEA5:Skyrim.esm
+Race: 013746:Skyrim.esm
+Perks:
+- Perk: 052D50:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 052D51:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+Items:
+- Item:
+    Item: 03D241:Dragonborn.esm
+    Count: 3
+AIData:
+  Aggression: VeryAggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsFriendsAndAllies
+  WarnOrAttack: 65535
+  Attack: 65535
+Class: 01CE17:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 55
+  - Key: TwoHanded
+    Value: 60
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 43
+  - Key: Smithing
+    Value: 20
+  - Key: HeavyArmor
+    Value: 27
+  - Key: LightArmor
+    Value: 43
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 20
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 241
+  Magicka: 25
+  Stamina: 134
+  GearedUpWeapons: 1
+HeadParts:
+- 051508:Skyrim.esm
+- 02425B:Skyrim.esm
+- 0D2EC2:Skyrim.esm
+- 051457:Skyrim.esm
+- 08555F:Skyrim.esm
+HairColor: 0A0431:Skyrim.esm
+CombatStyle: 03D2C8:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 90
+SoundLevel: Normal
+DefaultOutfit: 0A1986:Skyrim.esm
+DefaultPackageList: 021E81:Skyrim.esm
+TextureLighting: '#00826D5B'
+FaceMorph:
+  NoseLongVsShort: 0.06
+  NoseUpVsDown: 0.1
+  JawUpVsDown: 0.08
+  JawNarrowVsWide: -1
+  JawForwardVsBack: 0.04
+  CheeksUpVsDown: 0.02
+  CheeksForwardVsBack: 0.5
+  EyesUpVsDown: 0.5
+  EyesInVsOut: -0.06
+  BrowsUpVsDown: -1
+  BrowsForwardVsBack: -0.24
+  LipsUpVsDown: 0.66
+  LipsInVsOut: 0.16
+  ChinNarrowVsWide: -0.34
+  ChinUpVsDown: -0.4
+  ChinUnderbiteVsOverbite: 0.18
+  EyesForwardVsBack: -0.64
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 1
+  Unknown: 4294967295
+  Eyes: 1
+  Mouth: 19
+TintLayers:
+- Index: 1
+  Color: '#00826D5B'
+  InterpolationValue: 1
+  Preset: 78
+- Index: 2
+  Color: '#00430401'
+  InterpolationValue: 0.42
+  Preset: 87
+- Index: 3
+  Color: '#00A95452'
+  InterpolationValue: 0.38
+  Preset: 94
+- Index: 8
+  Color: '#00A95452'
+  InterpolationValue: 0.19
+  Preset: 120
+MajorFlags:
+- 0x40000

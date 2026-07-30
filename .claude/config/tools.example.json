@@ -8,6 +8,10 @@
   "_gameRoot_help": "Skyrim SE game folder. With a Wabbajack list this is usually <modlistRoot>/Stock Game (or 'Game Root' / 'Stock Game Folder'), a self-contained copy so the modlist never touches your Steam install.",
 
   "gameDataDir": "C:/Gaming/steamapps/common/Skyrim Special Edition/Data",
+
+  "cleanedMastersDir": "",
+  "_cleanedMastersDir_help": "Folder holding Update.esm + the DLC masters when they are NOT in gameDataDir. An MO2 modlist usually keeps them as a mod (e.g. <modlistRoot>/mods/Cleaned Masters) and virtualises them in at launch, so gameDataDir contains only Skyrim.esm. Anything run OUTSIDE MO2 - headless xEdit above all - then cannot resolve the masters, and xEdit's failure mode is a MODAL DIALOG that looks like a hang. Leave blank if gameDataDir already holds every master. Use New-MasterDataDir in tools.ps1 to compose a complete data dir from both.",
+
   "gameSourceScripts": "C:/Gaming/steamapps/common/Skyrim Special Edition/Data/Source/Scripts",
   "_gameSourceScripts_help": "Vanilla Papyrus .psc imports + TESV_Papyrus_Flags.flg. Extract <gameDataDir>/Scripts.zip here once if the folder is missing.",
   "papyrusFlags": "TESV_Papyrus_Flags.flg",

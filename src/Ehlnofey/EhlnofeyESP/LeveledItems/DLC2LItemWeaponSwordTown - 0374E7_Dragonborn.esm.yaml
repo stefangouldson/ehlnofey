@@ -1,0 +1,57 @@
+FormKey: 0374E7:Dragonborn.esm
+VersionControl: 2847768
+EditorID: DLC2LItemWeaponSwordTown
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 012EB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012EB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013989:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013991:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CDB1:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013999:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0139A1:Skyrim.esm
+    Count: 1

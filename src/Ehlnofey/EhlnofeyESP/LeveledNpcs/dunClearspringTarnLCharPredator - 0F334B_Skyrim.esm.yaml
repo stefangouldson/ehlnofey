@@ -1,0 +1,25 @@
+FormKey: 0F334B:Skyrim.esm
+VersionControl: 944407
+EditorID: dunClearspringTarnLCharPredator
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 023AB5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABA:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8B:Skyrim.esm
+    Count: 1

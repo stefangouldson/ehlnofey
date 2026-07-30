@@ -1,0 +1,12 @@
+FormKey: 0E1645:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditBossNordM2HOnly
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 03DF0C:Skyrim.esm
+    Count: 1

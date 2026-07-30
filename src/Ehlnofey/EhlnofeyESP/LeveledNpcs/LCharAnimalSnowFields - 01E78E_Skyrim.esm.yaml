@@ -1,0 +1,34 @@
+FormKey: 01E78E:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharAnimalSnowFields
+FormVersion: 40
+Version2: 7
+Entries:
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023AB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023AB6:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8C:Skyrim.esm
+    Count: 1

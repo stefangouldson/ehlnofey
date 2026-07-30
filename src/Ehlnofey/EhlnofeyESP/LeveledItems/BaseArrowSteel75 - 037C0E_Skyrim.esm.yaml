@@ -1,0 +1,42 @@
+FormKey: 037C0E:Skyrim.esm
+EditorID: BaseArrowSteel75
+ChanceNone: 0.25
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01397F:Skyrim.esm
+    Count: 1

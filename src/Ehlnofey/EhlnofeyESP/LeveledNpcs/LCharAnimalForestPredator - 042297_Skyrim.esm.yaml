@@ -1,0 +1,69 @@
+FormKey: 042297:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharAnimalForestPredator
+FormVersion: 40
+Version2: 13
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 023AB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 041FB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 041FB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 041FB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 041FB4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABA:Skyrim.esm
+    Count: 1

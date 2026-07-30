@@ -1,0 +1,18 @@
+FormKey: 08BACE:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricWarAxeMagicka
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 029582:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029583:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 029584:Skyrim.esm
+    Count: 1

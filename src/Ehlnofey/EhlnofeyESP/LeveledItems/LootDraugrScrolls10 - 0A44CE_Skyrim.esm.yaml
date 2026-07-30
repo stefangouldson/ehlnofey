@@ -1,0 +1,14 @@
+FormKey: 0A44CE:Skyrim.esm
+VersionControl: 944407
+EditorID: LootDraugrScrolls10
+FormVersion: 40
+Version2: 5
+ChanceNone: 0.9
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A44CB:Skyrim.esm
+    Count: 1

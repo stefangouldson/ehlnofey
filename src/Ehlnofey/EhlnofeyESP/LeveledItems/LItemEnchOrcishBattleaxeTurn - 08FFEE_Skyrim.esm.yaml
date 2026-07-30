@@ -1,0 +1,33 @@
+FormKey: 08FFEE:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemEnchOrcishBattleaxeTurn
+FormVersion: 40
+Version2: 3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0AA12A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA12A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA12B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA12B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA12C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA12C:Skyrim.esm
+    Count: 1

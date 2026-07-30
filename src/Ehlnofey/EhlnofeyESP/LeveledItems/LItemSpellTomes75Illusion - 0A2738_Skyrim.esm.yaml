@@ -1,0 +1,21 @@
+FormKey: 0A2738:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemSpellTomes75Illusion
+FormVersion: 40
+Version2: 6
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A2715:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A2717:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A2718:Skyrim.esm
+    Count: 1

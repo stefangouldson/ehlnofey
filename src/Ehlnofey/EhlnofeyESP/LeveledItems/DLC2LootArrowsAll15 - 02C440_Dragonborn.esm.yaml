@@ -1,0 +1,170 @@
+FormKey: 02C440:Dragonborn.esm
+VersionControl: 2847750
+EditorID: DLC2LootArrowsAll15
+FormVersion: 43
+Version2: 1
+ChanceNone: 0.85
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 037C0D:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0D:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0D:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0D:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0E:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C15:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C15:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C15:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C15:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0F:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0F:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0F:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C0F:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC15:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC15:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC15:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC15:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C10:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C11:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC17:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC17:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC17:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 02BC17:Dragonborn.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C13:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 12
+- Data:
+    Level: 1
+    Reference: 037C14:Skyrim.esm
+    Count: 12

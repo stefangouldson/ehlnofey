@@ -1,0 +1,14 @@
+FormKey: 02BC1C:Dragonborn.esm
+EditorID: DLC2LItemArmorCuirassLight
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 016705:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CD87:Dragonborn.esm
+    Count: 1

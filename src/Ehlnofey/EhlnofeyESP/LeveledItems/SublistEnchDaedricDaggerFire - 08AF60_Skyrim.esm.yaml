@@ -1,0 +1,18 @@
+FormKey: 08AF60:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricDaggerFire
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 01E023:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E024:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E033:Skyrim.esm
+    Count: 1

@@ -1,0 +1,30 @@
+FormKey: 1031C9:Skyrim.esm
+EditorID: LItemArmorHelmetLightSpecial
+Flags:
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 01391D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A1:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A1:Skyrim.esm
+    Count: 1

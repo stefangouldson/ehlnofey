@@ -1,0 +1,17 @@
+FormKey: 09E2B4:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemSpellTomes00Restoration
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 09E2AE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09E2AF:Skyrim.esm
+    Count: 1

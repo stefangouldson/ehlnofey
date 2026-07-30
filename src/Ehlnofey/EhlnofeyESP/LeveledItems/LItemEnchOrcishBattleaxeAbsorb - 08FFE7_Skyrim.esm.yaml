@@ -1,0 +1,45 @@
+FormKey: 08FFE7:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemEnchOrcishBattleaxeAbsorb
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0AA166:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA169:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA16C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA167:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA16A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA16D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA168:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA16B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA16E:Skyrim.esm
+    Count: 1

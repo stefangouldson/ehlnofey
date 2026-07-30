@@ -1,0 +1,57 @@
+FormKey: 10BFF2:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemVigilantHeavyBoots
+FormVersion: 40
+Version2: 3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013951:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013951:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013951:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013951:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395B:Skyrim.esm
+    Count: 1

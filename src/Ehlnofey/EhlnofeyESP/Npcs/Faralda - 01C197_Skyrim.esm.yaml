@@ -1,0 +1,240 @@
+FormKey: 01C197:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: Faralda
+Version2: 14
+SkyrimMajorRecordFlags:
+- Compressed
+VirtualMachineAdapter:
+  Scripts:
+  - Name: TrainerGoldScript
+    Properties:
+    - MutagenObjectType: ScriptObjectProperty
+      Name: Gold001
+      Object: 00000F:Skyrim.esm
+    - MutagenObjectType: ScriptIntProperty
+      Name: TrainerType
+      Data: 3
+Configuration:
+  Flags:
+  - Female
+  - Essential
+  - AutoCalcStats
+  - Unique
+  MagickaOffset: 200
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 49
+  CalcMinLevel: 15
+  CalcMaxLevel: 50
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  HealthOffset: 100
+Factions:
+- Faction: 01F259:Skyrim.esm
+  Rank: 4
+  Fluff: 0x000000
+- Faction: 02816F:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 050921:Skyrim.esm
+  Rank: -1
+  Fluff: 0x000000
+- Faction: 051596:Skyrim.esm
+  Rank: -1
+  Fluff: 0x000000
+- Faction: 098BA9:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0E3A49:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0E3A4A:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013AE0:Skyrim.esm
+Race: 013743:Skyrim.esm
+ActorEffect:
+- 02DD29:Skyrim.esm
+- 0400AD:Skyrim.esm
+- 072316:Skyrim.esm
+- 07231A:Skyrim.esm
+- 0BB96B:Skyrim.esm
+- 0F95EB:Skyrim.esm
+- 10F7F8:Skyrim.esm
+Perks:
+- Perk: 10FCFA:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0581F8:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0581F5:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0D7999:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 053128:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0153CF:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Aggression: Aggressive
+  Confidence: Average
+  EnergyLevel: 50
+  Assistance: HelpsAllies
+Packages:
+- 036EA1:Skyrim.esm
+- 036EA2:Skyrim.esm
+Keywords:
+- 0361BA:Skyrim.esm
+Class: 0E3A73:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Faralda
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 35
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 35
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 30
+  - Key: Conjuration
+    Value: 20
+  - Key: Destruction
+    Value: 51
+  - Key: Illusion
+    Value: 25
+  - Key: Restoration
+    Value: 51
+  - Key: Enchanting
+    Value: 20
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 290
+  Magicka: 320
+  Stamina: 50
+  GearedUpWeapons: 1
+HeadParts:
+- 0EC1B2:Skyrim.esm
+- 08CA84:Skyrim.esm
+- 0E4DA5:Skyrim.esm
+HairColor: 0A0430:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 10
+SoundLevel: Normal
+DefaultOutfit: 0D3E05:Skyrim.esm
+CrimeFaction: 02816F:Skyrim.esm
+TextureLighting: '#00948F58'
+FaceMorph:
+  JawUpVsDown: -0.3
+  JawNarrowVsWide: -0.6
+  JawForwardVsBack: 0.8
+  CheeksUpVsDown: 0.2
+  CheeksForwardVsBack: -0.3
+  EyesUpVsDown: -0.7
+  EyesInVsOut: -0.2
+  LipsUpVsDown: 0.1
+  LipsInVsOut: -1
+  ChinNarrowVsWide: 0.5
+  ChinUpVsDown: -0.3
+  ChinUnderbiteVsOverbite: 0.2
+  EyesForwardVsBack: -0.1
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 7
+  Unknown: 4294967295
+  Eyes: 23
+  Mouth: 2
+TintLayers:
+- Index: 24
+  Color: '#00948F58'
+  InterpolationValue: 1
+  Preset: 808
+- Index: 25
+  Color: '#00070C3D'
+  InterpolationValue: 0.51
+  Preset: 383
+- Index: 26
+  Color: '#000F0440'
+  InterpolationValue: 0.53
+  Preset: 396
+- Index: 27
+  Color: '#000F0440'
+  InterpolationValue: 0.53
+  Preset: 406
+- Index: 30
+  Color: '#00070C3D'
+  InterpolationValue: 0.56
+  Preset: 421
+- Index: 33
+  Color: '#00764F32'
+  InterpolationValue: 1
+  Preset: 439
+- Index: 34
+  Color: '#00430401'
+  InterpolationValue: 1
+  Preset: 444
+- Index: 35
+  Color: '#003F6220'
+  InterpolationValue: 0.63
+  Preset: 787
+MajorFlags:
+- 0x40000

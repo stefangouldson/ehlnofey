@@ -1,0 +1,13 @@
+FormKey: 01E8B4:Dragonborn.esm
+VersionControl: 2847759
+EditorID: DLC2LCharBanditBoss
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01E8B3:Dragonborn.esm
+    Count: 1

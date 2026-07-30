@@ -1,0 +1,17 @@
+FormKey: 0571A8:Skyrim.esm
+EditorID: LItemArmorShieldHeavyBest
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013946:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013950:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 026236:Dragonborn.esm
+    Count: 1

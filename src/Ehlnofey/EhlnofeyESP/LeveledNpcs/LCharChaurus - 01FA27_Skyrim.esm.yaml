@@ -1,0 +1,22 @@
+FormKey: 01FA27:Skyrim.esm
+VersionControl: 5468178
+EditorID: LCharChaurus
+FormVersion: 43
+Version2: 6
+Entries:
+- Data:
+    Level: 1
+    Reference: 0A5600:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A5600:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0A5600:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8F:Skyrim.esm
+    Count: 1

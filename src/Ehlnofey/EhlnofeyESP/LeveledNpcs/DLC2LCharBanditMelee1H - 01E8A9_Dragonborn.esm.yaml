@@ -1,0 +1,45 @@
+FormKey: 01E8A9:Dragonborn.esm
+VersionControl: 2847759
+EditorID: DLC2LCharBanditMelee1H
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01E897:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89A:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89A:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89A:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89A:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89D:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89D:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89D:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E8A0:Dragonborn.esm
+    Count: 1

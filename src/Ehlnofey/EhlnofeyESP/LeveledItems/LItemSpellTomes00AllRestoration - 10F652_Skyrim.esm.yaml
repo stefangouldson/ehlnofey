@@ -1,0 +1,16 @@
+FormKey: 10F652:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemSpellTomes00AllRestoration
+FormVersion: 40
+Version2: 2
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 09E2AF:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09E2AE:Skyrim.esm
+    Count: 1

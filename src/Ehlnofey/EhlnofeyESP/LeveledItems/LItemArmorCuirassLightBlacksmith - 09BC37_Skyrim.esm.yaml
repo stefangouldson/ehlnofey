@@ -1,0 +1,66 @@
+FormKey: 09BC37:Skyrim.esm
+EditorID: LItemArmorCuirassLightBlacksmith
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013911:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013911:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013911:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013911:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B3A3:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03619E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03619E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03619E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03619E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0896A3:Skyrim.esm
+    Count: 1

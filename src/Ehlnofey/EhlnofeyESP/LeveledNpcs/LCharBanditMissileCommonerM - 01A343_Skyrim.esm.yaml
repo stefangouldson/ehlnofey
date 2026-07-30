@@ -1,0 +1,45 @@
+FormKey: 01A343:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditMissileCommonerM
+FormVersion: 40
+Version2: 5
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 037BFE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C02:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C02:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C02:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C02:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C30:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C30:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C30:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C37:Skyrim.esm
+    Count: 1

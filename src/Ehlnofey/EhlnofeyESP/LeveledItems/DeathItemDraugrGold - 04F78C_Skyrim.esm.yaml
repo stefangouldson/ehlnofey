@@ -1,0 +1,33 @@
+FormKey: 04F78C:Skyrim.esm
+VersionControl: 944407
+EditorID: DeathItemDraugrGold
+FormVersion: 40
+Version2: 8
+ChanceNone: 0.75
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 04F78D:Skyrim.esm
+    Count: 1

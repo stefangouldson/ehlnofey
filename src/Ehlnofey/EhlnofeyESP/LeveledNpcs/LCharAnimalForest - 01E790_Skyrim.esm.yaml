@@ -1,0 +1,26 @@
+FormKey: 01E790:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharAnimalForest
+FormVersion: 40
+Version2: 6
+Entries:
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023AB5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023AB5:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023A8A:Skyrim.esm
+    Count: 1

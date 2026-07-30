@@ -1,0 +1,45 @@
+FormKey: 01E8A8:Dragonborn.esm
+VersionControl: 2847759
+EditorID: DLC2LCharBanditMagic
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01E896:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E899:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E899:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E899:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E899:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89C:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89C:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89C:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89F:Dragonborn.esm
+    Count: 1

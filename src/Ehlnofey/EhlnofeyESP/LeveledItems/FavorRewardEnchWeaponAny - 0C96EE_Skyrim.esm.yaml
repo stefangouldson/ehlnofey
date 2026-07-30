@@ -1,0 +1,17 @@
+FormKey: 0C96EE:Skyrim.esm
+VersionControl: 944407
+EditorID: FavorRewardEnchWeaponAny
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 04B58B:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 089932:Skyrim.esm
+    Count: 1

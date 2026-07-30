@@ -1,0 +1,81 @@
+FormKey: 0374EF:Dragonborn.esm
+VersionControl: 2847768
+EditorID: DLC2LItemArmorCuirassHeavyTown
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 012E49:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012E49:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012E49:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 012E49:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013948:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013948:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013948:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013948:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F26:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F26:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F26:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F26:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CD8A:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CD8A:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CD97:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CD97:Dragonborn.esm
+    Count: 1

@@ -1,0 +1,255 @@
+FormKey: 00336C:Dawnguard.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 537133056
+VersionControl: 1978415
+EditorID: DLC1Gunmar
+SkyrimMajorRecordFlags:
+- Compressed
+- 0x20000000
+Configuration:
+  Flags:
+  - Essential
+  - AutoCalcStats
+  - Unique
+  - BleedoutOverride
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 25
+  CalcMinLevel: 15
+  SpeedMultiplier: 100
+  TemplateFlags:
+  - SpellList
+  - AIData
+  - AIPackages
+  - Script
+  - DefPackList
+  - AttackData
+  - Keywords
+  HealthOffset: 50
+Factions:
+- Faction: 003375:Dawnguard.esm
+  Fluff: 0x000000
+- Faction: 00C3CC:Dawnguard.esm
+  Fluff: 0x000000
+- Faction: 00F827:Dawnguard.esm
+  Fluff: 0x000000
+- Faction: 014638:Dawnguard.esm
+  Fluff: 0x000000
+- Faction: 02816B:Skyrim.esm
+  Fluff: 0x000000
+Voice: 007C45:Dawnguard.esm
+Template: 00336F:Dawnguard.esm
+Race: 013746:Skyrim.esm
+Items:
+- Item:
+    Item: 037C1B:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 04F78D:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 10E0DD:Skyrim.esm
+    Count: 1
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Assistance: HelpsFriendsAndAllies
+  Unused: 63
+Class: 042DC1:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 39
+  - Key: TwoHanded
+    Value: 25
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 20
+  - Key: Smithing
+    Value: 57
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 20
+  - Key: Pickpocket
+    Value: 34
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 24
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 48
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 15
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 226
+  Magicka: 106
+  Stamina: 78
+  GearedUpWeapons: 1
+HeadParts:
+- 024250:Skyrim.esm
+- 0514D5:Skyrim.esm
+- 0D0564:Skyrim.esm
+- 05107F:Skyrim.esm
+- 08555F:Skyrim.esm
+HairColor: 0A0431:Skyrim.esm
+CombatStyle: 03BE1B:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 60
+SoundLevel: Normal
+DefaultOutfit: 057A27:Skyrim.esm
+DefaultPackageList: 003424:Dawnguard.esm
+CrimeFaction: 02816B:Skyrim.esm
+HeadTexture: 0D071E:Skyrim.esm
+TextureLighting: '#00B79C91'
+FaceMorph:
+  NoseLongVsShort: -0.2
+  NoseUpVsDown: -0.1
+  JawUpVsDown: 1
+  JawNarrowVsWide: 0.7
+  JawForwardVsBack: 0.64
+  CheeksUpVsDown: -0.1
+  CheeksForwardVsBack: 0.7
+  EyesUpVsDown: 0.6
+  EyesInVsOut: -0.5
+  BrowsUpVsDown: -0.8
+  BrowsInVsOut: 0.2
+  BrowsForwardVsBack: -0.6
+  LipsUpVsDown: -0.2
+  LipsInVsOut: -0.1
+  ChinNarrowVsWide: 1
+  ChinUpVsDown: 1
+  ChinUnderbiteVsOverbite: 0.6
+  EyesForwardVsBack: -0.4
+  Unknown: 3.4028235E+38
+FaceParts:
+  Nose: 12
+  Unknown: 4294967295
+  Eyes: 1
+  Mouth: 14
+TintLayers:
+- Index: 1
+  Color: '#00B79C91'
+  InterpolationValue: 1
+  Preset: 76
+- Index: 8
+  Color: '#00A95452'
+  InterpolationValue: 0.19
+  Preset: 120
+- Index: 21
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 164
+- Index: 22
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 188
+- Index: 37
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 212
+- Index: 38
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 236
+- Index: 39
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 260
+- Index: 40
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 284
+- Index: 41
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 308
+- Index: 42
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 332
+- Index: 23
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 356
+- Index: 43
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 380
+- Index: 60
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 404
+- Index: 61
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 428
+- Index: 62
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 452
+- Index: 63
+  Color: '#001A4957'
+  InterpolationValue: 0
+  Preset: 476
+- Index: 64
+  Color: '#00FFFFFF'
+  InterpolationValue: 0
+  Preset: 486
+MajorFlags:
+- 0x40000
+- BleedoutOverride

@@ -1,0 +1,33 @@
+FormKey: 08FFED:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemEnchOrcishBattleaxeStamina
+FormVersion: 40
+Version2: 3
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0AA127:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA127:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA128:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA128:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA129:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0AA129:Skyrim.esm
+    Count: 1

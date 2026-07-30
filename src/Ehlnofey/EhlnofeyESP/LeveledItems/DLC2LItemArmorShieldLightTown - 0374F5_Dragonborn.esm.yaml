@@ -1,0 +1,33 @@
+FormKey: 0374F5:Dragonborn.esm
+VersionControl: 2847768
+EditorID: DLC2LItemArmorShieldLightTown
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013914:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013914:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 026234:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 026234:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 026235:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01391E:Skyrim.esm
+    Count: 1

@@ -1,0 +1,18 @@
+FormKey: 08A99E:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricBattleAxeFear
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 01DD9F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DDA0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01DDA1:Skyrim.esm
+    Count: 1

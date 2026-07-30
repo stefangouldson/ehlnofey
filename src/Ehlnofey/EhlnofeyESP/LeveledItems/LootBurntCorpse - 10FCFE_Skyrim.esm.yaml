@@ -1,0 +1,17 @@
+FormKey: 10FCFE:Skyrim.esm
+VersionControl: 944407
+EditorID: LootBurntCorpse
+FormVersion: 40
+Version2: 2
+ChanceNone: 0.4
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+Entries:
+- Data:
+    Level: 1
+    Reference: 10FCFD:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 034CDD:Skyrim.esm
+    Count: 1

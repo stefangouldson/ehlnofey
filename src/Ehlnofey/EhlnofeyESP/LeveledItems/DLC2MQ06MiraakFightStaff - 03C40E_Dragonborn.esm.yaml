@@ -1,0 +1,30 @@
+FormKey: 03C40E:Dragonborn.esm
+VersionControl: 5207313
+EditorID: DLC2MQ06MiraakFightStaff
+FormVersion: 43
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 03C0F8:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C0FE:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C0FF:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C100:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C101:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 03C102:Dragonborn.esm
+    Count: 1

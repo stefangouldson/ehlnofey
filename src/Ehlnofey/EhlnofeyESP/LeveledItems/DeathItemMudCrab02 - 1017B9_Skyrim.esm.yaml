@@ -1,0 +1,9 @@
+FormKey: 1017B9:Skyrim.esm
+EditorID: DeathItemMudCrab02
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 06BC00:Skyrim.esm
+    Count: 2

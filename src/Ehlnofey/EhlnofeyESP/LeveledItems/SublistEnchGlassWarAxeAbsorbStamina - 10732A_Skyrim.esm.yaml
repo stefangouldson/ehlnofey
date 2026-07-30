@@ -1,0 +1,21 @@
+FormKey: 10732A:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchGlassWarAxeAbsorbStamina
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0BEF7E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0BEF7F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0BEF80:Skyrim.esm
+    Count: 1

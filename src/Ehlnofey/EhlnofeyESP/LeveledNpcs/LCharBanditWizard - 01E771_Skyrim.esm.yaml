@@ -1,0 +1,42 @@
+FormKey: 01E771:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditWizard
+FormVersion: 40
+Version2: 7
+Entries:
+- Data:
+    Level: 1
+    Reference: 039D5F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D61:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D61:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D61:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D62:Skyrim.esm
+    Count: 1

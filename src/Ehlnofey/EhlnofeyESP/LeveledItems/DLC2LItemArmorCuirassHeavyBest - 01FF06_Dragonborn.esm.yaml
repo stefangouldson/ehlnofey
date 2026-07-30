@@ -1,0 +1,40 @@
+FormKey: 01FF06:Dragonborn.esm
+VersionControl: 2847491
+EditorID: DLC2LItemArmorCuirassHeavyBest
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013948:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0F6F26:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01394D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013957:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013961:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000EF4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01396B:Skyrim.esm
+    Count: 1

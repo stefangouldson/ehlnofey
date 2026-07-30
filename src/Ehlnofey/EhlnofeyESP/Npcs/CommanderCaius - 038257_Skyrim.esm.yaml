@@ -1,0 +1,187 @@
+FormKey: 038257:Skyrim.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 262144
+VersionControl: 1978415
+EditorID: CommanderCaius
+Version2: 9
+SkyrimMajorRecordFlags:
+- Compressed
+ObjectBounds:
+  First: -22, -14, 0
+  Second: 22, 14, 128
+Configuration:
+  Flags:
+  - Essential
+  - AutoCalcStats
+  - Unique
+  - LoopedScript
+  - LoopedAudio
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 35
+  SpeedMultiplier: 100
+  DispositionBase: 35
+Factions:
+- Faction: 0267EA:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 028172:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 028848:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 02BE39:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 02BE3B:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 03662A:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 036633:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0813B7:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 086EEE:Skyrim.esm
+  Fluff: 0x000000
+- Faction: 0E8261:Skyrim.esm
+  Fluff: 0x000000
+Voice: 013AD8:Skyrim.esm
+Race: 013744:Skyrim.esm
+Items:
+- Item:
+    Item: 0571AA:Skyrim.esm
+    Count: 1
+- Item:
+    Item: 1046D1:Skyrim.esm
+    Count: 1
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+Packages:
+- 0A926E:Skyrim.esm
+- 03825A:Skyrim.esm
+- 0FE2D0:Skyrim.esm
+- 091923:Skyrim.esm
+- 0E73CA:Skyrim.esm
+Class: 01327F:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: Commander Caius
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 32
+  - Key: TwoHanded
+    Value: 27
+  - Key: Archery
+    Value: 27
+  - Key: Block
+    Value: 32
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 32
+  - Key: LightArmor
+    Value: 27
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 15
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 15
+  - Key: Conjuration
+    Value: 15
+  - Key: Destruction
+    Value: 20
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 25
+  - Key: Enchanting
+    Value: 20
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 122
+  Magicka: 50
+  Stamina: 113
+HeadParts:
+- 099D7E:Skyrim.esm
+- 09F0A1:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+DefaultOutfit: 0DD052:Skyrim.esm
+SleepingOutfit: 01697D:Skyrim.esm
+CrimeFaction: 0267EA:Skyrim.esm
+TextureLighting: '#00706156'
+FaceMorph:
+  NoseLongVsShort: -1
+  NoseUpVsDown: 0.6
+  JawUpVsDown: -0.5
+  CheeksUpVsDown: -0.96
+  CheeksForwardVsBack: 0.13999999
+  EyesUpVsDown: 0.46000004
+  EyesInVsOut: 0.76
+  BrowsUpVsDown: -0.92
+  BrowsInVsOut: 0.22000003
+  LipsUpVsDown: -0.3
+  LipsInVsOut: -1
+  ChinNarrowVsWide: 0.76
+  ChinUpVsDown: 0.120000005
+  ChinUnderbiteVsOverbite: 0.46000004
+FaceParts:
+  Nose: 9
+  Eyes: 3
+  Mouth: 12
+TintLayers:
+- Index: 2
+  Color: '#004A8D93'
+  InterpolationValue: 0
+  Preset: -1
+- Index: 3
+  Color: '#004A8D93'
+  InterpolationValue: 0
+  Preset: -1
+MajorFlags:
+- 0x40000

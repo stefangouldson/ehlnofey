@@ -1,0 +1,73 @@
+FormKey: 017158:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemSoldierSonsArmor
+FormVersion: 40
+Version2: 5
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 017154:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017154:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017154:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017154:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017155:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017155:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017155:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017155:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017156:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017156:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017156:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017156:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017157:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017157:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017157:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 017157:Skyrim.esm
+    Count: 1

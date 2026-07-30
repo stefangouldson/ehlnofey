@@ -1,0 +1,176 @@
+FormKey: 0248E8:Dragonborn.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 537133056
+VersionControl: 1978415
+EditorID: DLC2AcolyteZahkriisos
+Version2: 12
+SkyrimMajorRecordFlags:
+- Compressed
+- 0x20000000
+VirtualMachineAdapter:
+  Scripts:
+  - Name: masterambushscript
+    Properties:
+    - MutagenObjectType: ScriptBoolProperty
+      Name: ambushOnTrigger
+      Data: True
+ObjectBounds:
+  First: -26, -18, 0
+  Second: 26, 18, 149
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - BleedoutOverride
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 60
+  CalcMinLevel: 25
+  CalcMaxLevel: 60
+  SpeedMultiplier: 100
+  HealthOffset: 410
+Factions:
+- Faction: 02BC5E:Dragonborn.esm
+  Fluff: 0x000000
+- Faction: 106643:Skyrim.esm
+  Fluff: 0x000000
+DeathItem: 03AD7E:Skyrim.esm
+Voice: 029986:Skyrim.esm
+Race: 03911A:Dragonborn.esm
+ActorEffect:
+- 030CE0:Dragonborn.esm
+- 03D474:Dragonborn.esm
+- 0400AD:Skyrim.esm
+- 072318:Skyrim.esm
+- 07231B:Skyrim.esm
+WornArmor: 024FE1:Dragonborn.esm
+AttackRace: 0131EF:Skyrim.esm
+Perks:
+- Perk: 0581FC:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 10FCFA:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0CB419:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0581F8:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0581F9:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 068BCC:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0581F5:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 0D799B:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 05312A:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Confidence: Foolhardy
+  EnergyLevel: 50
+Packages:
+- 09448B:Skyrim.esm
+- 09BCBD:Skyrim.esm
+Class: 01CE1C:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 15
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 15
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 55
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 45
+  - Key: Conjuration
+    Value: 65
+  - Key: Destruction
+    Value: 76
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 66
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 1650
+  Magicka: 320
+  GearedUpWeapons: 1
+CombatStyle: 0BB365:Skyrim.esm
+NAM5: 255
+Height: 1
+Weight: 1
+SoundLevel: Normal
+Sound:
+  MutagenObjectType: NpcInheritSound
+  InheritsSoundsFrom: 046B83:Skyrim.esm
+DefaultOutfit: 0248E2:Dragonborn.esm
+DefaultPackageList: 032AE2:Skyrim.esm
+TextureLighting: '#00808080'
+MajorFlags:
+- 0x40000
+- BleedoutOverride

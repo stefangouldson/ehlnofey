@@ -1,0 +1,81 @@
+FormKey: 01A345:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharBanditMissileEvenTonedM
+FormVersion: 40
+Version2: 6
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 037C07:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D66:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D68:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D68:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D68:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D68:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C0C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C0C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C0C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C0C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D6A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D6A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D6A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C34:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C34:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C34:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D6C:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C3B:Skyrim.esm
+    Count: 1

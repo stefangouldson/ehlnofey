@@ -1,0 +1,30 @@
+FormKey: 1031C3:Skyrim.esm
+EditorID: LItemArmorBootsLightSpecial
+Flags:
+- CalculateForEachItemInCount
+- SpecialLoot
+Entries:
+- Data:
+    Level: 1
+    Reference: 01391A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1

@@ -1,0 +1,45 @@
+FormKey: 01E8AA:Dragonborn.esm
+VersionControl: 2847759
+EditorID: DLC2LCharBanditMissile
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01E898:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89B:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89B:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89B:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89B:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89E:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89E:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E89E:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01E8A1:Dragonborn.esm
+    Count: 1

@@ -1,0 +1,14 @@
+FormKey: 098E5F:Skyrim.esm
+EditorID: LItemFoodInnCommon
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 064B3A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 064B3E:Skyrim.esm
+    Count: 1

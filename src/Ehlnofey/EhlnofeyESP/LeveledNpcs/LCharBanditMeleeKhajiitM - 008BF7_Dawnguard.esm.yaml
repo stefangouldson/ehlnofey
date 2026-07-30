@@ -1,0 +1,45 @@
+FormKey: 008BF7:Dawnguard.esm
+VersionControl: 5468178
+EditorID: LCharBanditMeleeKhajiitM
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0C3CA0:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA2:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA4:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0C3CA6:Skyrim.esm
+    Count: 1

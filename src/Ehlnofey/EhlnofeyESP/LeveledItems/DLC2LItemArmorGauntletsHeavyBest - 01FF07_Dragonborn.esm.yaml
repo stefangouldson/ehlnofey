@@ -1,0 +1,36 @@
+FormKey: 01FF07:Dragonborn.esm
+VersionControl: 2847491
+EditorID: DLC2LItemArmorGauntletsHeavyBest
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 0F6F27:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01394E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01395D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013958:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013962:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 000EF8:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01396C:Skyrim.esm
+    Count: 1

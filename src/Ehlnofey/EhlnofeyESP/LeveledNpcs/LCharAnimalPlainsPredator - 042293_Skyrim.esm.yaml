@@ -1,0 +1,33 @@
+FormKey: 042293:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharAnimalPlainsPredator
+FormVersion: 40
+Version2: 8
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 023AB7:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023AB5:Skyrim.esm
+    Count: 1

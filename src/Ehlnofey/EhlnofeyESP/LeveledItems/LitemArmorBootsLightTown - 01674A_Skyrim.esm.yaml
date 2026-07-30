@@ -1,0 +1,18 @@
+FormKey: 01674A:Skyrim.esm
+EditorID: LitemArmorBootsLightTown
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013910:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1

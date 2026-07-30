@@ -1,0 +1,16 @@
+FormKey: 0F6286:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemBlacksmithMinBootsLight
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09BC35:Skyrim.esm
+    Count: 1

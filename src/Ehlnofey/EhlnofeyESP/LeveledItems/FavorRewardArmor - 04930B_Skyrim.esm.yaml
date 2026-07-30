@@ -1,0 +1,29 @@
+FormKey: 04930B:Skyrim.esm
+VersionControl: 944407
+EditorID: FavorRewardArmor
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 01674D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01674E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01674F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 016752:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 0165E7:Skyrim.esm
+    Count: 1

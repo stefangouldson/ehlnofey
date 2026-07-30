@@ -1,0 +1,21 @@
+FormKey: 1072CB:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricGreatswordAbsorbHealth
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 028D5E:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D5F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028D60:Skyrim.esm
+    Count: 1

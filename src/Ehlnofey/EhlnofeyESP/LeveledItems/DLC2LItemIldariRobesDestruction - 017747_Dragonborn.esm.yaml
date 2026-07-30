@@ -1,0 +1,33 @@
+FormKey: 017747:Dragonborn.esm
+VersionControl: 2847239
+EditorID: DLC2LItemIldariRobesDestruction
+FormVersion: 43
+Version2: 1
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 101743:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 101744:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 101745:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 101746:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 101747:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 101748:Skyrim.esm
+    Count: 1

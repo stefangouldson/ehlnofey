@@ -1,0 +1,9 @@
+FormKey: 10FF09:Skyrim.esm
+EditorID: PenitusGear
+Flags:
+- UseAll
+Entries:
+- Data:
+    Level: 1
+    Reference: 07D98E:Skyrim.esm
+    Count: 1

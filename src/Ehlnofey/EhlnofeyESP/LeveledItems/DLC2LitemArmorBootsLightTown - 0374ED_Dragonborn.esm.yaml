@@ -1,0 +1,41 @@
+FormKey: 0374ED:Dragonborn.esm
+VersionControl: 2847774
+EditorID: DLC2LitemArmorBootsLightTown
+FormVersion: 43
+Version2: 2
+Flags:
+- CalculateFromAllLevelsLessThanOrEqualPlayer
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013910:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013910:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CD86:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01CD86:Dragonborn.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 013920:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 01B39F:Skyrim.esm
+    Count: 1

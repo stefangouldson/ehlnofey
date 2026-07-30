@@ -1,0 +1,22 @@
+FormKey: 01E78D:Skyrim.esm
+VersionControl: 944407
+EditorID: LCharAnimalPlains
+FormVersion: 40
+Version2: 6
+Entries:
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023ABE:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 023AB5:Skyrim.esm
+    Count: 1

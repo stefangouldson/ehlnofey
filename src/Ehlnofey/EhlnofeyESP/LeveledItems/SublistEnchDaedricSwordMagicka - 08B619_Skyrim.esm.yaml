@@ -1,0 +1,18 @@
+FormKey: 08B619:Skyrim.esm
+VersionControl: 944407
+EditorID: SublistEnchDaedricSwordMagicka
+FormVersion: 40
+Version2: 2
+Entries:
+- Data:
+    Level: 1
+    Reference: 028EF9:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028EFB:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 028F46:Skyrim.esm
+    Count: 1

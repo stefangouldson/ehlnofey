@@ -1,0 +1,16 @@
+FormKey: 0F627D:Skyrim.esm
+VersionControl: 944407
+EditorID: LItemBlacksmithMinBattleaxe
+FormVersion: 40
+Version2: 2
+Flags:
+- CalculateForEachItemInCount
+Entries:
+- Data:
+    Level: 1
+    Reference: 013984:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09BC3E:Skyrim.esm
+    Count: 1

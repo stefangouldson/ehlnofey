@@ -1,0 +1,176 @@
+FormKey: 01A93D:Dawnguard.esm
+IsCompressed: True
+MajorRecordFlagsRaw: 537133056
+VersionControl: 1978415
+EditorID: DLC1HarkonCombat
+SkyrimMajorRecordFlags:
+- Compressed
+- 0x20000000
+Configuration:
+  Flags:
+  - AutoCalcStats
+  - BleedoutOverride
+  - LoopedScript
+  MagickaOffset: 100
+  Level:
+    MutagenObjectType: NpcLevel
+    Level: 60
+  CalcMinLevel: 10
+  CalcMaxLevel: 60
+  SpeedMultiplier: 100
+  DispositionBase: 35
+  TemplateFlags:
+  - AIData
+  - DefPackList
+  - AttackData
+  HealthOffset: 200
+DeathItem: 011D69:Dawnguard.esm
+Voice: 007D86:Dawnguard.esm
+Template: 003BA7:Dawnguard.esm
+Race: 00283A:Dawnguard.esm
+ActorEffect:
+- 0F5B5C:Skyrim.esm
+- 0F5B5D:Skyrim.esm
+Perks:
+- Perk: 052D50:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 03FFFA:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 05F56F:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 051B1B:Skyrim.esm
+  Rank: 1
+  Fluff: 0x000000
+- Perk: 014CCE:Dawnguard.esm
+  Rank: 1
+  Fluff: 0x000000
+AIData:
+  Aggression: Aggressive
+  Confidence: Foolhardy
+  EnergyLevel: 50
+  Responsibility: NoCrime
+  Assistance: HelpsAllies
+  Unused: 62
+Keywords:
+- 013796:Skyrim.esm
+- 0A82BB:Skyrim.esm
+- 010E97:Dawnguard.esm
+- 01269F:Dawnguard.esm
+- 000997:Update.esm
+Class: 02E00F:Skyrim.esm
+Name:
+  TargetLanguage: English
+  Value: ''
+ShortName:
+  TargetLanguage: English
+  Value: ''
+PlayerSkills:
+  SkillValues:
+  - Key: OneHanded
+    Value: 28
+  - Key: TwoHanded
+    Value: 15
+  - Key: Archery
+    Value: 15
+  - Key: Block
+    Value: 15
+  - Key: Smithing
+    Value: 15
+  - Key: HeavyArmor
+    Value: 15
+  - Key: LightArmor
+    Value: 28
+  - Key: Pickpocket
+    Value: 15
+  - Key: Lockpicking
+    Value: 15
+  - Key: Sneak
+    Value: 34
+  - Key: Alchemy
+    Value: 15
+  - Key: Speech
+    Value: 15
+  - Key: Alteration
+    Value: 22
+  - Key: Conjuration
+    Value: 28
+  - Key: Destruction
+    Value: 22
+  - Key: Illusion
+    Value: 15
+  - Key: Restoration
+    Value: 15
+  - Key: Enchanting
+    Value: 15
+  SkillOffsets:
+  - Key: OneHanded
+    Value: 0
+  - Key: TwoHanded
+    Value: 0
+  - Key: Archery
+    Value: 0
+  - Key: Block
+    Value: 0
+  - Key: Smithing
+    Value: 0
+  - Key: HeavyArmor
+    Value: 0
+  - Key: LightArmor
+    Value: 0
+  - Key: Pickpocket
+    Value: 0
+  - Key: Lockpicking
+    Value: 0
+  - Key: Sneak
+    Value: 0
+  - Key: Alchemy
+    Value: 0
+  - Key: Speech
+    Value: 0
+  - Key: Alteration
+    Value: 0
+  - Key: Conjuration
+    Value: 0
+  - Key: Destruction
+    Value: 0
+  - Key: Illusion
+    Value: 0
+  - Key: Restoration
+    Value: 0
+  - Key: Enchanting
+    Value: 0
+  Health: 581
+  Magicka: 336
+  Stamina: 118
+  GearedUpWeapons: 1
+CombatStyle: 01A345:Dawnguard.esm
+NAM5: 255
+Height: 1
+Weight: 50
+SoundLevel: Normal
+TextureLighting: '#00C6B0A8'
+FaceMorph:
+  NoseUpVsDown: -0.100000024
+  JawUpVsDown: -0.8
+  JawNarrowVsWide: -0.19999999
+  JawForwardVsBack: -1
+  CheeksUpVsDown: 0.6
+  CheeksForwardVsBack: 1
+  EyesUpVsDown: 0.20000005
+  EyesInVsOut: -0.3
+  BrowsUpVsDown: -1
+  BrowsInVsOut: -1
+  BrowsForwardVsBack: -0.3
+  LipsUpVsDown: -1
+  LipsInVsOut: -1
+  ChinNarrowVsWide: -0.19999999
+  ChinUpVsDown: 0.6
+  ChinUnderbiteVsOverbite: 0.6
+  EyesForwardVsBack: -0.3
+  Unknown: 3.4028235E+38
+MajorFlags:
+- 0x40000
+- BleedoutOverride
