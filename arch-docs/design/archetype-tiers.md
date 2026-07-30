@@ -93,7 +93,7 @@ The main table. `Vanilla rungs` are name (level) from `lore-constraints.md` §1 
 |---|---|---|---|---|
 | **Bandit** | `LCharBanditMelee1H` 039CFC &c. | Bandit 1 · Outlaw 5 · Thug 9 · Highwayman 14 · Plunderer 19 · Marauder 25 | Bandit ×3 · **Outlaw ×3** · Thug ×2 · Highwayman ×1 | **T2** (T1–T3) |
 | Bandit boss | `LCharBanditBoss` 03DF16 | 6 · 10 · 16 · 21 · 28 | **28 only** (pinned — see 3.1.1) | **T5** |
-| **Orc stronghold** | `LCharOrcMelee` 01E780 | reuses bandit records | Outlaw ×1 · Thug ×3 · **Highwayman ×3** · Plunderer ×1 | **T3** (T2–T4) |
+| **Orc melee** | `LCharOrcMelee` 01E780 | reuses bandit records | Outlaw ×1 · Thug ×3 · **Highwayman ×3** · Plunderer ×1 | **T3** (T2–T4) |
 | **Forsworn** | `LCharForswornMelee1H` 01E792 | Forsworn 1 · Forager 6 · Looter 14 · Pillager 24 · Ravager 34 · Warlord 46 | Forsworn ×2 · Forager ×3 · **Looter ×3** · Pillager ×1 | **T3** (T1–T4) |
 | Forsworn boss | `LCharForswornBossMelee1H` 0442F2 | Briarheart 7 · 16 · 27 · 38 · 51 | 16 ×2 · **27 ×2** · 38 ×1 | **T5** (T3–T6) |
 | **Warlock** (all five) | `LCharWarlockFire` 01E7D1 &c. | Wizard 1 · Appr. Conjurer 6 · Conjurer Adept 12 · Conjurer 19 · Ascendant 27 · Master 36 · Arch 46 | Appr. Conjurer ×2 · **Conjurer Adept ×3** · Conjurer ×3 · Ascendant ×1 | **T3** (T2–T5) |
@@ -165,6 +165,31 @@ humanoid faction that already satisfies bone 1. They need no edit and they are p
 **Penitus Oculatus fixes itself.** Vanilla's ladder is inverted — gates reach 46 but the top tier is
 level 23, so they get *relatively weaker* as the player levels `[verified]`. Flattening deletes the
 inversion; no special handling.
+
+**`LCharOrcMelee` is the only place Bandit Plunderer survives, and it is six placements.** This row
+was labelled "Orc stronghold", which is half right at best. The list is reached by four base records,
+and their placements across the whole base game are `[verified]`:
+
+| Base record | Where | Count |
+|---|---|---:|
+| `DA06LvlOrcMelee` 08CDA2 | *The Cursed Tribe* — Largashbur, a real stronghold | 3 |
+| `LvlOrcMelee` 01E7BB · `LvlOrcMelee_Aggro1024` 0D1FBA | **Rift Watchtower** | 2 |
+| `LvlOrcMelee_Aggro1024` 0D1FBA | **Cracked Tusk Keep** | 1 |
+| `WE24Orc` 062128 | a world encounter — spawned, never placed | 0 |
+
+So two thirds of it is Orc-manned *bandit* forts, not strongholds. The stronghold Orcs you can walk
+up to and talk to at Dushnikh Yal, Mor Khazgur and Narzulbur are **not** on this list at all — they
+are unique `NPC_` records, class C, and nothing in this document touches them.
+
+**Nothing was moved into this list.** Vanilla's `LCharOrcMelee` already held all six bandit rungs
+(gates 1/5/9/14/19/25); the roster above simply bands it **one rung higher** than the ordinary bandit
+list — T3 (Outlaw→Plunderer) against T2 (Bandit→Highwayman). That single-rung offset is the entire
+reason Plunderer has anywhere left to appear.
+
+**Bandit Marauder (level 25) survives in zero lists** — checked against every `LVLN` in the built
+plugin. It is the one vanilla rung the mod deletes outright from ordinary spawns. `EncBandit06Boss*`
+(level 28) is a different record set and is very much still in play: it is what the pinned chief
+draws from.
 
 ### 3.2 Draugr — the anchor ladder
 
