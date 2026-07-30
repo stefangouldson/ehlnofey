@@ -465,7 +465,7 @@ table-vs-prose conflicts were resolved and recorded in `archetype-tiers.md` §4.
 level 6 to 28 — the naive flatten's signature, already gone from the shipped build, but the trail led
 to two real defects:
 
-1. **`LCharBanditBoss` and its 9 per-voice siblings are pinned to level 21**, not banded 16/21/28.
+1. **`LCharBanditBoss` and its 9 per-voice siblings are pinned to level 28**, not banded 16/21/28.
    Every rung of that ladder displays the *same* name, so a 75% power swing was invisible — which
    Twist 2 forbids. The naming test and the per-family verdicts are now `archetype-tiers.md` §3.1.1.
    **Four boss families still fail it** (Forsworn, Warlock, Thalmor, Vampire) and are a decision not

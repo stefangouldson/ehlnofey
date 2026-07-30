@@ -27,15 +27,17 @@ $loadOrder = @('01Skyrim', '02Update', '03Dawnguard', '04HearthFires', '05Dragon
 #     roster "Bandit x3 · Outlaw x3 · Thug x2 · Highwayman x1", band T1-T3, centre T2.
 $banditLadder = @{ 1 = 3; 5 = 3; 9 = 2; 14 = 1 }
 # 3.1 Bandit boss: the gates map to SubCharBandit02..06Boss at levels 6/10/16/21/28.
-#     PINNED to the single T4 rung (gate 25 = level 21), NOT the "16 x2 · 21 x2 · 28 x1" band
-#     archetype-tiers.md 3.1 specifies. Twist 2's authoring rule decides it: every rung of this
-#     ladder displays the SAME name. No EncBandit0*Boss* leaf carries a FULL and none templates
-#     Traits, so the name always falls through to LvlBanditBoss 03DF17 = "Bandit Chief". A
-#     three-level band under one name is a 75% power swing the player cannot read.
+#     PINNED to a single rung, NOT the "16 x2 · 21 x2 · 28 x1" band archetype-tiers.md 3.1
+#     specifies. Twist 2's authoring rule decides it: every rung of this ladder displays the SAME
+#     name. No EncBandit0*Boss* leaf carries a FULL and none templates Traits, so the name always
+#     falls through to LvlBanditBoss 03DF17 = "Bandit Chief". A three-level band under one name is
+#     a 75% power swing the player cannot read.
 #     Contrast the mook ladder above, where 1/5/9/14 really are Bandit/Outlaw/Thug/Highwayman.
-#     Gate 25 appears twice in the *M lists (1H and 2H); weight 1 keeps both, so the pin costs
+#     The rung is gate 29 = level 28, the TOP of the vanilla ladder (~T5), chosen 2026-07-30 over
+#     the T4 rung 21: a camp's chief is the one fight in it that should outclass the T2 mooks.
+#     Gate 29 appears twice in the *M lists (1H and 2H); weight 1 keeps both, so the pin costs
 #     the level spread and nothing else.
-$banditBoss = @{ 25 = 1 }
+$banditBoss = @{ 29 = 1 }
 
 $spec = [ordered]@{}
 function Add-Spec($key, $editorId, $rule) { $spec[$key] = @{ Id = $editorId; Rule = $rule } }

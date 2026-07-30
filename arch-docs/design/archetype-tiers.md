@@ -92,7 +92,7 @@ The main table. `Vanilla rungs` are name (level) from `lore-constraints.md` §1 
 | Archetype | List | Vanilla rungs | **Ehlnofey roster** | Band |
 |---|---|---|---|---|
 | **Bandit** | `LCharBanditMelee1H` 039CFC &c. | Bandit 1 · Outlaw 5 · Thug 9 · Highwayman 14 · Plunderer 19 · Marauder 25 | Bandit ×3 · **Outlaw ×3** · Thug ×2 · Highwayman ×1 | **T2** (T1–T3) |
-| Bandit boss | `LCharBanditBoss` 03DF16 | 6 · 10 · 16 · 21 · 28 | **21 only** (pinned — see 3.1.1) | **T4** |
+| Bandit boss | `LCharBanditBoss` 03DF16 | 6 · 10 · 16 · 21 · 28 | **28 only** (pinned — see 3.1.1) | **T5** |
 | **Orc stronghold** | `LCharOrcMelee` 01E780 | reuses bandit records | Outlaw ×1 · Thug ×3 · **Highwayman ×3** · Plunderer ×1 | **T3** (T2–T4) |
 | **Forsworn** | `LCharForswornMelee1H` 01E792 | Forsworn 1 · Forager 6 · Looter 14 · Pillager 24 · Ravager 34 · Warlord 46 | Forsworn ×2 · Forager ×3 · **Looter ×3** · Pillager ×1 | **T3** (T1–T4) |
 | Forsworn boss | `LCharForswornBossMelee1H` 0442F2 | Briarheart 7 · 16 · 27 · 38 · 51 | 16 ×2 · **27 ×2** · 38 ×1 | **T5** (T3–T6) |
@@ -128,16 +128,28 @@ the only signal the player gets.** A ×2/×2/×1 band is therefore only legible 
 |---|---|---|
 | Draugr | Overlord · Wight Lord · Scourge Lord · Death Overlord | **band OK** — 4 names, 4 rungs |
 | Falmer | Skulker · Gloomlurker · Nightprowler · Shadowmaster | **band OK** |
-| **Bandit** | *none* → `LvlBanditBoss` 03DF17 = "Bandit Chief" | **pinned to 21** |
+| **Bandit** | *none* → `LvlBanditBoss` 03DF17 = "Bandit Chief" | **pinned to 28** |
 | **Forsworn** | *none* → falls through to the placed base | band is illegible — unfixed |
 | **Warlock** | *none* → falls through to the placed base | band is illegible — unfixed |
 | **Thalmor** | "Thalmor Wizard" at all seven rungs | band is illegible — unfixed |
 | **Vampire** | *none* → falls through to the placed base | band is illegible — unfixed |
 
-So the bandit boss is pinned to the single T4 rung, level **21**: a Bandit Chief is level 21 in
-Swindler's Den, in Halted Stream, on Solstheim (`DLC2EncBandit05Boss` is also 21), forever. Gate 25
-appears twice in the `*M` lists (1H and 2H) and weight 1 keeps both, so the pin costs the level
-spread and nothing else — the 1H/2H and per-race variety survives.
+So the bandit boss is pinned to a single rung: a Bandit Chief is the same level in Swindler's Den, in
+Halted Stream and on Solstheim, forever. Gate 29 appears twice in the `*M` lists (1H and 2H) and
+weight 1 keeps both, so the pin costs the level spread and nothing else — the 1H/2H and per-race
+variety survives.
+
+**The rung is 28 — the top of the vanilla ladder, ≈T5 — not the T4 rung 21** (decided 2026-07-30;
+21 was the first pass). This is the one row in §3.1 where the band centre is *not* the right pin.
+The reasoning is the camp, not the archetype: bandit mooks sit at **T2** and there is nothing else in
+a bandit camp to carry difficulty, so the chief is the only fight in it that can. Pinning at 21 left
+a T2 camp with a T4 capstone — a step, but a small one against a player who has any business being
+there. 28 makes the chief a genuine wall, and it is still a *vanilla* rung, so no record is invented
+and the gear the rung already carries (steel, dwarven) comes with it.
+
+This is a deliberate consequence: **bandit camps become bimodal** — trivial mooks, dangerous chief.
+That is the honest shape of a fixed world where one faction spans T1–T5, and §8's "bandits become
+trivial after ~T3" warning applies to the mooks only, not to the capstone.
 
 **The mook ladder passes the test and keeps its band**: 1 · 5 · 9 · 14 really are Bandit · Bandit
 Outlaw · Bandit Thug · Bandit Highwayman, four levels behind four names. Only `EncBandit01*` is
