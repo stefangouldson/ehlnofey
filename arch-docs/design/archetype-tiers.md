@@ -169,22 +169,32 @@ level rises from 5.6 to 6.9 — much closer to T2's 8.
 
 The rename is **the mod's first invented display name**, and it is deliberately the safest possible
 one: it extends an existing ladder downward rather than inventing new tiers, and the rung it names
-had no name of its own. Vanilla leaves `EncBandit01Template*` with **no `FULL`**, so a level-1 bandit
-falls through to `EncBandit00Template` 039CF4 = "Bandit", the shared root of the whole family.
-`author-names.ps1` puts the name one hop earlier — the exact slot `EncBandit02TemplateMelee` already
-uses for "Bandit Outlaw", which is why this is known to work rather than hoped to:
+had no name of its own. Vanilla leaves all 44 `EncBandit01*` records with **no `FULL`**, so a level-1
+bandit reads "Bandit" — inherited from `EncBandit00Template` 039CF4, the shared root of the family.
 
-```
-EncBandit01Melee1H<race><sex>    no FULL, no Traits flag
-  └─ EncBandit01TemplateMelee    <-- "Bandit Runt" goes here      (3 records: Melee/Magic/Missile)
-       └─ EncBandit00Template    "Bandit"  — left alone, still the family default
-```
+> **The first attempt failed in game, and the reason is still unknown** (2026-07-31). Every rung
+> above 1 carries its `FULL` on a per-weapon *template* record — `EncBandit02TemplateMelee` is
+> "Bandit Outlaw" — while that rung's per-race leaves carry none and do **not** set the `Traits`
+> template flag. So naming the three `EncBandit01Template*` records should have worked by exact
+> analogy. It did not: level-1 bandits still read "Bandit".
+>
+> It was not a stale file or a conflict. The deployed plugin was byte-identical to the build, the
+> name was confirmed present by serializing the built binary back out, and `Ehlnofey.esp` loads
+> **last** in the test bed, so it wins every conflict. The model of how a nameless leaf resolves its
+> `FULL` is simply wrong, and this workspace cannot test the engine directly to find out how.
+>
+> **The fix does not depend on knowing.** `author-names.ps1` now names **all 44 records in the
+> rung** — 3 templates plus 41 leaves (1H, 2H, Tank, Berserk, Magic, Missile, per race and sex) —
+> so whichever record the engine actually reads, it finds the same string. Redundant under the
+> inheritance model, correct under every model. This is the cheaper trade: records cost bytes, and
+> another failed in-game test cycle costs a session.
 
-Dependents were censused before writing. All 25 bandit leaves are caught, which is the intent. Three
-non-bandits also template off these records: `encGhost01Magic` carries its own `FULL` ("Ghost") and is
-**unaffected**; `DEMO_Bandit1HNordM` and `WarehouseNPCWebActorSit` are dev-only and never placed; and
-`dunLiarsRetreatWenchCorpse` has no `FULL` and does become "Bandit Runt" — it is a dead level-1
-bandit in a bandit dungeon that reads "Bandit" today, so this is correct, if drier.
+`EncBandit00Template` 039CF4 is **left alone** and still reads "Bandit", so anything outside this
+rung that falls through to it is untouched. Two non-bandits do template off the rung's records:
+`encGhost01Magic` carries its own `FULL` ("Ghost") and is unaffected, and `dunLiarsRetreatWenchCorpse`
+has none, so it becomes "Bandit Runt" — a dead level-1 bandit in a bandit dungeon that reads
+"Bandit" today, which is correct, if drier. `DEMO_Bandit1HNordM` and `WarehouseNPCWebActorSit` are
+dev-only records that are never placed in the playable world.
 
 > **Consistency note.** §3.1.1 chose to *pin* the bandit chief rather than invent names for its
 > rungs, and four boss families are still open on that basis. Naming the runt does not reopen it:

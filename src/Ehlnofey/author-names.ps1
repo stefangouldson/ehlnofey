@@ -13,36 +13,41 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
 # ---------------------------------------------------------------- Bandit Runt
 #
-# The level-1 bandit rung is the only one vanilla leaves unnamed, so it falls through the template
-# chain to EncBandit00Template 039CF4 = "Bandit" - the shared root of the whole family. Naming the
-# rung's own three templates intercepts that fallback one hop earlier, which is exactly the slot
-# EncBandit02TemplateMelee already uses to say "Bandit Outlaw":
+# The level-1 bandit rung is the only one vanilla leaves unnamed. Every other rung carries its FULL
+# on a per-weapon "template" record (EncBandit02TemplateMelee = "Bandit Outlaw", &c.), and the rung's
+# per-race leaves carry no FULL at all - so the obvious fix was to name the three EncBandit01Template*
+# records and let the leaves inherit, exactly as rung 2 appears to.
 #
-#   EncBandit01Melee1H<race><sex>   no FULL, no Traits flag
-#     -> EncBandit01TemplateMelee   <-- the name goes HERE
-#       -> EncBandit00Template      "Bandit"   (left alone: still the family default)
+# THAT DID NOT WORK IN GAME (2026-07-31). Named all three, shipped it, and level-1 bandits still read
+# "Bandit". The build was verified deployed byte-identical and Ehlnofey.esp loads last in the test
+# bed, so it was not a conflict or a stale file - the assumption about how a nameless leaf resolves
+# its FULL is simply wrong, and this workspace has no way to test the engine directly.
 #
-# Dependents were censused before writing (archetype-tiers.md 3.1). All 25 bandit leaves are caught,
-# which is the point. Three non-bandits also template off these records:
-#   encGhost01Magic            carries its own FULL "Ghost"  -> unaffected
-#   dunLiarsRetreatWenchCorpse no FULL -> becomes "Bandit Runt". It is a dead level-1 bandit in a
-#                              bandit dungeon and today reads "Bandit", so this is correct, if drier.
-#   DEMO_Bandit1HNordM / WarehouseNPCWebActorSit   dev-only records, not placed in the playable world
+# So: stop depending on the rule. Name **every** record in the rung - all 44 - so that whichever one
+# the engine actually reads, it finds the same string. 3 templates + 41 leaves (1H, 2H, Tank,
+# Berserk, Magic, Missile, per race and sex). Redundant under the inheritance model, correct under
+# every model. Records are cheap; another failed in-game test cycle is not.
+#
+# Not renamed on purpose: EncBandit00Template 039CF4 "Bandit" stays the family default, so anything
+# outside this rung that falls through to it is untouched.
 #
 # Name goes between Class: and PlayerSkills: - Spriggit's canonical order, confirmed against
 # EncBandit02TemplateMelee 01BCD9. The round-trip re-serialize is what guarantees it.
-$runts = @(
-  'reference/Base/01Skyrim/Npcs/EncBandit01TemplateMelee - 039CFD_Skyrim.esm.yaml',
-  'reference/Base/01Skyrim/Npcs/EncBandit01TemplateMagic - 039D31_Skyrim.esm.yaml',
-  'reference/Base/01Skyrim/Npcs/EncBandit01TemplateMissile - 037C2C_Skyrim.esm.yaml'
-)
+
+$srcDir = 'reference/Base/01Skyrim/Npcs'
+$runts = @(Get-ChildItem -LiteralPath $srcDir -Filter 'EncBandit01*.yaml' | Sort-Object Name)
+if ($runts.Count -lt 40) { throw "expected ~44 EncBandit01* records, found $($runts.Count)" }
+
+$dir = Join-Path $dst 'Npcs'
+if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force $dir | Out-Null }
+$dirAbs = (Resolve-Path -LiteralPath $dir).Path
 
 $n = 0
 foreach ($src in $runts) {
-  if (-not (Test-Path -LiteralPath $src)) { throw "missing source record: $src" }
-  $lines = @(Get-Content -LiteralPath $src)
+  $lines = @(Get-Content -LiteralPath $src.FullName)
 
-  if ($lines -match '^Name:') { throw "$src already has a Name - the fallback assumption is wrong" }
+  # A vanilla record here must be nameless; if one ever ships a FULL, stop rather than clobber it.
+  if ($lines -match '^Name:') { throw "$($src.Name) already has a Name - re-check the rung" }
 
   $out = New-Object System.Collections.ArrayList
   $placed = $false
@@ -55,12 +60,11 @@ foreach ($src in $runts) {
     }
     [void]$out.Add($l)
   }
-  if (-not $placed) { throw "no PlayerSkills: anchor in $src" }
+  if (-not $placed) { throw "no PlayerSkills: anchor in $($src.Name)" }
 
-  $dir = Join-Path $dst 'Npcs'
-  if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Force $dir | Out-Null }
-  $path = Join-Path $dir (Split-Path $src -Leaf)
-  [System.IO.File]::WriteAllLines($path, $out.ToArray(), $utf8NoBom)
+  # Absolute path required: [System.IO.File] resolves relative paths against .NET's current
+  # directory, which PowerShell does NOT keep in sync with Set-Location.
+  [System.IO.File]::WriteAllLines((Join-Path $dirAbs $src.Name), $out.ToArray(), $utf8NoBom)
   $n++
 }
 

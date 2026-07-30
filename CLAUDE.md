@@ -215,7 +215,7 @@ mod, not a new-content mod. Ehlnofey changes *where the numbers come from*, and 
 
 ## Current phase
 
-**Phase 4 is under way and `Ehlnofey.esp` exists: 2,836 records** (2026-07-30, branch
+**Phase 4 is under way and `Ehlnofey.esp` exists: 2,877 records** (2026-07-31, branch
 `design/requiem-method`). Read **`arch-docs/design/requiem-method.md` first** — it is the live
 architecture doc, and its §6 is the current order of work. Everything below it in this section is
 the Phase 3 record, kept because most of it still holds, but **the architecture it decided has been
@@ -237,7 +237,7 @@ suffix, so most of the job is a file copy. `src/Ehlnofey/extract-requiem.ps1` is
 | E level graft | 434 | vanilla `NPC_` record + Requiem's `Configuration.Level`, nothing else |
 
 Every entry in every leveled list is now `Level: 1` or the `9999` disable sentinel. Builds clean,
-`Test-RecordYaml.ps1` passes 2,837 files, round-trip is byte-stable, **zero new FormIDs**, masters
+`Test-RecordYaml.ps1` passes 2,878 files, round-trip is byte-stable, **zero new FormIDs**, masters
 exactly Skyrim/Update/Dawnguard/Dragonborn. It **has** been launched, and **Bleak Falls Barrow and
 Swindler's Den both give a consistent spread of enemy types at player level 1 and 45** — the first
 real evidence bone 1 holds in play. Boss-chest loot is still unverified (guardrail 6).
@@ -281,7 +281,7 @@ Three findings worth carrying, each of which overturned something the repo previ
    difficulty map, and **MLU's 400-list truncation pass is unnecessary**. Daedric ends up reachable in
    ~2 places, both apex, without editing a single list.
 3. **No new records are needed.** The whole mod is overrides, so FormID usage stays at zero and
-   ESL-flagging is free. **Still true after the pivot** — the extract added 2,836 records and every
+   ESL-flagging is free. **Still true after the pivot** — the extract added 2,877 records and every
    one is an override; the planned wilderness `ECZN` belonged to the replaced architecture.
 
 **Three cheap in-game tests still gate Phase 4** (`implementation-strategy.md` §7) — run them before
@@ -291,7 +291,7 @@ authoring: `LevelModifier: None`, NPC gear resolution level, and zeroing
 can still move a large amount of work (up to 1,378 `LVLI`); the `LevelModifier` test's exposure
 turned out to be 9 records, not ~1,928.
 
-`src/` holds exactly one mod, **`src/Ehlnofey/`** — the 2,836-record plugin plus its four generator
+`src/` holds exactly one mod, **`src/Ehlnofey/`** — the 2,877-record plugin plus its four generator
 scripts, `author-constants.ps1` (the 13 constants) and `extract-requiem.ps1` (everything else).
 `ExampleMod` and `EhlnofeyProbe` were deleted; `build/staging/Example Mod/fomod/` is kept on purpose
 as the only confirmed-working FOMOD image example (see the gotcha), and is inert because `build.ps1`
@@ -456,7 +456,7 @@ Mutagen/Spriggit field name in `reference/` before writing YAML**, and record th
 ## Implementation strategy — SUPERSEDED (Phase 3 record)
 
 > ⚠️ **Replaced by `arch-docs/design/requiem-method.md`.** The shipped architecture is a
-> **single plugin, no rules**: 2,836 override records extracted from Requiem's deleveling layer —
+> **single plugin, no rules**: 2,877 override records extracted from Requiem's deleveling layer —
 > flat `LVLN`/`LVLI` plus grafted `NPC_` levels. There are **no encounter-zone bands and no
 > SkyPatcher rules** in it. Zones govern 0.3% of the outdoors and cannot reach worn gear, which is
 > what killed the hybrid; and once every list is flat there is nothing left for a zone to clamp.
@@ -529,7 +529,7 @@ Fixed now so Phase 4 does not have to argue about it:
   but the mod is no longer override-only, and `implementation-strategy.md` §2.5 still says it is.
 - Always `/formkey-check` before claiming a block.
 
-**FormID usage: none, and none planned.** All 2,836 shipped records are overrides. The ~7 wilderness
+**FormID usage: none, and none planned.** All 2,877 shipped records are overrides. The ~7 wilderness
 `ECZN` and the per-tier gear lists belonged to the replaced architecture and are not being built.
 **Next free: `0x800`.**
 
@@ -579,15 +579,25 @@ Fill this as the project teaches you things.
   which templates onto the **leveled list** `LCharDraugrWarlockMale`. Stopping at the first NPC hop
   reports `L=1` and is wrong — 21 of Skyrim's named bosses have no fixed level at all. A resolver must
   treat "template is a `LeveledNpcs` record" as a distinct terminal case. `[verified]`
-- **An NPC's displayed name and its level travel on *different* template flags, so they can diverge.**
-  `Traits` carries the name, `Stats` carries the level. Where a leaf sets `Stats` but not `Traits`
-  and has no `FULL` of its own, the name chain **dead-ends and falls through to the placed
-  reference's base** — one record, one string, for every rung. That is why all five rungs of
-  `LCharBanditBoss` (levels 6/10/16/21/28) display "Bandit Chief" from `LvlBanditBoss` 03DF17, while
-  every rung of `LCharDraugrBoss` is separately named (Overlord → Wight Lord → Scourge Lord → Death
-  Overlord). Under the Requiem method the name is the *only* danger signal, so this decides whether a
-  flattened pool may hold more than one level at all. Never infer it from the family — test the
-  chain. `[verified]`
+- **Nobody here knows how a nameless NPC resolves its displayed name. Do not reason about it — put
+  the name on every record in the set.** `[verified that the obvious model is wrong]`
+  An NPC's name and its level travel on different template flags (`Traits` carries the name, `Stats`
+  the level), so they can diverge — that much holds. What does **not** hold is any tidy rule for what
+  a leaf with no `FULL` and no `Traits` flag falls back to. Two vanilla facts contradict every model
+  tried so far: `EncBandit01*` and `EncBandit02*` leaves are structurally *identical* (both nameless,
+  both without `Traits`) yet display "Bandit" and "Bandit Outlaw" respectively — so the chain is
+  walked; but naming `EncBandit01TemplateMelee` (the exact record `EncBandit02TemplateMelee` uses for
+  "Bandit Outlaw") changed nothing in game — so it is not walked the way that implies. Ruled out:
+  stale deploy (byte-identical), load order (`Ehlnofey.esp` loads last), and the record not being
+  written (read back out of the built binary).
+  **The working practice:** name *all* records in the rung — templates and every leaf — as
+  `author-names.ps1` does for the 44 `EncBandit01*`. Records are cheap; a failed in-game test cycle
+  is not.
+  ⚠️ **This undermines `design/archetype-tiers.md` §3.1.1's premise**, which asserts that all rungs of
+  `LCharBanditBoss` display "Bandit Chief" because the name falls through to `LvlBanditBoss` 03DF17.
+  That was never observed on a nameplate, only inferred from the same broken model. Pinning the chief
+  to one level is still a fine design call, but **its stated justification is unverified** — check it
+  in game before relying on it for the four open boss families.
 - **NPC level is a discriminated union at `Configuration.Level`**, tagged by `MutagenObjectType`:
   `NpcLevel` (field `Level:`) or `PcLevelMult` (field `LevelMult:`, with `CalcMinLevel` /
   `CalcMaxLevel` as siblings on `Configuration`). Those are the confirmed Spriggit names. `[verified]`
@@ -687,6 +697,14 @@ Fill this as the project teaches you things.
   *every line changed* on a clean round-trip. Compare with **`diff -r --strip-trailing-cr`** (or
   `git diff`, which normalizes) and judge the round-trip on content only. Note `.gitattributes`'
   own comment says Spriggit "uses LF" — that is inaccurate for 0.40 on Windows. `[verified]`
+- **`[System.IO.File]` does not use PowerShell's current directory.** `Set-Location` moves the
+  PowerShell provider's location; `[Environment]::CurrentDirectory` is a separate thing and stays
+  wherever the process started or was last set. So `WriteAllLines('src/…/x.yaml', …)` can silently
+  resolve against an unrelated directory and throw `DirectoryNotFoundException` with a path that
+  looks nonsensical (`…\reference\Base\src\Ehlnofey\…`). The same script had worked earlier in the
+  session, which makes it look intermittent. **Resolve to an absolute path first**
+  (`(Resolve-Path $dir).Path`) whenever mixing `[System.IO.File]` with relative paths — and note the
+  BOM gotcha below means you often *have* to use it rather than `Set-Content`. `[verified]`
 - **PowerShell 5.1's `Set-Content -Encoding utf8` writes a BOM; Spriggit does not.** Any record file
   authored by a script that way differs from Spriggit's output on line 1 and produces a phantom diff
   on the next round-trip. Write YAML with

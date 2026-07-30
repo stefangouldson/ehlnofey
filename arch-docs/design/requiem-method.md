@@ -484,8 +484,13 @@ and is the *input* list, not a to-do.
 
 **Step 7b — `author-names.ps1`** (added 2026-07-30) is the only generator that writes a display name
 and nothing else. It exists because the level-1 bandit rung ships nameless and inherits "Bandit" from
-the family root; naming it "Bandit Runt" is one `FULL` on three `NPC_` templates. It runs **last**
-because it writes `NPC_` records the extract also touches. See `archetype-tiers.md` §3.1.
+the family root; naming it "Bandit Runt" is one `FULL` on **all 44 records in the rung**. It runs
+**last** because it writes `NPC_` records the extract also touches.
+
+Naming only the three `EncBandit01Template*` records — the exact slot the other rungs use — was
+tried first and **did not work in game**, for reasons still unknown. See `archetype-tiers.md` §3.1
+for the evidence that ruled out a stale file and a load-order conflict. Naming all 44 sidesteps the
+question entirely.
 
 **Step 8 — launch.** Guardrail 6. Level-1 character, `coc bleakfallsbarrow01`; then
 `player.setlevel 40` and enter a *different* uncleared barrow. Same spawns, same loot tier, or the
