@@ -10,17 +10,21 @@ Entries:
     Count: 1
 - Data:
     Level: 1
+    Reference: 039D60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D60:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D61:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
     Reference: 039D61:Skyrim.esm
     Count: 1
 - Data:
     Level: 1
     Reference: 039D62:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 039D63:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 039D64:Skyrim.esm
     Count: 1

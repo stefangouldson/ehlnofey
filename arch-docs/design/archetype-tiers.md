@@ -92,7 +92,7 @@ The main table. `Vanilla rungs` are name (level) from `lore-constraints.md` §1 
 | Archetype | List | Vanilla rungs | **Ehlnofey roster** | Band |
 |---|---|---|---|---|
 | **Bandit** | `LCharBanditMelee1H` 039CFC &c. | Bandit 1 · Outlaw 5 · Thug 9 · Highwayman 14 · Plunderer 19 · Marauder 25 | Bandit ×3 · **Outlaw ×3** · Thug ×2 · Highwayman ×1 | **T2** (T1–T3) |
-| Bandit boss | `LCharBanditBoss` 03DF16 | 6 · 10 · 16 · 21 · 28 | 16 ×2 · **21 ×2** · 28 ×1 | **T4** (T3–T5) |
+| Bandit boss | `LCharBanditBoss` 03DF16 | 6 · 10 · 16 · 21 · 28 | **21 only** (pinned — see 3.1.1) | **T4** |
 | **Orc stronghold** | `LCharOrcMelee` 01E780 | reuses bandit records | Outlaw ×1 · Thug ×3 · **Highwayman ×3** · Plunderer ×1 | **T3** (T2–T4) |
 | **Forsworn** | `LCharForswornMelee1H` 01E792 | Forsworn 1 · Forager 6 · Looter 14 · Pillager 24 · Ravager 34 · Warlord 46 | Forsworn ×2 · Forager ×3 · **Looter ×3** · Pillager ×1 | **T3** (T1–T4) |
 | Forsworn boss | `LCharForswornBossMelee1H` 0442F2 | Briarheart 7 · 16 · 27 · 38 · 51 | 16 ×2 · **27 ×2** · 38 ×1 | **T5** (T3–T6) |
@@ -109,6 +109,43 @@ The main table. `Vanilla rungs` are name (level) from `lore-constraints.md` §1 
 | **Witch** | `LCharWitchAny` 074F9D | 4 · 8 | 4 ×1 · **8 ×1** | **T2** (T1–T2) |
 | **Vigilant of Stendarr** | `LCharVigilantOfStendarr` 0BFB53 | 5 — single gate | *(unchanged — already flat)* | **T2** |
 | **Dawnguard** | `LCharDawnguardMelee1H` 014281 | 1 · 5 · 9 · 14 · 19 · 25 | 9 ×2 · **14 ×3** · 19 ×1 | **T3** (T2–T4) |
+
+#### 3.1.1 The naming test — a band is only allowed where the rungs have different names
+
+Found in play (2026-07-30): the Swindler's Den chief was a lottery. That turned out to be the
+pre-bucket-D naive flatten, but investigating it exposed a rule this table had been breaking.
+
+`requiem-method.md` Twist 2 is the whole legibility argument after the pivot — *"the tier must agree
+with the display name of everything in the pool"*, because with encounter zones gone the **name is
+the only signal the player gets.** A ×2/×2/×1 band is therefore only legible if the three rungs
+*have three names*. Test it, per family, before writing a band:
+
+> Walk each rung's leaf to a `FULL`. A leaf with no name and no `Traits` in its `TemplateFlags`
+> stops the chain — the name then falls through to the **placed reference's base**, which is a single
+> record, so **every rung displays the same string**.
+
+| Boss family | Rung names in vanilla | Verdict |
+|---|---|---|
+| Draugr | Overlord · Wight Lord · Scourge Lord · Death Overlord | **band OK** — 4 names, 4 rungs |
+| Falmer | Skulker · Gloomlurker · Nightprowler · Shadowmaster | **band OK** |
+| **Bandit** | *none* → `LvlBanditBoss` 03DF17 = "Bandit Chief" | **pinned to 21** |
+| **Forsworn** | *none* → falls through to the placed base | band is illegible — unfixed |
+| **Warlock** | *none* → falls through to the placed base | band is illegible — unfixed |
+| **Thalmor** | "Thalmor Wizard" at all seven rungs | band is illegible — unfixed |
+| **Vampire** | *none* → falls through to the placed base | band is illegible — unfixed |
+
+So the bandit boss is pinned to the single T4 rung, level **21**: a Bandit Chief is level 21 in
+Swindler's Den, in Halted Stream, on Solstheim (`DLC2EncBandit05Boss` is also 21), forever. Gate 25
+appears twice in the `*M` lists (1H and 2H) and weight 1 keeps both, so the pin costs the level
+spread and nothing else — the 1H/2H and per-race variety survives.
+
+**The mook ladder passes the test and keeps its band**: 1 · 5 · 9 · 14 really are Bandit · Bandit
+Outlaw · Bandit Thug · Bandit Highwayman, four levels behind four names. Only `EncBandit01*` is
+nameless, and it is the rung the placed base's own name already describes.
+
+**The other four families are a decision not yet taken**, not an oversight. Pinning them is the
+consistent move, but it re-tiers four archetypes; the alternative is to author distinct rung names,
+which invents lore vocabulary and makes `lore-constraints.md` the arbiter.
 
 **Vigilants are the precedent, not the bug.** `enemy-taxonomy.md` §2.1 flags them as the one vanilla
 humanoid faction that already satisfies bone 1. They need no edit and they are proof the shape works.

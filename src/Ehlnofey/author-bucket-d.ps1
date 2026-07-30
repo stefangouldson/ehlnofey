@@ -27,8 +27,15 @@ $loadOrder = @('01Skyrim', '02Update', '03Dawnguard', '04HearthFires', '05Dragon
 #     roster "Bandit x3 · Outlaw x3 · Thug x2 · Highwayman x1", band T1-T3, centre T2.
 $banditLadder = @{ 1 = 3; 5 = 3; 9 = 2; 14 = 1 }
 # 3.1 Bandit boss: the gates map to SubCharBandit02..06Boss at levels 6/10/16/21/28.
-#     roster "16 x2 · 21 x2 · 28 x1" = gates 19/25/29, band T3-T5, centre T4.
-$banditBoss = @{ 19 = 2; 25 = 2; 29 = 1 }
+#     PINNED to the single T4 rung (gate 25 = level 21), NOT the "16 x2 · 21 x2 · 28 x1" band
+#     archetype-tiers.md 3.1 specifies. Twist 2's authoring rule decides it: every rung of this
+#     ladder displays the SAME name. No EncBandit0*Boss* leaf carries a FULL and none templates
+#     Traits, so the name always falls through to LvlBanditBoss 03DF17 = "Bandit Chief". A
+#     three-level band under one name is a 75% power swing the player cannot read.
+#     Contrast the mook ladder above, where 1/5/9/14 really are Bandit/Outlaw/Thug/Highwayman.
+#     Gate 25 appears twice in the *M lists (1H and 2H); weight 1 keeps both, so the pin costs
+#     the level spread and nothing else.
+$banditBoss = @{ 25 = 1 }
 
 $spec = [ordered]@{}
 function Add-Spec($key, $editorId, $rule) { $spec[$key] = @{ Id = $editorId; Rule = $rule } }
@@ -78,9 +85,24 @@ foreach ($d in @(
     @('01E8A9:Dragonborn.esm','DLC2LCharBanditMelee1H'),
     @('0374C0:Dragonborn.esm','DLC2LCharBanditMelee1HDarkElfMCommoner'),
     @('0374BE:Dragonborn.esm','DLC2LCharBanditMelee1HDarkElfMCynical'),
-    @('01E8AA:Dragonborn.esm','DLC2LCharBanditMissile'))) {
+    @('01E8AA:Dragonborn.esm','DLC2LCharBanditMissile'),
+    # The six the extract left as a naive vanilla flatten - they are the "8 uncovered LVLN"
+    # Requiem never overrode, so bucket C flattened all six rungs (1/5/9/14/19/25) and left
+    # Plunderer and Marauder reachable in lists 3.1 caps at Highwayman. Same roster as the rest.
+    @('037C28:Skyrim.esm',    'LCharBanditOnlyNordM'),
+    @('037C29:Skyrim.esm',    'LCharBanditOnlyRedguardF'),
+    @('037C2A:Skyrim.esm',    'LCharBanditOnlyOrcM'),
+    @('008BF7:Dawnguard.esm', 'LCharBanditMeleeKhajiitM'),
+    @('008BF8:Dawnguard.esm', 'LCharBanditMissileKhajiitM'),
+    # Gates 1/9/14/19/24 - no gate 5, so the ladder yields Bandit x3 · Thug x2 · Highwayman x1.
+    # Same T1-T3 band as its nine LCharBanditWizard* siblings above.
+    @('0EE523:Skyrim.esm',    'LCharBanditWizardOmit01'))) {
     Add-Spec $d[0] $d[1] @{ Gates = $banditLadder }
 }
+
+# ---- Orc stronghold (3.1): "reuses bandit records", but its own roster, one tier up.
+#      Outlaw x1 · Thug x3 · Highwayman x3 · Plunderer x1 = gates 5/9/14/19, T3 (T2-T4).
+Add-Spec '01E780:Skyrim.esm' 'LCharOrcMelee' @{ Gates = @{ 5 = 1; 9 = 3; 14 = 3; 19 = 1 } }
 
 # ---- bandit bosses (3.1)
 foreach ($d in @(

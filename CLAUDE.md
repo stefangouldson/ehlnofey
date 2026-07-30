@@ -233,13 +233,19 @@ suffix, so most of the job is a file copy. `src/Ehlnofey/extract-requiem.ps1` is
 | A copied verbatim | 1,896 | `LVLN`/`LVLI`, every FormKey one of our four masters |
 | B stripped | 173 | `LVLI` minus their Requiem-only gear entries |
 | C vanilla flatten | 259 | not covered by Requiem, or emptied by B |
-| D authored | 57 | the `LCharBandit*` ladder + the biome rosters, from `archetype-tiers.md` (+9 dropped as already-flat) |
+| D authored | 64 | the `LCharBandit*` ladder + the biome rosters, from `archetype-tiers.md` (+9 dropped as already-flat) |
 | E level graft | 434 | vanilla `NPC_` record + Requiem's `Configuration.Level`, nothing else |
 
 Every entry in every leveled list is now `Level: 1` or the `9999` disable sentinel. Builds clean,
 `Test-RecordYaml.ps1` passes 2,834 files, round-trip is byte-stable, **zero new FormIDs**, masters
-exactly Skyrim/Update/Dawnguard/Dragonborn. It **has** been launched — the player survives, dies and
-respawns without incident; no dungeon or loot verification yet (guardrail 6).
+exactly Skyrim/Update/Dawnguard/Dragonborn. It **has** been launched, and **Bleak Falls Barrow and
+Swindler's Den both give a consistent spread of enemy types at player level 1 and 45** — the first
+real evidence bone 1 holds in play. Boss-chest loot is still unverified (guardrail 6).
+
+**The first play report found a design bug, not a build bug** (2026-07-30): a band of levels is only
+legible if its rungs have *different names*, and the bandit boss ladder's do not. See
+`archetype-tiers.md` §3.1.1 for the naming test — **four boss families still fail it** (Forsworn,
+Warlock, Thalmor, Vampire) and are an open decision.
 
 **Generators, and the order they must run in:** `author-constants.ps1` → `extract-requiem.ps1` →
 `author-bucket-d.ps1`, then deserialize → re-serialize → adopt Spriggit's output as the source.
@@ -567,6 +573,15 @@ Fill this as the project teaches you things.
   which templates onto the **leveled list** `LCharDraugrWarlockMale`. Stopping at the first NPC hop
   reports `L=1` and is wrong — 21 of Skyrim's named bosses have no fixed level at all. A resolver must
   treat "template is a `LeveledNpcs` record" as a distinct terminal case. `[verified]`
+- **An NPC's displayed name and its level travel on *different* template flags, so they can diverge.**
+  `Traits` carries the name, `Stats` carries the level. Where a leaf sets `Stats` but not `Traits`
+  and has no `FULL` of its own, the name chain **dead-ends and falls through to the placed
+  reference's base** — one record, one string, for every rung. That is why all five rungs of
+  `LCharBanditBoss` (levels 6/10/16/21/28) display "Bandit Chief" from `LvlBanditBoss` 03DF17, while
+  every rung of `LCharDraugrBoss` is separately named (Overlord → Wight Lord → Scourge Lord → Death
+  Overlord). Under the Requiem method the name is the *only* danger signal, so this decides whether a
+  flattened pool may hold more than one level at all. Never infer it from the family — test the
+  chain. `[verified]`
 - **NPC level is a discriminated union at `Configuration.Level`**, tagged by `MutagenObjectType`:
   `NpcLevel` (field `Level:`) or `PcLevelMult` (field `LevelMult:`, with `CalcMinLevel` /
   `CalcMaxLevel` as siblings on `Configuration`). Those are the confirmed Spriggit names. `[verified]`
