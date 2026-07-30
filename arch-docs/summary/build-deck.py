@@ -324,21 +324,35 @@ rows = [["Gate", "Row on the menu"],
         ["25", "Bandit Marauder"]]
 table(sl, ML, 2.45, 4.5, rows, [1.0, 3.5], row_h=0.4, size=12.5)
 
-for i, (t, b) in enumerate([
-    ("Every row carries a level gate",
+for i, (y, h, t, b) in enumerate([
+    (2.42, 1.00, "Every row carries a level gate",
      "The number on the left is the player level at which that row unlocks."),
-    ("The engine hides what you have not earned",
-     "It removes every row gated above your level, then picks one of the "
-     "survivors at random."),
-    ("So the gate is the scaling",
-     "At level 3 one row is live, so you always meet a plain Bandit. At level 45 all "
-     "six are live. Same spawn point, different world."),
+    (3.54, 1.38, "The engine hides what you have not earned",
+     "It removes every row gated above your level. Then one switch on the list — "
+     "\"calculate from all levels ≤ player\" — decides what happens next: pick at "
+     "random from everything left, or take only the highest row still standing."),
+    (5.04, 1.12, "So the gate is the scaling",
+     "At level 3 one row is live, so you always meet a plain Bandit. At level 45 the "
+     "list has opened up. Same spawn point, different world."),
 ]):
-    card(sl, ML + 5.1, 2.42 + i * 1.26, CW - 5.1, 1.18, t, b,
+    card(sl, ML + 5.1, y, CW - 5.1, h, t, b,
          [GOLD, ICE, RED][i], hsize=14.5, bsize=12, pad=0.24)
 
-note(sl, 6.28, "That one number — the gate — is the entire scaling mechanism. "
-               "Remove it and the world stops following the player.", h=0.55)
+note(sl, 6.30, "That one number is the entire scaling mechanism — and flattening it "
+               "to 1 collapses both behaviours into one, because then the whole list "
+               "is the highest row. Live, always, at every player level.", h=0.55)
+
+sl.notes_slide.notes_text_frame.text = (
+    "The switch is the flag 'CalculateFromAllLevelsLessThanOrEqualPlayer'.\n\n"
+    "205 of the 264 leveled actor lists in the plugin carry it; 59 do not. So the "
+    "'picks at random from everything under your level' description on this slide is "
+    "the majority case, not the universal one — without the flag a level-45 player "
+    "meets a Bandit Marauder every single time.\n\n"
+    "Why it stops mattering: once every gate is 1, 'all rows at or below my level' and "
+    "'only the highest qualifying row' select the same set — the entire list. So the "
+    "flag was never audited and never needed to be.\n\n"
+    "The example on screen, LCharBanditMelee1H (039CFC), does carry the flag."
+)
 
 # ================================================================== 6. the fix
 
