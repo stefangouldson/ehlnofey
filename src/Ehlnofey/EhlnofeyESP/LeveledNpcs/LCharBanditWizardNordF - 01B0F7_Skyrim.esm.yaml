@@ -13,14 +13,6 @@ Entries:
     Count: 1
 - Data:
     Level: 1
-    Reference: 039D36:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 039D36:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
     Reference: 039D3D:Skyrim.esm
     Count: 1
 - Data:
@@ -30,6 +22,14 @@ Entries:
 - Data:
     Level: 1
     Reference: 039D3D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D3D:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 039D48:Skyrim.esm
     Count: 1
 - Data:
     Level: 1

@@ -13,14 +13,6 @@ Entries:
     Count: 1
 - Data:
     Level: 1
-    Reference: 09A549:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 09A549:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
     Reference: 09A54A:Skyrim.esm
     Count: 1
 - Data:
@@ -30,6 +22,14 @@ Entries:
 - Data:
     Level: 1
     Reference: 09A54A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54A:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 09A54D:Skyrim.esm
     Count: 1
 - Data:
     Level: 1

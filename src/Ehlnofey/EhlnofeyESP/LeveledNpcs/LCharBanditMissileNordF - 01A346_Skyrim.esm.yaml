@@ -13,14 +13,6 @@ Entries:
     Count: 1
 - Data:
     Level: 1
-    Reference: 037BFF:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
-    Reference: 037BFF:Skyrim.esm
-    Count: 1
-- Data:
-    Level: 1
     Reference: 037C03:Skyrim.esm
     Count: 1
 - Data:
@@ -30,6 +22,14 @@ Entries:
 - Data:
     Level: 1
     Reference: 037C03:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C03:Skyrim.esm
+    Count: 1
+- Data:
+    Level: 1
+    Reference: 037C31:Skyrim.esm
     Count: 1
 - Data:
     Level: 1

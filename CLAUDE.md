@@ -215,7 +215,7 @@ mod, not a new-content mod. Ehlnofey changes *where the numbers come from*, and 
 
 ## Current phase
 
-**Phase 4 is under way and `Ehlnofey.esp` exists: 2,845 records** (2026-07-30, branch
+**Phase 4 is under way and `Ehlnofey.esp` exists: 2,836 records** (2026-07-30, branch
 `design/requiem-method`). Read **`arch-docs/design/requiem-method.md` first** — it is the live
 architecture doc, and its §6 is the current order of work. Everything below it in this section is
 the Phase 3 record, kept because most of it still holds, but **the architecture it decided has been
@@ -237,7 +237,7 @@ suffix, so most of the job is a file copy. `src/Ehlnofey/extract-requiem.ps1` is
 | E level graft | 434 | vanilla `NPC_` record + Requiem's `Configuration.Level`, nothing else |
 
 Every entry in every leveled list is now `Level: 1` or the `9999` disable sentinel. Builds clean,
-`Test-RecordYaml.ps1` passes 2,834 files, round-trip is byte-stable, **zero new FormIDs**, masters
+`Test-RecordYaml.ps1` passes 2,837 files, round-trip is byte-stable, **zero new FormIDs**, masters
 exactly Skyrim/Update/Dawnguard/Dragonborn. It **has** been launched, and **Bleak Falls Barrow and
 Swindler's Den both give a consistent spread of enemy types at player level 1 and 45** — the first
 real evidence bone 1 holds in play. Boss-chest loot is still unverified (guardrail 6).
@@ -248,7 +248,7 @@ legible if its rungs have *different names*, and the bandit boss ladder's do not
 Warlock, Thalmor, Vampire) and are an open decision.
 
 **Generators, and the order they must run in:** `author-constants.ps1` → `extract-requiem.ps1` →
-`author-bucket-d.ps1`, then deserialize → re-serialize → adopt Spriggit's output as the source.
+`author-bucket-d.ps1` → `author-names.ps1`, then deserialize → re-serialize → adopt Spriggit's output as the source.
 
 **Owed next:** the launch verification proper (draugr tier and boss-chest loot fixed across two
 player levels), then the 65 follower + 114 unreached `PcLevelMult` NPCs.
@@ -281,7 +281,7 @@ Three findings worth carrying, each of which overturned something the repo previ
    difficulty map, and **MLU's 400-list truncation pass is unnecessary**. Daedric ends up reachable in
    ~2 places, both apex, without editing a single list.
 3. **No new records are needed.** The whole mod is overrides, so FormID usage stays at zero and
-   ESL-flagging is free. **Still true after the pivot** — the extract added 2,845 records and every
+   ESL-flagging is free. **Still true after the pivot** — the extract added 2,836 records and every
    one is an override; the planned wilderness `ECZN` belonged to the replaced architecture.
 
 **Three cheap in-game tests still gate Phase 4** (`implementation-strategy.md` §7) — run them before
@@ -291,7 +291,7 @@ authoring: `LevelModifier: None`, NPC gear resolution level, and zeroing
 can still move a large amount of work (up to 1,378 `LVLI`); the `LevelModifier` test's exposure
 turned out to be 9 records, not ~1,928.
 
-`src/` holds exactly one mod, **`src/Ehlnofey/`** — the 2,845-record plugin plus its two generator
+`src/` holds exactly one mod, **`src/Ehlnofey/`** — the 2,836-record plugin plus its four generator
 scripts, `author-constants.ps1` (the 13 constants) and `extract-requiem.ps1` (everything else).
 `ExampleMod` and `EhlnofeyProbe` were deleted; `build/staging/Example Mod/fomod/` is kept on purpose
 as the only confirmed-working FOMOD image example (see the gotcha), and is inert because `build.ps1`
@@ -456,7 +456,7 @@ Mutagen/Spriggit field name in `reference/` before writing YAML**, and record th
 ## Implementation strategy — SUPERSEDED (Phase 3 record)
 
 > ⚠️ **Replaced by `arch-docs/design/requiem-method.md`.** The shipped architecture is a
-> **single plugin, no rules**: 2,845 override records extracted from Requiem's deleveling layer —
+> **single plugin, no rules**: 2,836 override records extracted from Requiem's deleveling layer —
 > flat `LVLN`/`LVLI` plus grafted `NPC_` levels. There are **no encounter-zone bands and no
 > SkyPatcher rules** in it. Zones govern 0.3% of the outdoors and cannot reach worn gear, which is
 > what killed the hybrid; and once every list is flat there is nothing left for a zone to clamp.
@@ -529,7 +529,7 @@ Fixed now so Phase 4 does not have to argue about it:
   but the mod is no longer override-only, and `implementation-strategy.md` §2.5 still says it is.
 - Always `/formkey-check` before claiming a block.
 
-**FormID usage: none, and none planned.** All 2,845 shipped records are overrides. The ~7 wilderness
+**FormID usage: none, and none planned.** All 2,836 shipped records are overrides. The ~7 wilderness
 `ECZN` and the per-tier gear lists belonged to the replaced architecture and are not being built.
 **Next free: `0x800`.**
 

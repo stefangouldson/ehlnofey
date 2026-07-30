@@ -91,7 +91,7 @@ The main table. `Vanilla rungs` are name (level) from `lore-constraints.md` §1 
 
 | Archetype | List | Vanilla rungs | **Ehlnofey roster** | Band |
 |---|---|---|---|---|
-| **Bandit** | `LCharBanditMelee1H` 039CFC &c. | Bandit 1 · Outlaw 5 · Thug 9 · Highwayman 14 · Plunderer 19 · Marauder 25 | Bandit ×3 · **Outlaw ×3** · Thug ×2 · Highwayman ×1 | **T2** (T1–T3) |
+| **Bandit** | `LCharBanditMelee1H` 039CFC &c. | Bandit 1 · Outlaw 5 · Thug 9 · Highwayman 14 · Plunderer 19 · Marauder 25 | **Runt ×1** · **Outlaw ×4** · Thug ×3 · Highwayman ×1 | **T2** (T1–T3) |
 | Bandit boss | `LCharBanditBoss` 03DF16 | 6 · 10 · 16 · 21 · 28 | **28 only** (pinned — see 3.1.1) | **T5** |
 | **Orc melee** | `LCharOrcMelee` 01E780 | reuses bandit records | Outlaw ×1 · Thug ×3 · **Highwayman ×3** · Plunderer ×1 | **T3** (T2–T4) |
 | **Forsworn** | `LCharForswornMelee1H` 01E792 | Forsworn 1 · Forager 6 · Looter 14 · Pillager 24 · Ravager 34 · Warlord 46 | Forsworn ×2 · Forager ×3 · **Looter ×3** · Pillager ×1 | **T3** (T1–T4) |
@@ -158,6 +158,38 @@ nameless, and it is the rung the placed base's own name already describes.
 **The other four families are a decision not yet taken**, not an oversight. Pinning them is the
 consistent move, but it re-tiers four archetypes; the alternative is to author distinct rung names,
 which invents lore vocabulary and makes `lore-constraints.md` the arbiter.
+
+**The level-1 rung is rare, and it is called Bandit Runt** (revised 2026-07-30, after play).
+
+It was `×3` — a third of every bandit drawn was the level-1 rung, which made a T2 archetype feel like
+a T1 one. It is now `×1`, as rare as Highwayman at the top. The freed weight went to Outlaw and Thug
+in the old 3:2:1 proportion (→ 4:3:1), so the roster's *shape* is unchanged and only the runt moved.
+The pool is still 9 entries, so the odds read cleanly: **1/9 · 4/9 · 3/9 · 1/9**, and the mean drawn
+level rises from 5.6 to 6.9 — much closer to T2's 8.
+
+The rename is **the mod's first invented display name**, and it is deliberately the safest possible
+one: it extends an existing ladder downward rather than inventing new tiers, and the rung it names
+had no name of its own. Vanilla leaves `EncBandit01Template*` with **no `FULL`**, so a level-1 bandit
+falls through to `EncBandit00Template` 039CF4 = "Bandit", the shared root of the whole family.
+`author-names.ps1` puts the name one hop earlier — the exact slot `EncBandit02TemplateMelee` already
+uses for "Bandit Outlaw", which is why this is known to work rather than hoped to:
+
+```
+EncBandit01Melee1H<race><sex>    no FULL, no Traits flag
+  └─ EncBandit01TemplateMelee    <-- "Bandit Runt" goes here      (3 records: Melee/Magic/Missile)
+       └─ EncBandit00Template    "Bandit"  — left alone, still the family default
+```
+
+Dependents were censused before writing. All 25 bandit leaves are caught, which is the intent. Three
+non-bandits also template off these records: `encGhost01Magic` carries its own `FULL` ("Ghost") and is
+**unaffected**; `DEMO_Bandit1HNordM` and `WarehouseNPCWebActorSit` are dev-only and never placed; and
+`dunLiarsRetreatWenchCorpse` has no `FULL` and does become "Bandit Runt" — it is a dead level-1
+bandit in a bandit dungeon that reads "Bandit" today, so this is correct, if drier.
+
+> **Consistency note.** §3.1.1 chose to *pin* the bandit chief rather than invent names for its
+> rungs, and four boss families are still open on that basis. Naming the runt does not reopen it:
+> "Runt" sits below an existing six-name ladder, where the boss case would need three new coinages
+> inserted *into* one. If that ever becomes acceptable, §3.1.1's second option unblocks.
 
 **Vigilants are the precedent, not the bug.** `enemy-taxonomy.md` §2.1 flags them as the one vanilla
 humanoid faction that already satisfies bone 1. They need no edit and they are proof the shape works.

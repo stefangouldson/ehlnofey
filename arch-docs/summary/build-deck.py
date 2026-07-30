@@ -366,8 +366,8 @@ table(sl, ML, 2.18, 3.4, before, [0.95, 2.45], row_h=0.38, size=12)
 arrow(sl, ML + 3.52, 3.5, w=0.6, color=GOLD, size=30)
 
 text(sl, ML + 4.25, 1.82, 3.4, 0.32, "AFTER — EHLNOFEY", size=11.5, color=GOLD, bold=True)
-after = [["Gate", "Row"], ["1", "Bandit"], ["1", "Bandit"], ["1", "Bandit"],
-         ["1", "Outlaw"], ["1", "Outlaw"], ["1", "Outlaw"], ["1", "Thug"],
+after = [["Gate", "Row"], ["1", "Runt"], ["1", "Outlaw"], ["1", "Outlaw"],
+         ["1", "Outlaw"], ["1", "Outlaw"], ["1", "Thug"], ["1", "Thug"],
          ["1", "Thug"], ["1", "Highwayman"]]
 table(sl, ML + 4.25, 2.18, 3.4, after, [0.95, 2.45], row_h=0.29, head_h=0.34, size=11)
 
@@ -375,8 +375,8 @@ card(sl, ML + 8.05, 2.18, CW - 8.05, 1.45, "Every gate becomes 1",
      "Nothing is ever hidden, so the player's level never enters the calculation.",
      GOLD, hsize=14, bsize=12, pad=0.24)
 card(sl, ML + 8.05, 3.78, CW - 8.05, 1.45, "Repeats are the weighting",
-     "The engine has no weight field. Listing Bandit three times is how you make it "
-     "three times as likely.", ICE, hsize=14, bsize=12, pad=0.24)
+     "The engine has no weight field. Listing Outlaw four times is how you make it "
+     "four times as likely.", ICE, hsize=14, bsize=12, pad=0.24)
 
 note(sl, 5.62, "Which rows you leave on the menu is now the entire design. "
                "Plunderer and Marauder are simply gone from this list — that "
@@ -511,7 +511,7 @@ sl = slide("A roster, worked end to end: bandits", "the design")
 text(sl, ML, 1.76, CW, 0.4, "Vanilla ships six rungs. The roster keeps four of them, "
      "weighted, and cuts two.", size=14.5, color=MUTED)
 
-picks = [("Bandit", 1, 3, True), ("Outlaw", 5, 3, True), ("Thug", 9, 2, True),
+picks = [("Runt", 1, 1, True), ("Outlaw", 5, 4, True), ("Thug", 9, 3, True),
          ("Highwayman", 14, 1, True), ("Plunderer", 19, 0, False),
          ("Marauder", 25, 0, False)]
 bw = (CW - 5 * 0.2) / 6
@@ -530,8 +530,8 @@ for i, (nm, lv, wt, keep) in enumerate(picks):
 
 cwb = (CW - 0.34) / 2
 card(sl, ML, 4.0, cwb, 1.24, "The camp sits at T2",
-     "Weighted toward Outlaw, reaching Highwayman at worst. Bandits are early-game "
-     "trouble and they stay early-game trouble.", TIER[1], hsize=14.5, bsize=12)
+     "Mass on Outlaw and Thug. The weakest and strongest rungs are equally rare — "
+     "1 in 9 each.", TIER[1], hsize=14.5, bsize=12)
 card(sl, ML + cwb + 0.34, 4.0, cwb, 1.24, "The chief is pinned to level 28",
      "One rung, no spread — the top of the vanilla ladder. A camp's boss is the "
      "only fight in it that can carry real difficulty.", TIER[4], hsize=14.5, bsize=12)
