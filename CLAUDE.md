@@ -389,8 +389,15 @@ arch-docs/
     morrowloot.md                # EXISTS — the ECZN-clamp approach; §7 is the Requiem/MLU table
     skypatcher.md                # EXISTS — INI rule syntax; §3.1 filter semantics (filterBy* is a
                                  #   UNION, restrictTo* narrows), §3.4 docs-vs-parser bugs, §5 limits
+    enderal.md                   # EXISTS — the total-conversion pole: 0 LVLN, 0 PcLevelMult,
+                                 #   0 LevelModifier, 2 ECZN. Existence proof for bone 1 and the
+                                 #   third zone data point. §9 = why the METHOD IS NOT USABLE here
+                                 #   (Enderal replaced the master; Ehlnofey patches it). Its
+                                 #   decompiles were deleted after the read — §"Reproducing the
+                                 #   evidence" regenerates them if ever needed again.
     # ^ Phase 2 is CLOSED. Open World Loot, SPID and Synthesis were dropped on
     #   purpose — see "Current phase". Do not add files here without a reason.
+    #   enderal.md was added later on request: a total conversion, not a 4th candidate method.
   design/
     requiem-method.md            # EXISTS — READ FIRST. THE live architecture: the pivot away from
                                  #   encounter zones, the four Ehlnofey twists, and 6 = the current
@@ -653,6 +660,12 @@ Fill this as the project teaches you things.
 - **Comparing a mod against vanilla means comparing against the *winning* vanilla record**, and the
   join key must be `<hex>_<master>`, never bare hex — see the "resolve FormKeys by master" gotcha
   above. Requiem overrides records from six different masters. `[verified]`
+- **A total conversion may ship a *replaced* `Skyrim.esm`, and it will not look replaced.** Enderal
+  SE's `Data/Skyrim.esm` is 182.9 MB / 86,636 records of Enderal content, but keeps Bethesda's
+  `mcarofano` author string in the TES4 header. Assuming `reference/Base/01Skyrim/` already covers it
+  and serializing only the mod-named plugin gets you ~5% of the mod. Cheap check before deciding:
+  scan the file for the mod's EditorID prefix (Enderal's `_00E_` appears 27,059 times, "Whiterun"
+  31). `[verified]` — see `prior-art/enderal.md`, "Reproducing the evidence".
 
 - **A flag census is not a gate census.** `overview.md` and `enemy-taxonomy.md` §4 both sized the loot
   job as "1,959 of 3,075 `LVLI` are player-gated" — that is the count carrying
