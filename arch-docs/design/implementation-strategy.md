@@ -83,7 +83,7 @@ module — the 28 supported types (`skypatcher.md` §2) do not include it.
 
 These six *could* be rules (`skypatcher.md` §4.1 does NPC levels natively). They are in the plugin
 because they are a fixed, named, six-item list where an override is more legible than a filter, and
-because putting them here means they are covered by `xedit-audit` and the Spriggit round-trip.
+because putting them here means they are covered by xEdit and the Spriggit round-trip.
 
 ### 2.5 FormID budget — zero for the records in §2, but no longer zero overall
 
@@ -118,7 +118,7 @@ overrides, not by zones. `morrowloot.md` §8.3 measured the zone slice directly:
 | | Zones as plugin overrides | Zones as SkyPatcher rules |
 |---|---|---|
 | Authoring cost | 355 YAML records | 355 enumerated INI lines — **the same**, because `encounterzone/` has no keyword or location filter (`skypatcher.md` §5.3) |
-| Verification | `xedit-audit`, `formkey-check`, Spriggit round-trip, `Test-RecordYaml.ps1` — **all apply** | **none apply.** A typo'd FormID fails silently |
+| Verification | xEdit, `formkey-check`, Spriggit round-trip, `Test-RecordYaml.ps1` — **all apply** | **none apply.** A typo'd FormID fails silently |
 | Conflicts | record-level; last plugin wins | none |
 | Dependency | none | **SKSE**, version-bound |
 | Uninstall | zone keeps its stored level until reset | same (engine property, `engine-behaviour.md` §5.2) |
@@ -386,9 +386,9 @@ compatibility, no scripting.
 2. **Delete `src/ExampleMod/`.** CLAUDE.md marks it as a template artefact to remove before first
    release.
 3. **Scaffold `Ehlnofey.esp`** via the `mod-new-plugin` skill — header, masters, `build/manifest.json`
-   entry, FOMOD stub.
+   entry. No FOMOD: one `.esp`, nothing to choose, so the release ships `"fomod": false`.
 4. **The 15 constants first** (§2.2, §2.3). Smallest possible slice that is verifiable end-to-end:
-   deserialize → `xedit-audit` → `package-mod` → `mod-deploy` → launch. Proves the pipeline before
+   deserialize → xEdit check → `package-mod` → `mod-deploy` → launch. Proves the pipeline before
    355 records ride on it.
 5. **The 355 zones** (§2.1), generated from `difficulty-map.md` rather than hand-typed — guardrail 3,
    *copy records verbatim, never retype hex*.

@@ -389,7 +389,7 @@ Verified four ways: `build.ps1` clean · `build.ps1 -CheckFomod` parity OK · `T
 20 files no issues · **Spriggit round-trip byte-identical on content**. Every FormKey reference was
 also machine-checked against the declared master list — all resolve, no HearthFires leak.
 
-**Not verified: `xedit-audit` and the launch.** See §9.
+**Not verified: the xEdit pass and the launch.** See §9.
 
 ### Steps 6–9 were replaced by the extract (2026-07-30)
 
@@ -567,10 +567,11 @@ Neither is a defect in the mod; both stop guardrail 6 from being satisfied and n
    `creationKit`, `champollion` and the xEdit tools all point into `claudemoddev`, and moving one
    path without the others is how a workspace ends up half-configured.
 
-2. **`SSEEditQuickAutoClean` blocks on a GUI dialog** even with `-autoload`. The skill documents this
-   risk for the *Check for Errors* pass; it applies to QuickAutoClean too on this build. The run was
-   killed and the staged plugin and its backup removed from the LoreRim Data folder.
-   **Consequence: `xedit-audit` has never been run against Ehlnofey.esp.** The substitute checks
+2. **`SSEEditQuickAutoClean` blocks on a GUI dialog** even with `-autoload`. The same risk applies to
+   the *Check for Errors* pass on this build. The run was killed and the staged plugin and its backup
+   removed from the LoreRim Data folder. This is why the `xedit-audit` skill was **deleted from the
+   workspace** — headless xEdit does not work here, so the skill could never do its job.
+   **Consequence: no xEdit audit has ever been run against Ehlnofey.esp.** The substitute checks
    above are strong for *this* slice — every record was copied verbatim from `reference/`, so its
    FormKeys are valid by construction — but they will not stay sufficient once step 8 authors records
    by transformation rather than by copy.

@@ -186,7 +186,7 @@ that bit you — record it here>
 This workspace ships Claude Code helpers under `.claude/` (committed, shared). Preserve them:
 - **Skills:** `modlist-install`, `mod-new-plugin`, `spriggit-serialize`, `spriggit-deserialize`,
   `spriggit-decompile-reference`, `formkey-check`, `bsa-extract`, `pex-decompile`,
-  `papyrus-compile`, `package-mod`, `mod-deploy`, `xedit-audit`, `github-release`.
+  `papyrus-compile`, `package-mod`, `mod-deploy`, `github-release`.
 - **Subagents:** `spriggit-record-editor` (author YAML records), `spriggit-formkey-auditor`
   (read-only collision/invariant audit), `papyrus-script-engineer` (decompiled-source cleanup &
   compile-error fixing).

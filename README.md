@@ -213,10 +213,9 @@ In-game you should see, on a new or loaded save: a notification reading *"Exampl
 the **Example Blade** in your inventory, a forge recipe for it (2 steel ingots + 1 leather strip, no
 perk required), and blacksmith vendors stocking it.
 
-**When Phase 4 starts:** run **`/mod-new-plugin`** to scaffold `Ehlnofey.esp` — the YAML folder, the
-manifest entry and the FOMOD stub. Then delete `src/ExampleMod/`, the committed
-`build/staging/Example Mod/fomod/` tree, its `build/manifest.json` entry and its `.gitignore`
-exception.
+**Done — Phase 4 started and this is history.** `Ehlnofey.esp` was scaffolded, and `src/ExampleMod/`,
+`build/staging/Example Mod/` and its `build/manifest.json` entry are gone. The `Ehlnofey` release
+ships **no FOMOD** (`"fomod": false`): one `.esp`, nothing to choose, so it packs a plain archive.
 
 ## What is committed vs. ignored
 
@@ -224,7 +223,7 @@ exception.
 |-----------------------------------------|----------------------------------------------------------|
 | Your own mod's YAML folder(s)           | Binary plugins (`*.esp/*.esm/*.esl`)                     |
 | Papyrus source `src/<ModName>/Scripts/source/*.psc` | Compiled scripts (`*.pex`)\*, archives (`*.bsa`/`*.ba2`) |
-| Each release's FOMOD stub (`build/staging/<release>/fomod/`) | Build output (`dist/`, `build/dist/`) and the derived `.esp`/`.pex` that `build.ps1` regenerates inside `build/staging/<release>/` |
+| A release's FOMOD, if it has one (`build/staging/<release>/fomod/`) — `Ehlnofey` does not | Build output (`dist/`, `build/dist/`) and the derived `.esp`/`.pex` that `build.ps1` regenerates inside `build/staging/<release>/` |
 | `.spriggit`, configs, README, CLAUDE.md | Vanilla/third-party reference decompiles (`/reference/`) |
 |                                         | Editor/venv (`.vscode/`, `.venv/`)                       |
 
@@ -442,7 +441,7 @@ bundle the verified CLI path and flags so you don't retype them.
 | Skill | What it does |
 |-------|--------------|
 | `modlist-install` | Install a `.wabbajack` modlist (gitignored) and auto-discover its tool paths into `tools.json` |
-| `mod-new-plugin` | **Scaffold a new plugin** — YAML folder + manifest entry + FOMOD stub, buildable from the first commit |
+| `mod-new-plugin` | **Scaffold a new plugin** — YAML folder + manifest entry (FOMOD only if the install has options), buildable from the first commit |
 | `spriggit-serialize` | Serialize a plugin → its YAML folder |
 | `spriggit-deserialize` | Rebuild a plugin from its YAML folder (+ xEdit/CK verify reminder) |
 | `spriggit-decompile-reference` | Serialize a vanilla/third-party master into gitignored `reference/` for lookups |
@@ -452,7 +451,6 @@ bundle the verified CLI path and flags so you don't retype them.
 | `papyrus-compile` | Compile `.psc` → `.pex` (CK `PapyrusCompiler.exe`) |
 | `package-mod` | Assemble `dist/<ModName>/` (esp + scripts) for MO2 testing |
 | `mod-deploy` | **Deploy into an MO2 modlist and verify it landed** under the exact expected folder name |
-| `xedit-audit` | Headless xEdit clean + "Check for Errors" pass on a built plugin |
 | `github-release` | Cut a curated `vX.Y.Z` release from the CI-built assets and tidy the `build-*` tags |
 
 **Subagents** (specialized agents with their own context):

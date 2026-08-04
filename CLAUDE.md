@@ -140,8 +140,9 @@ skill appends them to `-i`). Record each one here as you discover it:
 
 - **FOMOD images that actually render in MO2** — a config can build clean, pass
   `build.ps1 -CheckFomod`, open its wizard normally, and still show *no image at all*. Nothing
-  warns you. This recipe is confirmed working in MO2 (the template's `build/staging/Example Mod/fomod/`,
-  which is still in the repo); copy its shape rather than re-deriving:
+  warns you. This recipe is confirmed working in MO2. **There is no longer a worked example in this
+  repo** — it went with `ExampleMod`; the live copy is `build/fomod-example/` in the `claudemoddev`
+  template workspace. Follow the four points below rather than re-deriving:
   1. `path=` is relative to the **archive root**, so an image at `fomod/images/foo.jpg` is
      referenced as `path="fomod\images\foo.jpg"` — *including* the `fomod` prefix.
   2. Use **backslashes** in `path=`, as the shipped configs do.
@@ -293,9 +294,10 @@ turned out to be 9 records, not ~1,928.
 
 `src/` holds exactly one mod, **`src/Ehlnofey/`** — the 2,877-record plugin plus its four generator
 scripts, `author-constants.ps1` (the 13 constants) and `extract-requiem.ps1` (everything else).
-`ExampleMod` and `EhlnofeyProbe` were deleted; `build/staging/Example Mod/fomod/` is kept on purpose
-as the only confirmed-working FOMOD image example (see the gotcha), and is inert because `build.ps1`
-iterates `manifest.releases` only. `reference/` holds
+`ExampleMod` and `EhlnofeyProbe` were deleted, and `build/staging/Example Mod/fomod/` went with them
+— the confirmed-working FOMOD image recipe now lives only in the gotcha above and in the
+`claudemoddev` template workspace. **`Ehlnofey` itself ships no FOMOD**: it is one `.esp` with
+nothing to choose, so its release carries `"fomod": false` and packs a plain archive. `reference/` holds
 Spriggit decompiles of `Skyrim.esm`, `Update.esm` and all three DLCs — Phase 1's evidence — plus
 third-party mods under `reference/mods/` as Phase 2 reads them. **`reference/` is a build input**,
 not only a lookup: `extract-requiem.ps1` reads both `reference/Base/` and
@@ -351,7 +353,7 @@ actors ignore them entirely. **The five gating engine questions are answered in
 | **1 — World research** | `arch-docs/world/*` — enemy taxonomy, factions, dungeons, regions, progression, lore constraints, DLC deltas | Every hostile archetype and every dungeon is in a table with its vanilla scaling behaviour cited from `reference/` |
 | **2 — Prior art & method** | `arch-docs/prior-art/*` — how Requiem, MorrowLoot Ultimate and SkyPatcher actually do it | ✅ complete — each has a verified mechanism, a cost, and a compatibility verdict |
 | **3 — Design spec** | `arch-docs/design/*` — tier system, region difficulty map, loot model, and the **implementation-strategy decision** | ✅ complete — 5 documents; all 355 zones assigned; architecture decided |
-| **4 — Build** | `src/Ehlnofey/` — plugin YAML, any scripts/rule files, FOMOD, release | Deserializes clean, passes `xedit-audit`, **and has been launched in-game** |
+| **4 — Build** | `src/Ehlnofey/` — plugin YAML, any scripts/rule files, release | Deserializes clean, opens clean in xEdit, **and has been launched in-game** |
 
 Phases 1–3 are documentation work. **Do not start authoring records in `src/` before Phase 3 has a
 written spec** — the whole point of the arch-docs is that a deleveling pass touches thousands of
@@ -482,7 +484,7 @@ record-by-record manifest are in `arch-docs/design/implementation-strategy.md`; 
 Phase 3 moved the zones into the plugin for two reasons: the authoring cost is **identical either
 way** (SkyPatcher's `encounterzone/` has no keyword or location filter, so all 355 must be enumerated
 by FormID regardless — `skypatcher.md` §5.3), and only the plugin route is reachable by
-`xedit-audit`, `formkey-check` and the Spriggit round-trip. Guardrail 6 decides it: for the mod's
+xEdit, `formkey-check` and the Spriggit round-trip. Guardrail 6 decides it: for the mod's
 spine there must be *something* to verify. Conversely the ~454 class-D actors stay as rules, because
 `filterByPCLevelMult` is a **predicate** that also catches NPCs from other mods and future patches,
 where 454 overrides would only be a snapshot.

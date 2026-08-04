@@ -190,7 +190,7 @@ Map markers are **two** PlacedObject records in the target worldspace's **persis
 
 > **[community] Never delete a reference** in a cell you're patching. A deleted reference (UDR) that
 > another mod or a save still points at causes crashes. Set it *Initially Disabled* and move it far
-> below the world instead. `xedit-audit`'s QuickAutoClean pass catches deleted refs and ITMs.
+> below the world instead. xEdit's QuickAutoClean pass catches deleted refs and ITMs.
 
 ---
 

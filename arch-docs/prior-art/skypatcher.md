@@ -360,7 +360,7 @@ These are the load-bearing gaps for Ehlnofey, all `[verified]` by absence in the
 4. **No cross-record queries.** Rules are per-record predicates. There is no "NPCs *in* this
    location", no template-chain resolution like Requiem's `ActorInheritanceGraphParser`. If a level
    lives on a template, you must target the template yourself.
-5. **Nothing is visible in xEdit.** No `xedit-audit`, no `formkey-check`, no Spriggit diff. The only
+5. **Nothing is visible in xEdit.** No xEdit pass, no `formkey-check`, no Spriggit diff. The only
    verification is the SkyPatcher log and in-game observation — which collides directly with
    guardrail 6 (*"a clean build is not a working mod"*): here there is **no build to be clean**.
 6. **Requires SKSE**, and the DLL is version-bound to game runtimes in the usual way. Which
@@ -398,7 +398,7 @@ each half is for:
 
 - **Hard SKSE dependency**, and a DLL that breaks on game updates until the author rebuilds. A
   plugin-only mod has no such failure mode.
-- **The workspace's whole verification toolchain does not apply.** `xedit-audit`, `formkey-check`,
+- **The workspace's whole verification toolchain does not apply.** xEdit, `formkey-check`,
   Spriggit round-trip and `Test-RecordYaml.ps1` all operate on plugin records. Rules are unverifiable
   except in-game. **Ehlnofey would need a new kind of check** — at minimum a script that resolves
   every FormID referenced in the INIs against `reference/`, since a typo'd FormID fails **silently**
